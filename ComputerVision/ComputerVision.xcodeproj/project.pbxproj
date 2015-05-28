@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		1546900F1B17B80800E9062A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1546900E1B17B80800E9062A /* main.m */; };
 		154690121B17B80800E9062A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690111B17B80800E9062A /* AppDelegate.m */; };
-		154690151B17B80800E9062A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690141B17B80800E9062A /* ViewController.m */; };
+		154690151B17B80800E9062A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690141B17B80800E9062A /* ViewController.mm */; };
 		154690181B17B80800E9062A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154690161B17B80800E9062A /* Main.storyboard */; };
 		1546901A1B17B80800E9062A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154690191B17B80800E9062A /* Images.xcassets */; };
 		154690291B17B80800E9062A /* ComputerVisionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690281B17B80800E9062A /* ComputerVisionTests.m */; };
 		154690361B17B98200E9062A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690351B17B98200E9062A /* Foundation.framework */; };
 		154690381B17B98900E9062A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690371B17B98900E9062A /* UIKit.framework */; };
-		1546903B1B17BA6100E9062A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546903A1B17BA6100E9062A /* opencv2.framework */; };
+		1546903D1B17BBE200E9062A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546903C1B17BBE200E9062A /* CoreGraphics.framework */; };
+		1546903F1B17BD9B00E9062A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546903E1B17BD9B00E9062A /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +36,7 @@
 		154690101B17B80800E9062A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		154690111B17B80800E9062A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		154690131B17B80800E9062A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		154690141B17B80800E9062A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		154690141B17B80800E9062A /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		154690171B17B80800E9062A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		154690191B17B80800E9062A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		154690221B17B80800E9062A /* ComputerVisionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComputerVisionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,7 +44,8 @@
 		154690281B17B80800E9062A /* ComputerVisionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComputerVisionTests.m; sourceTree = "<group>"; };
 		154690351B17B98200E9062A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		154690371B17B98900E9062A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1546903A1B17BA6100E9062A /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../opencv2.framework; sourceTree = "<group>"; };
+		1546903C1B17BBE200E9062A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1546903E1B17BD9B00E9062A /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/opencv2.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +53,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1546903F1B17BD9B00E9062A /* opencv2.framework in Frameworks */,
+				1546903D1B17BBE200E9062A /* CoreGraphics.framework in Frameworks */,
 				154690381B17B98900E9062A /* UIKit.framework in Frameworks */,
 				154690361B17B98200E9062A /* Foundation.framework in Frameworks */,
-				1546903B1B17BA6100E9062A /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +94,7 @@
 				154690101B17B80800E9062A /* AppDelegate.h */,
 				154690111B17B80800E9062A /* AppDelegate.m */,
 				154690131B17B80800E9062A /* ViewController.h */,
-				154690141B17B80800E9062A /* ViewController.m */,
+				154690141B17B80800E9062A /* ViewController.mm */,
 				154690161B17B80800E9062A /* Main.storyboard */,
 				154690191B17B80800E9062A /* Images.xcassets */,
 				1546900C1B17B80800E9062A /* Supporting Files */,
@@ -129,7 +132,8 @@
 		154690341B17B8B000E9062A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1546903A1B17BA6100E9062A /* opencv2.framework */,
+				1546903E1B17BD9B00E9062A /* opencv2.framework */,
+				1546903C1B17BBE200E9062A /* CoreGraphics.framework */,
 				154690371B17B98900E9062A /* UIKit.framework */,
 				154690351B17B98200E9062A /* Foundation.framework */,
 			);
@@ -235,7 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				154690151B17B80800E9062A /* ViewController.m in Sources */,
+				154690151B17B80800E9062A /* ViewController.mm in Sources */,
 				154690121B17B80800E9062A /* AppDelegate.m in Sources */,
 				1546900F1B17B80800E9062A /* main.m in Sources */,
 			);
@@ -360,6 +364,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
 				);
 				INFOPLIST_FILE = ComputerVision/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -374,6 +379,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
 				);
 				INFOPLIST_FILE = ComputerVision/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
