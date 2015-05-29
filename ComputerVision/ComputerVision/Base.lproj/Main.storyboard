@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +16,69 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pdd-WL-QIT">
+                                <rect key="frame" x="136" y="407" width="428" height="173"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NGM-yA-4ST">
+                                <rect key="frame" x="136" y="213" width="428" height="174"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icy-CV-rvI">
+                                <rect key="frame" x="16" y="290" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1e-Zx-IQX">
+                                <rect key="frame" x="16" y="106" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difference" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX2-OC-4F0">
+                                <rect key="frame" x="16" y="483" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="uPg-jn-5pa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BqM-PD-FQ3">
+                                <rect key="frame" x="136" y="30" width="428" height="173"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Icy-CV-rvI" firstAttribute="centerY" secondItem="NGM-yA-4ST" secondAttribute="centerY" id="3JR-Cj-1kw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BqM-PD-FQ3" secondAttribute="trailing" constant="20" id="3Ob-9E-KLm"/>
+                            <constraint firstItem="Pdd-WL-QIT" firstAttribute="leading" secondItem="iX2-OC-4F0" secondAttribute="trailing" constant="20" id="4P9-X6-59D"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="leading" secondItem="NGM-yA-4ST" secondAttribute="leading" id="5fz-yc-mj7"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="trailing" secondItem="Pdd-WL-QIT" secondAttribute="trailing" id="9Vn-D2-7IH"/>
+                            <constraint firstItem="iX2-OC-4F0" firstAttribute="centerY" secondItem="Pdd-WL-QIT" secondAttribute="centerY" id="GUf-MP-M9y"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="height" secondItem="Pdd-WL-QIT" secondAttribute="height" id="I4X-Uj-AEO"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="centerY" secondItem="j1e-Zx-IQX" secondAttribute="centerY" id="IUh-fb-dQY"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="M9c-z5-mgT"/>
+                            <constraint firstItem="iX2-OC-4F0" firstAttribute="leading" secondItem="Icy-CV-rvI" secondAttribute="leading" id="MY4-jK-SZH"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="leading" secondItem="Pdd-WL-QIT" secondAttribute="leading" id="PnE-jW-vqD"/>
+                            <constraint firstItem="iX2-OC-4F0" firstAttribute="leading" secondItem="j1e-Zx-IQX" secondAttribute="leading" id="R5R-f3-Clx"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="width" secondItem="Pdd-WL-QIT" secondAttribute="width" id="Xpc-vM-1m9"/>
+                            <constraint firstItem="NGM-yA-4ST" firstAttribute="top" secondItem="BqM-PD-FQ3" secondAttribute="bottom" constant="10" id="ZYh-iR-JAM"/>
+                            <constraint firstItem="j1e-Zx-IQX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="asV-z8-SUR"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="width" secondItem="NGM-yA-4ST" secondAttribute="width" id="bAW-BV-p9C"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="height" secondItem="NGM-yA-4ST" secondAttribute="height" id="dQh-LW-CqV"/>
+                            <constraint firstItem="Pdd-WL-QIT" firstAttribute="top" secondItem="NGM-yA-4ST" secondAttribute="bottom" constant="20" id="dST-RM-oKu"/>
+                            <constraint firstItem="BqM-PD-FQ3" firstAttribute="trailing" secondItem="NGM-yA-4ST" secondAttribute="trailing" id="iGS-21-ys5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pdd-WL-QIT" secondAttribute="bottom" constant="20" id="sxp-MD-clf"/>
+                            <constraint firstItem="iX2-OC-4F0" firstAttribute="trailing" secondItem="Icy-CV-rvI" secondAttribute="trailing" id="tjL-7Y-wBg"/>
+                            <constraint firstItem="iX2-OC-4F0" firstAttribute="trailing" secondItem="j1e-Zx-IQX" secondAttribute="trailing" id="yng-fi-L2R"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageViewCurrent" destination="NGM-yA-4ST" id="sES-if-Q8I"/>
+                        <outlet property="imageViewDifference" destination="Pdd-WL-QIT" id="7Mj-ht-cFi"/>
+                        <outlet property="imageViewPrevious" destination="BqM-PD-FQ3" id="lMM-xn-Ede"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
