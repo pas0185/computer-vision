@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 #ifdef __cplusplus
 #import <opencv2/opencv.hpp>
@@ -14,6 +15,8 @@
 
 #import <opencv2/videoio/cap_ios.h>
 #define kImageCapturedSuccessfully @"imageCapturedSuccessfully"
+
+#import "TVBullet.h"
 
 using namespace cv;
 
