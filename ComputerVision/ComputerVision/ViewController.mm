@@ -71,8 +71,15 @@
     
     // Calculate the non-zero pixels in the matrix
     
- 
-    
+//    for (int i = 0; i < difference.rows; i++) {
+//        
+//        for (int j = 0; j < difference.cols; j++) {
+//            
+//            if (difference.at<double>(i, j) != 0.0) {
+//                NSLog(@"Non-zero at (%d , %d)", i, j);
+//            }
+//        }
+//    }
     
 }
 
@@ -133,6 +140,14 @@
     CGColorSpaceRelease(colorSpace);
     
     return finalImage;
+}
+
+- (IBAction)snapPrevious:(id)sender {
+    
+}
+
+- (IBAction)snapCurrent:(id)sender {
+    
 }
 
 @end

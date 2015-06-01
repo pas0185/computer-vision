@@ -18,7 +18,8 @@ using namespace cv;
 
 @interface ViewController : UIViewController<CvVideoCameraDelegate>
 {
-    cv::Mat last;
+    cv::Mat last; // Last matrix image captured
+    
 }
 
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
@@ -27,6 +28,8 @@ using namespace cv;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewCurrent;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewDifference;
 
+- (IBAction)snapPrevious:(id)sender;
+- (IBAction)snapCurrent:(id)sender;
 
 @end
 
