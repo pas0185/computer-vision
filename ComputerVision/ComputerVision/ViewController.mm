@@ -32,12 +32,30 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.videoCamera start];
+//    [self.videoCamera start];
+    
+    [self testTargetDifference];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)testTargetDifference {
+    
+    UIImage *img1 = [UIImage imageNamed:@"target-empty"];
+    UIImage *img2 = [UIImage imageNamed:@"target-shot"];
+    
+    cv::Mat mat1 = [self cvMatFromUIImage:img1];
+    cv::Mat mat2 = [self cvMatFromUIImage:img2];
+    
+    [self assignCvMat:mat1 toImageView:self.imageViewPrevious];
+    [self assignCvMat:mat2 toImageView:self.imageViewCurrent];
+    
+    [self registerImageChangeFrom:mat1 toCurrent:mat2];
+    
+    
 }
 
 - (void)assignCvMat:(cv::Mat)mat toImageView:(UIImageView *)imgView {
@@ -66,21 +84,31 @@
     // Calculate differential matrix
     Mat difference;
     
-    subtract(current, last, difference);
+    subtract(previous, current, difference);
     [self assignCvMat:difference toImageView:self.imageViewDifference];
     
     // Calculate the non-zero pixels in the matrix
     
-//    for (int i = 0; i < difference.rows; i++) {
-//        
-//        for (int j = 0; j < difference.cols; j++) {
-//            
-//            if (difference.at<double>(i, j) != 0.0) {
-//                NSLog(@"Non-zero at (%d , %d)", i, j);
-//            }
-//        }
-//    }
-    
+    TVBullet *bullet = [TVBullet new];
+
+    for (int i = 0; i < difference.rows; i++) {
+        
+        for (int j = 0; j < difference.cols; j++) {
+            
+            if (difference.at<double>(i, j) != 0.0) {
+                
+                // Point class we want, but not an instancetype
+                CGPoint point = CGPointMake(i, j);
+                
+                // Convert it to NSValue to it is an instancetype
+                NSValue *pointValue = [NSValue valueWithCGPoint:point];
+                
+                // Add it to the bullet's pixel array
+                [bullet.pixelArray addObject:pointValue];
+                
+            }
+        }
+    }
 }
 
 #pragma mark - CvVideoCameraDelegate Protocol
@@ -140,6 +168,29 @@
     CGColorSpaceRelease(colorSpace);
     
     return finalImage;
+}
+
+- (cv::Mat)cvMatFromUIImage:(UIImage *)image
+{
+    CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
+    CGFloat cols = image.size.width;
+    CGFloat rows = image.size.height;
+    
+    cv::Mat cvMat(rows, cols, CV_8UC4); // 8 bits per component, 4 channels (color channels + alpha)
+    
+    CGContextRef contextRef = CGBitmapContextCreate(cvMat.data,                 // Pointer to  data
+                                                    cols,                       // Width of bitmap
+                                                    rows,                       // Height of bitmap
+                                                    8,                          // Bits per component
+                                                    cvMat.step[0],              // Bytes per row
+                                                    colorSpace,                 // Colorspace
+                                                    kCGImageAlphaNoneSkipLast |
+                                                    kCGBitmapByteOrderDefault); // Bitmap info flags
+    
+    CGContextDrawImage(contextRef, CGRectMake(0, 0, cols, rows), image.CGImage);
+    CGContextRelease(contextRef);
+    
+    return cvMat;
 }
 
 - (IBAction)snapPrevious:(id)sender {
