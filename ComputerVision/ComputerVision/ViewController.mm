@@ -61,26 +61,34 @@
     });
 }
 
+- (void)registerImageChangeFrom:(Mat)previous toCurrent:(Mat)current {
+    
+    // Calculate differential matrix
+    Mat difference;
+    
+    subtract(current, last, difference);
+    [self assignCvMat:difference toImageView:self.imageViewDifference];
+    
+    // Calculate the non-zero pixels in the matrix
+    
+ 
+    
+    
+}
+
 #pragma mark - CvVideoCameraDelegate Protocol
 
 - (void)processImage:(cv::Mat &)image {
 
-    
     [self assignCvMat:image toImageView:self.imageViewCurrent];
-    
     
     if (last.size == image.size) {
         
         [self assignCvMat:last toImageView:self.imageViewPrevious];
         
-        // Update 'Difference' view
-
         
-        // Calculate differential matrix
-        Mat difference;
-
-        subtract(image, last, difference);
-        [self assignCvMat:difference toImageView:self.imageViewDifference];
+        // Update Difference view
+        [self registerImageChangeFrom:last toCurrent:image];
         
     }
     
