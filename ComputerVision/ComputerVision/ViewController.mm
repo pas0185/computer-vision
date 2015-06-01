@@ -19,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:self.imageViewCurrent];
+    //Set up the Previous Camera settings
+    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:self.imageViewPrevious];
     self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
     self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
     self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
@@ -29,6 +30,9 @@
     
     self.videoCamera = [[CvVideoCamera alloc] initWithParentView:nil];
     self.videoCamera.delegate = self;
+    
+    self.m1Running = TRUE;
+    self.m2Running = TRUE;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -66,7 +70,7 @@
     // Calculate differential matrix
     Mat difference;
     
-    subtract(current, last, difference);
+    subtract(current, previous, difference);
     [self assignCvMat:difference toImageView:self.imageViewDifference];
     
     // Calculate the non-zero pixels in the matrix
@@ -87,20 +91,31 @@
 
 - (void)processImage:(cv::Mat &)image {
 
-    [self assignCvMat:image toImageView:self.imageViewCurrent];
+//    [self assignCvMat:image toImageView:self.imageViewCurrent];
     
-    if (last.size == image.size) {
-        
-        [self assignCvMat:last toImageView:self.imageViewPrevious];
-        
-        
-        // Update Difference view
-        [self registerImageChangeFrom:last toCurrent:image];
-        
+    if(self.m1Running)
+    {
+        m1 = image.clone();
+        [self assignCvMat:m1 toImageView:self.imageViewPrevious];
+    }
+    if(self.m2Running)
+    {
+        m2 = image.clone();
+        [self assignCvMat:m2 toImageView:self.imageViewCurrent];
     }
     
-    // Update last image
-    last = image.clone();
+//    if (last.size == image.size) {
+//        
+//        [self assignCvMat:last toImageView:self.imageViewPrevious];
+//        
+//        
+//        // Update Difference view
+//        [self registerImageChangeFrom:last toCurrent:image];
+//        
+//    }
+//    
+//    // Update last image
+//    last = image.clone();
 }
 
 #pragma mark - OpenCV Tutorial code
@@ -143,11 +158,28 @@
 }
 
 - (IBAction)snapPrevious:(id)sender {
-    
+    NSLog(@"Stop the previous picture");
+    self.m1Running = FALSE;
 }
 
 - (IBAction)snapCurrent:(id)sender {
-    
+    NSLog(@"Stop the current picture");
+    self.m2Running = FALSE;
+}
+
+- (IBAction)calculateDiff:(id)sender {
+
+    if (m1.size == m2.size) {
+        
+        // Update Difference view
+        [self registerImageChangeFrom:m1 toCurrent:m2];
+    }
+}
+
+- (IBAction)reset:(id)sender {
+    self.m1Running = TRUE;
+    self.m2Running = TRUE;
+    self.imageViewDifference.
 }
 
 @end

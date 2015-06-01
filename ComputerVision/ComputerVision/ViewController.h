@@ -13,23 +13,38 @@
 #endif
 
 #import <opencv2/videoio/cap_ios.h>
+#define kImageCapturedSuccessfully @"imageCapturedSuccessfully"
 
 using namespace cv;
 
 @interface ViewController : UIViewController<CvVideoCameraDelegate>
 {
     cv::Mat last; // Last matrix image captured
-    
+    cv::Mat m1; // m1 matrix image captured
+    cv::Mat m2; // m2 matrix image captured
 }
 
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
+@property (retain) AVCaptureStillImageOutput *stillImageOutput;
+
+@property (nonatomic, retain) UIImage *stillImage;
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPrevious;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewCurrent;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewDifference;
 
+@property (nonatomic) BOOL m1Running;
+@property (nonatomic) BOOL m2Running;
+
+
+- (void)addStillImageOutput;
+- (void)captureStillImage;
+
 - (IBAction)snapPrevious:(id)sender;
 - (IBAction)snapCurrent:(id)sender;
+- (IBAction)calculateDiff:(id)sender;
+- (IBAction)reset:(id)sender;
 
 @end
 
