@@ -85,6 +85,8 @@
 
 - (void)registerImageChangeFrom:(Mat)previous toCurrent:(Mat)current {
     
+    // TODO: return array of (potential) bullets
+    
     // Calculate differential matrix
     Mat difference;
     

@@ -26,6 +26,7 @@
 		1546906F1B1CFAF500E9062A /* target-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 1546906D1B1CFAF500E9062A /* target-empty.png */; };
 		154690701B1CFAF500E9062A /* target-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1546906E1B1CFAF500E9062A /* target-shot.png */; };
 		154690731B1CFF2800E9062A /* TVBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690721B1CFF2800E9062A /* TVBullet.m */; };
+		15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */; };
 		CBD582DF1B1D195100895878 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD582DE1B1D195100895878 /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,9 @@
 		1546906E1B1CFAF500E9062A /* target-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-shot.png"; sourceTree = "<group>"; };
 		154690711B1CFF2800E9062A /* TVBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBullet.h; sourceTree = "<group>"; };
 		154690721B1CFF2800E9062A /* TVBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVBullet.m; sourceTree = "<group>"; };
+		15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletSeekerAlgorithm.h; sourceTree = "<group>"; };
+		15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletSeekerAlgorithm.mm; sourceTree = "<group>"; };
+		15E8C3941B1E493700030DB2 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
 		CBD582DE1B1D195100895878 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -124,6 +128,9 @@
 				154690131B17B80800E9062A /* ViewController.h */,
 				154690141B17B80800E9062A /* ViewController.mm */,
 				154690161B17B80800E9062A /* Main.storyboard */,
+				15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */,
+				15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */,
+				15E8C3941B1E493700030DB2 /* Headers.h */,
 				154690711B1CFF2800E9062A /* TVBullet.h */,
 				154690721B1CFF2800E9062A /* TVBullet.m */,
 				154690191B17B80800E9062A /* Images.xcassets */,
@@ -283,6 +290,7 @@
 				154690151B17B80800E9062A /* ViewController.mm in Sources */,
 				154690121B17B80800E9062A /* AppDelegate.m in Sources */,
 				1546900F1B17B80800E9062A /* main.m in Sources */,
+				15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */,
 				154690731B1CFF2800E9062A /* TVBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,17 +6,9 @@
 //  Copyright (c) 2015 Sheehan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
-
-#ifdef __cplusplus
-#import <opencv2/opencv.hpp>
-#endif
-
-#import <opencv2/videoio/cap_ios.h>
 #define kImageCapturedSuccessfully @"imageCapturedSuccessfully"
 
-#import "TVBullet.h"
+#import "Headers.h"
 
 using namespace cv;
 
@@ -41,7 +33,7 @@ using namespace cv;
 @property (nonatomic) BOOL m2Running;
 
 
-- (void)addStillImageOutput;
+- (void)addStillImageOutput; // TODO: remove these?
 - (void)captureStillImage;
 
 - (IBAction)snapPrevious:(id)sender;
