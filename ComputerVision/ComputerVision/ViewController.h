@@ -6,24 +6,16 @@
 //  Copyright (c) 2015 Sheehan. All rights reserved.
 //
 
-#define kImageCapturedSuccessfully @"imageCapturedSuccessfully"
-
 #import "Headers.h"
 
 using namespace cv;
 
 @interface ViewController : UIViewController<CvVideoCameraDelegate>
 {
-    cv::Mat last; // Last matrix image captured
-    cv::Mat m1; // m1 matrix image captured
-    cv::Mat m2; // m2 matrix image captured
+    cv::Mat m1, m2;
 }
 
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
-@property (retain) AVCaptureStillImageOutput *stillImageOutput;
-
-@property (nonatomic, retain) UIImage *stillImage;
-
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPrevious;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewCurrent;
@@ -31,10 +23,6 @@ using namespace cv;
 
 @property (nonatomic) BOOL m1Running;
 @property (nonatomic) BOOL m2Running;
-
-
-- (void)addStillImageOutput; // TODO: remove these?
-- (void)captureStillImage;
 
 - (IBAction)snapPrevious:(id)sender;
 - (IBAction)snapCurrent:(id)sender;

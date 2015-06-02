@@ -36,15 +36,40 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-//    [self.videoCamera start];
+    [self.videoCamera start];
     
-    [self testTargetDifference];
+//    [self testTargetDifference];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - User Controls
+
+- (IBAction)snapPrevious:(id)sender {
+    NSLog(@"Stop the previous picture");
+    self.m1Running = FALSE;
 }
+
+- (IBAction)snapCurrent:(id)sender {
+    NSLog(@"Stop the current picture");
+    self.m2Running = FALSE;
+}
+
+- (IBAction)calculateDiff:(id)sender {
+    
+    if (m1.size == m2.size) {
+        
+        // Update Difference view
+        [self registerImageChangeFrom:m1 toCurrent:m2];
+    }
+}
+
+- (IBAction)reset:(id)sender {
+    
+    self.m1Running = TRUE;
+    self.m2Running = TRUE;
+    [self.imageViewDifference setImage:nil];
+}
+
+#pragma mark - Custom Helper Methods
 
 - (void)testTargetDifference {
     
@@ -58,8 +83,41 @@
     [self assignCvMat:mat2 toImageView:self.imageViewCurrent];
     
     [self registerImageChangeFrom:mat1 toCurrent:mat2];
+}
+
+- (void)registerImageChangeFrom:(Mat)previous toCurrent:(Mat)current {
+    
+    // TODO: return array of (potential) bullets
+    
+    // Calculate differential matrix
+    Mat difference;
     
     
+    subtract(previous, current, difference);
+    [self assignCvMat:difference toImageView:self.imageViewDifference];
+    
+    // Calculate the non-zero pixels in the matrix
+    
+    TVBullet *bullet = [TVBullet new];
+    
+    for (int i = 0; i < difference.rows; i++) {
+        
+        for (int j = 0; j < difference.cols; j++) {
+            
+            if (difference.at<double>(i, j) != 0.0) {
+                
+                // Point class we want, but not an instancetype
+                CGPoint point = CGPointMake(i, j);
+                
+                // Convert it to NSValue to it is an instancetype
+                NSValue *pointValue = [NSValue valueWithCGPoint:point];
+                
+                // Add it to the bullet's pixel array
+                [bullet.pixelArray addObject:pointValue];
+                
+            }
+        }
+    }
 }
 
 - (void)assignCvMat:(cv::Mat)mat toImageView:(UIImageView *)imgView {
@@ -83,70 +141,18 @@
     });
 }
 
-- (void)registerImageChangeFrom:(Mat)previous toCurrent:(Mat)current {
-    
-    // TODO: return array of (potential) bullets
-    
-    // Calculate differential matrix
-    Mat difference;
-    
-
-    subtract(previous, current, difference);
-    [self assignCvMat:difference toImageView:self.imageViewDifference];
-    
-    // Calculate the non-zero pixels in the matrix
-    
-    TVBullet *bullet = [TVBullet new];
-
-    for (int i = 0; i < difference.rows; i++) {
-        
-        for (int j = 0; j < difference.cols; j++) {
-            
-            if (difference.at<double>(i, j) != 0.0) {
-                
-                // Point class we want, but not an instancetype
-                CGPoint point = CGPointMake(i, j);
-                
-                // Convert it to NSValue to it is an instancetype
-                NSValue *pointValue = [NSValue valueWithCGPoint:point];
-                
-                // Add it to the bullet's pixel array
-                [bullet.pixelArray addObject:pointValue];
-                
-            }
-        }
-    }
-}
-
 #pragma mark - CvVideoCameraDelegate Protocol
 
 - (void)processImage:(cv::Mat &)image {
-
-//    [self assignCvMat:image toImageView:self.imageViewCurrent];
     
-    if(self.m1Running)
-    {
+    if (self.m1Running) {
         m1 = image.clone();
         [self assignCvMat:m1 toImageView:self.imageViewPrevious];
     }
-    if(self.m2Running)
-    {
+    if (self.m2Running) {
         m2 = image.clone();
         [self assignCvMat:m2 toImageView:self.imageViewCurrent];
     }
-    
-//    if (last.size == image.size) {
-//        
-//        [self assignCvMat:last toImageView:self.imageViewPrevious];
-//        
-//        
-//        // Update Difference view
-//        [self registerImageChangeFrom:last toCurrent:image];
-//        
-//    }
-//    
-//    // Update last image
-//    last = image.clone();
 }
 
 #pragma mark - OpenCV Tutorial code
@@ -209,31 +215,6 @@
     CGContextRelease(contextRef);
     
     return cvMat;
-}
-
-- (IBAction)snapPrevious:(id)sender {
-    NSLog(@"Stop the previous picture");
-    self.m1Running = FALSE;
-}
-
-- (IBAction)snapCurrent:(id)sender {
-    NSLog(@"Stop the current picture");
-    self.m2Running = FALSE;
-}
-
-- (IBAction)calculateDiff:(id)sender {
-
-    if (m1.size == m2.size) {
-        
-        // Update Difference view
-        [self registerImageChangeFrom:m1 toCurrent:m2];
-    }
-}
-
-- (IBAction)reset:(id)sender {
-    self.m1Running = TRUE;
-    self.m2Running = TRUE;
-    [self.imageViewDifference setImage:nil];
 }
 
 @end
