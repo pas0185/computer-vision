@@ -1,21 +1,21 @@
 //
-//  ComputerVisionTests.m
-//  ComputerVisionTests
+//  TVBulletSeekerAlgorithimTest.m
+//  ComputerVision
 //
-//  Created by Patrick Sheehan on 5/28/15.
+//  Created by Meshach Joshua on 6/5/15.
 //  Copyright (c) 2015 Sheehan. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface ComputerVisionTests : XCTestCase
+@interface TVBulletSeekerAlgorithimTest : XCTestCase
 
 
 
 @end
 
-@implementation ComputerVisionTests
+@implementation TVBulletSeekerAlgorithimTest
 
 - (void)setUp {
     [super setUp];

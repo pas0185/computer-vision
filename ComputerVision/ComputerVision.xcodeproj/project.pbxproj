@@ -12,7 +12,6 @@
 		154690151B17B80800E9062A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690141B17B80800E9062A /* ViewController.mm */; };
 		154690181B17B80800E9062A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154690161B17B80800E9062A /* Main.storyboard */; };
 		1546901A1B17B80800E9062A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154690191B17B80800E9062A /* Images.xcassets */; };
-		154690291B17B80800E9062A /* ComputerVisionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690281B17B80800E9062A /* ComputerVisionTests.m */; };
 		154690361B17B98200E9062A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690351B17B98200E9062A /* Foundation.framework */; };
 		154690381B17B98900E9062A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690371B17B98900E9062A /* UIKit.framework */; };
 		1546903D1B17BBE200E9062A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546903C1B17BBE200E9062A /* CoreGraphics.framework */; };
@@ -25,9 +24,10 @@
 		154690681B1CFAAE00E9062A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690561B17C96E00E9062A /* QuartzCore.framework */; };
 		1546906F1B1CFAF500E9062A /* target-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 1546906D1B1CFAF500E9062A /* target-empty.png */; };
 		154690701B1CFAF500E9062A /* target-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1546906E1B1CFAF500E9062A /* target-shot.png */; };
-		154690731B1CFF2800E9062A /* TVBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690721B1CFF2800E9062A /* TVBullet.m */; };
+		154690731B1CFF2800E9062A /* TVBullet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690721B1CFF2800E9062A /* TVBullet.mm */; };
 		15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */; };
 		CBD582DF1B1D195100895878 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD582DE1B1D195100895878 /* opencv2.framework */; };
+		CBEB20921B222FCE004FAD56 /* TVBulletSeekerAlgorithimTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEB20911B222FCE004FAD56 /* TVBulletSeekerAlgorithimTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,6 @@
 		154690191B17B80800E9062A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		154690221B17B80800E9062A /* ComputerVisionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComputerVisionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		154690271B17B80800E9062A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		154690281B17B80800E9062A /* ComputerVisionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComputerVisionTests.m; sourceTree = "<group>"; };
 		154690351B17B98200E9062A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		154690371B17B98900E9062A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1546903C1B17BBE200E9062A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,11 +65,12 @@
 		1546906D1B1CFAF500E9062A /* target-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-empty.png"; sourceTree = "<group>"; };
 		1546906E1B1CFAF500E9062A /* target-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-shot.png"; sourceTree = "<group>"; };
 		154690711B1CFF2800E9062A /* TVBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBullet.h; sourceTree = "<group>"; };
-		154690721B1CFF2800E9062A /* TVBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVBullet.m; sourceTree = "<group>"; };
+		154690721B1CFF2800E9062A /* TVBullet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBullet.mm; sourceTree = "<group>"; };
 		15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletSeekerAlgorithm.h; sourceTree = "<group>"; };
 		15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletSeekerAlgorithm.mm; sourceTree = "<group>"; };
 		15E8C3941B1E493700030DB2 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
 		CBD582DE1B1D195100895878 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = SOURCE_ROOT; };
+		CBEB20911B222FCE004FAD56 /* TVBulletSeekerAlgorithimTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVBulletSeekerAlgorithimTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,7 @@
 				15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */,
 				15E8C3941B1E493700030DB2 /* Headers.h */,
 				154690711B1CFF2800E9062A /* TVBullet.h */,
-				154690721B1CFF2800E9062A /* TVBullet.m */,
+				154690721B1CFF2800E9062A /* TVBullet.mm */,
 				154690191B17B80800E9062A /* Images.xcassets */,
 				1546900C1B17B80800E9062A /* Supporting Files */,
 			);
@@ -154,7 +154,7 @@
 		154690251B17B80800E9062A /* ComputerVisionTests */ = {
 			isa = PBXGroup;
 			children = (
-				154690281B17B80800E9062A /* ComputerVisionTests.m */,
+				CBEB20911B222FCE004FAD56 /* TVBulletSeekerAlgorithimTest.m */,
 				154690261B17B80800E9062A /* Supporting Files */,
 			);
 			path = ComputerVisionTests;
@@ -291,7 +291,7 @@
 				154690121B17B80800E9062A /* AppDelegate.m in Sources */,
 				1546900F1B17B80800E9062A /* main.m in Sources */,
 				15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */,
-				154690731B1CFF2800E9062A /* TVBullet.m in Sources */,
+				154690731B1CFF2800E9062A /* TVBullet.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				154690291B17B80800E9062A /* ComputerVisionTests.m in Sources */,
+				CBEB20921B222FCE004FAD56 /* TVBulletSeekerAlgorithimTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,12 +13,13 @@
 
 @interface TVBulletSeekerAlgorithm : NSObject
 
-// NOTE: '+' means static/class method (can be called without creating an instance of the class
-// *delete this after you read it*
++ (NSMutableArray *)getTVBulletCandidatesFromDiffMatrix:(cv::Mat)diff;
++ (void)floodFill:(CGPoint)position andBullet:(TVBullet *)newBullet andDiffMat:(cv::Mat)diff andDictVisited:(NSMutableArray *)visited;
 
-+ (NSArray *)getTVBulletCandidatesFromDiffMatrix:(cv::Mat)diff;
 
 + (NSArray *)filterTVBulletsByDensity:(NSArray *)tvBullets;
+
+
 
 
 @end
