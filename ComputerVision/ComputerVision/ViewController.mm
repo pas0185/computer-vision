@@ -114,7 +114,6 @@
                 
                 // Add it to the bullet's pixel array
                 [bullet.pixelArray addObject:pointValue];
-                
             }
         }
     }
@@ -168,6 +167,7 @@
         colorSpace = CGColorSpaceCreateDeviceRGB();
     }
     
+
     CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
     
     // Creating CGImage from cv::Mat

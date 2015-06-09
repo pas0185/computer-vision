@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Headers.h"
 
 @interface TVBullet : NSObject
 
 @property (strong, nonatomic) NSMutableArray *pixelArray;
 
+
 // Validity score...
 
+- (BOOL)containsPoint:(CGPoint)point;
+- (void)addToArray:(CGPoint)point;
 
 @end
