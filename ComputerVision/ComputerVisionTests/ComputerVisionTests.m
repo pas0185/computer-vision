@@ -11,6 +11,8 @@
 
 @interface ComputerVisionTests : XCTestCase
 
+
+
 @end
 
 @implementation ComputerVisionTests
@@ -36,5 +38,9 @@
         // Put the code you want to measure the time of here.
     }];
 }
+
+// Meshach TODO - write test for Density Calculation
+
+// Patrick TODO - write test for Adjacency/flooding calculation
 
 @end

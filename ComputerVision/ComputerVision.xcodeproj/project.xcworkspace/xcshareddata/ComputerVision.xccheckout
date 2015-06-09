@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>2605CD90-A93F-4EAC-B1D4-4F6119343FE3</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>ComputerVision</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>528E280FB99526884D15CECD84484100162E0E48</key>
 		<string>https://github.com/pas0185/computer-vision.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ComputerVision/ComputerVision.xcodeproj/project.xcworkspace</string>
+	<string>ComputerVision/ComputerVision.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>528E280FB99526884D15CECD84484100162E0E48</key>

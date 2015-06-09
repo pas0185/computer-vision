@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) NSMutableArray *pixelArray;
 
+// Validity score...
+
+
 @end
