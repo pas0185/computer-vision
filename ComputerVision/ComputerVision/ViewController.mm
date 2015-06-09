@@ -73,8 +73,8 @@
 
 - (void)testTargetDifference {
     
-    UIImage *img1 = [UIImage imageNamed:@"target-empty"];
-    UIImage *img2 = [UIImage imageNamed:@"target-shot"];
+    UIImage *img1 = [UIImage imageNamed:@"target-0-shots"];
+    UIImage *img2 = [UIImage imageNamed:@"target-1-shot"];
     
     cv::Mat mat1 = [self cvMatFromUIImage:img1];
     cv::Mat mat2 = [self cvMatFromUIImage:img2];

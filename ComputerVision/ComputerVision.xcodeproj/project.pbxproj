@@ -12,7 +12,7 @@
 		154690151B17B80800E9062A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690141B17B80800E9062A /* ViewController.mm */; };
 		154690181B17B80800E9062A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154690161B17B80800E9062A /* Main.storyboard */; };
 		1546901A1B17B80800E9062A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154690191B17B80800E9062A /* Images.xcassets */; };
-		154690291B17B80800E9062A /* ComputerVisionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690281B17B80800E9062A /* ComputerVisionTests.m */; };
+		154690291B17B80800E9062A /* ComputerVisionTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690281B17B80800E9062A /* ComputerVisionTests.mm */; };
 		154690361B17B98200E9062A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690351B17B98200E9062A /* Foundation.framework */; };
 		154690381B17B98900E9062A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690371B17B98900E9062A /* UIKit.framework */; };
 		1546903D1B17BBE200E9062A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546903C1B17BBE200E9062A /* CoreGraphics.framework */; };
@@ -23,9 +23,14 @@
 		154690661B1CFA9D00E9062A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690521B17C96400E9062A /* CoreMedia.framework */; };
 		154690671B1CFAA600E9062A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690541B17C96800E9062A /* CoreVideo.framework */; };
 		154690681B1CFAAE00E9062A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690561B17C96E00E9062A /* QuartzCore.framework */; };
-		1546906F1B1CFAF500E9062A /* target-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 1546906D1B1CFAF500E9062A /* target-empty.png */; };
-		154690701B1CFAF500E9062A /* target-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1546906E1B1CFAF500E9062A /* target-shot.png */; };
 		154690731B1CFF2800E9062A /* TVBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690721B1CFF2800E9062A /* TVBullet.m */; };
+		1569CFD91B273CDD00D03FD3 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD582DE1B1D195100895878 /* opencv2.framework */; };
+		1569CFDC1B2742F300D03FD3 /* TVUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1569CFDB1B2742F300D03FD3 /* TVUtility.mm */; };
+		1569CFDD1B274A7B00D03FD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690371B17B98900E9062A /* UIKit.framework */; };
+		1569CFE21B274EAF00D03FD3 /* target-0-shots.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFDE1B274EAF00D03FD3 /* target-0-shots.png */; };
+		1569CFE31B274EAF00D03FD3 /* target-1-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */; };
+		1569CFE41B274EAF00D03FD3 /* target-2-shots.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFE01B274EAF00D03FD3 /* target-2-shots.png */; };
+		1569CFE51B274EAF00D03FD3 /* target-3-shots.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFE11B274EAF00D03FD3 /* target-3-shots.png */; };
 		15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */; };
 		CBD582DF1B1D195100895878 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD582DE1B1D195100895878 /* opencv2.framework */; };
 /* End PBXBuildFile section */
@@ -52,7 +57,7 @@
 		154690191B17B80800E9062A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		154690221B17B80800E9062A /* ComputerVisionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComputerVisionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		154690271B17B80800E9062A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		154690281B17B80800E9062A /* ComputerVisionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComputerVisionTests.m; sourceTree = "<group>"; };
+		154690281B17B80800E9062A /* ComputerVisionTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ComputerVisionTests.mm; sourceTree = "<group>"; };
 		154690351B17B98200E9062A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		154690371B17B98900E9062A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1546903C1B17BBE200E9062A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,10 +68,14 @@
 		154690521B17C96400E9062A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		154690541B17C96800E9062A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		154690561B17C96E00E9062A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		1546906D1B1CFAF500E9062A /* target-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-empty.png"; sourceTree = "<group>"; };
-		1546906E1B1CFAF500E9062A /* target-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-shot.png"; sourceTree = "<group>"; };
 		154690711B1CFF2800E9062A /* TVBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBullet.h; sourceTree = "<group>"; };
 		154690721B1CFF2800E9062A /* TVBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVBullet.m; sourceTree = "<group>"; };
+		1569CFDA1B2742F300D03FD3 /* TVUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVUtility.h; sourceTree = "<group>"; };
+		1569CFDB1B2742F300D03FD3 /* TVUtility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVUtility.mm; sourceTree = "<group>"; };
+		1569CFDE1B274EAF00D03FD3 /* target-0-shots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-0-shots.png"; sourceTree = "<group>"; };
+		1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-1-shot.png"; sourceTree = "<group>"; };
+		1569CFE01B274EAF00D03FD3 /* target-2-shots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-2-shots.png"; sourceTree = "<group>"; };
+		1569CFE11B274EAF00D03FD3 /* target-3-shots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-3-shots.png"; sourceTree = "<group>"; };
 		15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletSeekerAlgorithm.h; sourceTree = "<group>"; };
 		15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletSeekerAlgorithm.mm; sourceTree = "<group>"; };
 		15E8C3941B1E493700030DB2 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
@@ -96,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1569CFDD1B274A7B00D03FD3 /* UIKit.framework in Frameworks */,
+				1569CFD91B273CDD00D03FD3 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +136,8 @@
 			children = (
 				154690101B17B80800E9062A /* AppDelegate.h */,
 				154690111B17B80800E9062A /* AppDelegate.m */,
+				1569CFDA1B2742F300D03FD3 /* TVUtility.h */,
+				1569CFDB1B2742F300D03FD3 /* TVUtility.mm */,
 				154690131B17B80800E9062A /* ViewController.h */,
 				154690141B17B80800E9062A /* ViewController.mm */,
 				154690161B17B80800E9062A /* Main.storyboard */,
@@ -142,11 +155,13 @@
 		1546900C1B17B80800E9062A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1569CFDE1B274EAF00D03FD3 /* target-0-shots.png */,
+				1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */,
+				1569CFE01B274EAF00D03FD3 /* target-2-shots.png */,
+				1569CFE11B274EAF00D03FD3 /* target-3-shots.png */,
 				154690341B17B8B000E9062A /* Frameworks */,
 				1546900D1B17B80800E9062A /* Info.plist */,
 				1546900E1B17B80800E9062A /* main.m */,
-				1546906D1B1CFAF500E9062A /* target-empty.png */,
-				1546906E1B1CFAF500E9062A /* target-shot.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,7 +169,7 @@
 		154690251B17B80800E9062A /* ComputerVisionTests */ = {
 			isa = PBXGroup;
 			children = (
-				154690281B17B80800E9062A /* ComputerVisionTests.m */,
+				154690281B17B80800E9062A /* ComputerVisionTests.mm */,
 				154690261B17B80800E9062A /* Supporting Files */,
 			);
 			path = ComputerVisionTests;
@@ -266,10 +281,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				154690701B1CFAF500E9062A /* target-shot.png in Resources */,
+				1569CFE51B274EAF00D03FD3 /* target-3-shots.png in Resources */,
+				1569CFE31B274EAF00D03FD3 /* target-1-shot.png in Resources */,
+				1569CFE41B274EAF00D03FD3 /* target-2-shots.png in Resources */,
 				154690181B17B80800E9062A /* Main.storyboard in Resources */,
+				1569CFE21B274EAF00D03FD3 /* target-0-shots.png in Resources */,
 				1546901A1B17B80800E9062A /* Images.xcassets in Resources */,
-				1546906F1B1CFAF500E9062A /* target-empty.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +308,7 @@
 				154690121B17B80800E9062A /* AppDelegate.m in Sources */,
 				1546900F1B17B80800E9062A /* main.m in Sources */,
 				15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */,
+				1569CFDC1B2742F300D03FD3 /* TVUtility.mm in Sources */,
 				154690731B1CFF2800E9062A /* TVBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,7 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				154690291B17B80800E9062A /* ComputerVisionTests.m in Sources */,
+				154690291B17B80800E9062A /* ComputerVisionTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,8 +433,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
-					/Users/NightPhury/Downloads,
-					/Users/patrick1/Downloads,
 				);
 				INFOPLIST_FILE = ComputerVision/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -432,8 +448,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
-					/Users/NightPhury/Downloads,
-					/Users/patrick1/Downloads,
 				);
 				INFOPLIST_FILE = ComputerVision/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -448,6 +462,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -467,6 +482,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ComputerVisionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

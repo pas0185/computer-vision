@@ -13,9 +13,6 @@
 
 @interface TVBulletSeekerAlgorithm : NSObject
 
-// NOTE: '+' means static/class method (can be called without creating an instance of the class
-// *delete this after you read it*
-
 + (NSArray *)getTVBulletCandidatesFromDiffMatrix:(cv::Mat)diff;
 
 + (NSArray *)filterTVBulletsByDensity:(NSArray *)tvBullets;

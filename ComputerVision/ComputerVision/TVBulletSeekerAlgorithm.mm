@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Sheehan. All rights reserved.
 //
 
+#import "Headers.h"
 #import "TVBulletSeekerAlgorithm.h"
 
 @implementation TVBulletSeekerAlgorithm
