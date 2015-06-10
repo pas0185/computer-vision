@@ -20,6 +20,7 @@
     TVBullet* fourthBullet;
     
     NSMutableArray *arrDenseBullets;
+    NSArray *testArray;
     
 }
 @end
@@ -29,7 +30,13 @@
 - (void)setUp {
     [super setUp];
     
+    firstBullet = [TVBullet new];
+    secondBullet = [TVBullet new];
+    thirdBullet = [TVBullet new];
+    fourthBullet = [TVBullet new];
+    
     arrDenseBullets = [NSMutableArray new];
+    testArray = [NSArray new];
 
     //bullet
     [firstBullet addToArray:CGPointMake(1, 2)];
@@ -91,7 +98,7 @@
 }
 
 -(void)testDensity {
-    NSMutableArray *testArray = [TVBulletSeekerAlgorithm filterTVBulletsByDensity:arrDenseBullets];
+    testArray = [TVBulletSeekerAlgorithm filterTVBulletsByDensity:arrDenseBullets];
     XCTAssertEqual(testArray.count, (NSUInteger)2, @"Array has wrong number of bullets, expected 0");
 }
 
