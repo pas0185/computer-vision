@@ -31,6 +31,8 @@
 		1569CFE31B274EAF00D03FD3 /* target-1-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */; };
 		1569CFE41B274EAF00D03FD3 /* target-2-shots.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFE01B274EAF00D03FD3 /* target-2-shots.png */; };
 		1569CFE51B274EAF00D03FD3 /* target-3-shots.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFE11B274EAF00D03FD3 /* target-3-shots.png */; };
+		159235681B29E04B00D5B2AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690351B17B98200E9062A /* Foundation.framework */; };
+		1592356A1B2A09B100D5B2AC /* Test-Footage in Resources */ = {isa = PBXBuildFile; fileRef = 159235691B2A09B100D5B2AC /* Test-Footage */; };
 		15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */; };
 		CBD582DF1B1D195100895878 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD582DE1B1D195100895878 /* opencv2.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,7 @@
 		1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-1-shot.png"; sourceTree = "<group>"; };
 		1569CFE01B274EAF00D03FD3 /* target-2-shots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-2-shots.png"; sourceTree = "<group>"; };
 		1569CFE11B274EAF00D03FD3 /* target-3-shots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-3-shots.png"; sourceTree = "<group>"; };
+		159235691B2A09B100D5B2AC /* Test-Footage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test-Footage"; sourceTree = "<group>"; };
 		15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletSeekerAlgorithm.h; sourceTree = "<group>"; };
 		15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletSeekerAlgorithm.mm; sourceTree = "<group>"; };
 		15E8C3941B1E493700030DB2 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				159235681B29E04B00D5B2AC /* Foundation.framework in Frameworks */,
 				1569CFDD1B274A7B00D03FD3 /* UIKit.framework in Frameworks */,
 				1569CFD91B273CDD00D03FD3 /* opencv2.framework in Frameworks */,
 			);
@@ -155,6 +159,7 @@
 		1546900C1B17B80800E9062A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				159235691B2A09B100D5B2AC /* Test-Footage */,
 				1569CFDE1B274EAF00D03FD3 /* target-0-shots.png */,
 				1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */,
 				1569CFE01B274EAF00D03FD3 /* target-2-shots.png */,
@@ -287,6 +292,7 @@
 				154690181B17B80800E9062A /* Main.storyboard in Resources */,
 				1569CFE21B274EAF00D03FD3 /* target-0-shots.png in Resources */,
 				1546901A1B17B80800E9062A /* Images.xcassets in Resources */,
+				1592356A1B2A09B100D5B2AC /* Test-Footage in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

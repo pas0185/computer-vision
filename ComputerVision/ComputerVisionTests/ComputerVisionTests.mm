@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Sheehan. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
@@ -35,6 +36,55 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+}
+
+- (void)tearDown {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
+}
+
+- (void)testPerformanceExample {
+    // This is an example of a performance test case.
+    [self measureBlock:^{
+        // Put the code you want to measure the time of here.
+    }];
+}
+
+#pragma mark - Tests with Actual Camera Footage
+
+- (void)testRecognitionBetweenTwoFrames {
+    
+    NSBundle *bundle = [NSBundle mainBundle];
+    
+    NSString *dirStillWhiteFrames = [bundle pathForResource:@"Test-Footage/Still-White/Frames" ofType:nil];
+    NSArray *filesStillWhite = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirStillWhiteFrames error: nil];
+
+    UIImage *img1, *img2;
+    
+    for (NSString *fileName in filesStillWhite) {
+        
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@", dirStillWhiteFrames, fileName];
+        img2 = [UIImage imageNamed:filePath];
+        
+        if (img1 != nil) {
+            // Process the difference
+            cv::Mat diff = [TVUtility differenceMatrixFrom:img2 Minus:img1];
+            NSMutableArray *bullets = [TVBulletSeekerAlgorithm getTVBulletCandidatesFromDiffMatrix:diff];
+            if (bullets.count > 0) {
+                NSLog(@"Found %lu bullets in diff matrix between %@ and %@", bullets.count, img1, img2);
+            }
+        }
+        
+        // Assign img1 to be the old frame in the next iteration
+        img1 = [img2 copy];
+        
+    }
+    
+}
+
+#pragma mark - Tests for Density Calculation
+
+- (void)testDensity {
     
     firstBullet = [TVBullet new];
     secondBullet = [TVBullet new];
@@ -81,35 +131,14 @@
     [fourthBullet addToArray:CGPointMake(2, 4)];
     [fourthBullet addToArray:CGPointMake(3, 3)];
     [arrDenseBullets addObject:fourthBullet];
+
     
     
-    // Load example images
-    img_target_0_bullets = [UIImage imageNamed:@"target-0-shots"];
-    img_target_1_bullet = [UIImage imageNamed:@"target-1-shot"];
-    img_target_2_bullets = [UIImage imageNamed:@"target-2-shots"];
-    img_target_3_bullets = [UIImage imageNamed:@"target-3-shots"];
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
-
-#pragma mark - Test for Density Calculation
-
--(void)testDensity {
     testArray = [TVBulletSeekerAlgorithm filterTVBulletsByDensity:arrDenseBullets];
     XCTAssertEqual(testArray.count, (NSUInteger)2, @"Array has wrong number of bullets, expected 0");
 }
 
-#pragma mark - Test for Adjacency/flooding calculation
+#pragma mark - Tests for Adjacency/flooding calculation
 
 - (void)testAdjacencyCalculation {
     
@@ -128,6 +157,12 @@
      (7) ...
      
      */
+    
+    // Load example images
+    img_target_0_bullets = [UIImage imageNamed:@"target-0-shots"];
+    img_target_1_bullet = [UIImage imageNamed:@"target-1-shot"];
+    img_target_2_bullets = [UIImage imageNamed:@"target-2-shots"];
+    img_target_3_bullets = [UIImage imageNamed:@"target-3-shots"];
     
     
     // (1) empty -> empty
