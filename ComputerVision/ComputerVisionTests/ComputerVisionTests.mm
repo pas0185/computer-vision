@@ -1,5 +1,5 @@
 //
-//  ComputerVisionTests.m
+//  ComputerVisionTests.mm
 //  ComputerVisionTests
 //
 //  Created by Patrick Sheehan on 5/28/15.
@@ -14,6 +14,14 @@
 
 @interface ComputerVisionTests : XCTestCase
 {
+    TVBullet* firstBullet;
+    TVBullet* secondBullet;
+    TVBullet* thirdBullet;
+    TVBullet* fourthBullet;
+    
+    NSMutableArray *arrDenseBullets;
+    NSArray *testArray;
+    
     UIImage *img_target_0_bullets;
     UIImage *img_target_1_bullet;
     UIImage *img_target_2_bullets;
@@ -28,25 +36,63 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     
+    firstBullet = [TVBullet new];
+    secondBullet = [TVBullet new];
+    thirdBullet = [TVBullet new];
+    fourthBullet = [TVBullet new];
+    
+    arrDenseBullets = [NSMutableArray new];
+    testArray = [NSArray new];
+    
+    //bullet
+    [firstBullet addToArray:CGPointMake(1, 2)];
+    [firstBullet addToArray:CGPointMake(2, 1)];
+    [firstBullet addToArray:CGPointMake(3, 2)];
+    [firstBullet addToArray:CGPointMake(2, 2)];
+    [firstBullet addToArray:CGPointMake(2, 3)];
+    [arrDenseBullets addObject:firstBullet];
+    
+    //squigly line
+    [secondBullet addToArray:CGPointMake(3, 5)];
+    [secondBullet addToArray:CGPointMake(3, 6)];
+    [secondBullet addToArray:CGPointMake(4, 4)];
+    [secondBullet addToArray:CGPointMake(5, 3)];
+    [secondBullet addToArray:CGPointMake(5, 4)];
+    [secondBullet addToArray:CGPointMake(6, 2)];
+    [arrDenseBullets addObject:secondBullet];
+    
+    //bullet
+    [thirdBullet addToArray:CGPointMake(5, 3)];
+    [thirdBullet addToArray:CGPointMake(5, 4)];
+    [thirdBullet addToArray:CGPointMake(5, 5)];
+    [thirdBullet addToArray:CGPointMake(5, 6)];
+    [thirdBullet addToArray:CGPointMake(6, 4)];
+    [thirdBullet addToArray:CGPointMake(6, 5)];
+    [thirdBullet addToArray:CGPointMake(6, 6)];
+    [arrDenseBullets addObject:thirdBullet];
+    
+    //squigly line
+    [fourthBullet addToArray:CGPointMake(0, 7)];
+    [fourthBullet addToArray:CGPointMake(1, 6)];
+    [fourthBullet addToArray:CGPointMake(1, 5)];
+    [fourthBullet addToArray:CGPointMake(1, 4)];
+    [fourthBullet addToArray:CGPointMake(1, 3)];
+    [fourthBullet addToArray:CGPointMake(2, 3)];
+    [fourthBullet addToArray:CGPointMake(2, 4)];
+    [fourthBullet addToArray:CGPointMake(3, 3)];
+    [arrDenseBullets addObject:fourthBullet];
+    
+    
     // Load example images
     img_target_0_bullets = [UIImage imageNamed:@"target-0-shots"];
     img_target_1_bullet = [UIImage imageNamed:@"target-1-shot"];
     img_target_2_bullets = [UIImage imageNamed:@"target-2-shots"];
     img_target_3_bullets = [UIImage imageNamed:@"target-3-shots"];
-    
-    // Convert images to matrices
-    //cv::Mat matrix_empty_target = [TVUtility cvMatFromUIImage:img_target_empty];
-    //cv::Mat matrix_one_bullet = [TVUtility cvMatFromUIImage:img_target_one_bullet];
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
 }
 
 - (void)testPerformanceExample {
@@ -56,25 +102,30 @@
     }];
 }
 
-#pragma mark - Meshach TODO - Test for Density Calculation
+#pragma mark - Test for Density Calculation
 
-#pragma mark - Patrick TODO - Test for Adjacency/flooding calculation
+-(void)testDensity {
+    testArray = [TVBulletSeekerAlgorithm filterTVBulletsByDensity:arrDenseBullets];
+    XCTAssertEqual(testArray.count, (NSUInteger)2, @"Array has wrong number of bullets, expected 0");
+}
+
+#pragma mark - Test for Adjacency/flooding calculation
 
 - (void)testAdjacencyCalculation {
     
     /* Five test cases identified below for the following changes to a target
-        Note that that diff matrix identifies only marginal changes (frame to frame)
-            eg. a target with 5 holes that is shot a 6th time should only register the 6th bullet
+     Note that that diff matrix identifies only marginal changes (frame to frame)
+     eg. a target with 5 holes that is shot a 6th time should only register the 6th bullet
      
-        (1) empty -> empty
-        (2) empty -> 1 bullet
-        (3) 1 bullet -> 1 bullet
-        (4) 1 bullet -> 2 bullets
-        (5) empty -> 2 bullets
+     (1) empty -> empty
+     (2) empty -> 1 bullet
+     (3) 1 bullet -> 1 bullet
+     (4) 1 bullet -> 2 bullets
+     (5) empty -> 2 bullets
      
-        TODO - Possible edge/error cases that are not yet handled
-        (6) n bullets -> n-1 bullets
-        (7) ...
+     TODO - Possible edge/error cases that are not yet handled
+     (6) n bullets -> n-1 bullets
+     (7) ...
      
      */
     
@@ -110,5 +161,7 @@
     NSLog(@"Finished fifth check! :)");
     
 }
+
+
 
 @end
