@@ -22,15 +22,22 @@
 
 //Adding Function
 - (void)addToArray:(CGPoint)point{
-    [self.pixelArray addObject:NSStringFromCGPoint(point)];
+    [self.pixelArray addObject:[NSValue valueWithCGPoint:point]];
 }
 
 //Contains function
 - (BOOL)containsPoint:(CGPoint)point{
+    
     for (int i = 0; i < self.pixelArray.count; i++) {
-        if (CGPointFromString([self.pixelArray objectAtIndex:i]).x == point.x && CGPointFromString([self.pixelArray objectAtIndex:i]).y == point.y) {
+        
+        CGPoint iPoint = [[self.pixelArray objectAtIndex:i] CGPointValue];
+        if (CGPointEqualToPoint(point, iPoint)) {
             return true;
         }
+        
+//        if (CGPointFromString([self.pixelArray objectAtIndex:i]).x == point.x && CGPointFromString([self.pixelArray objectAtIndex:i]).y == point.y) {
+//            return true;
+//        }
     }
     return false;
 }

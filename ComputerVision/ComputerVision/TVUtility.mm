@@ -48,6 +48,15 @@
     return cvMat;
 }
 
++ (BOOL)isPointPopulated:(CGPoint)position diffMatrix:(cv::Mat)diff
+{
+    if(diff.at<float>(position.x, position.y) != 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 
 @end

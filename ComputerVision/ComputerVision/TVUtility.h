@@ -15,4 +15,6 @@
 
 + (cv::Mat)cvMatFromUIImage:(UIImage *)image;
 
++ (BOOL)isPointPopulated:(CGPoint)position diffMatrix:(cv::Mat)diff;
+
 @end

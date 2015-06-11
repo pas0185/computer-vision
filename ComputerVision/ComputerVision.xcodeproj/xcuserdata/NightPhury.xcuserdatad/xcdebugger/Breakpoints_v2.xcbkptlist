@@ -2,4 +2,562 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionTests/ComputerVisionTests.mm"
+            timestampString = "455578920.568444"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-testAdjacencyCalculation"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.701068"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.701418"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.70161"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.701886"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1068">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.702131"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1884">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.702393"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1988">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionTests/ComputerVisionTests.mm"
+            timestampString = "455578921.602957"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-testAdjacencyCalculation"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.702641"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "1320">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.702914"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "1364">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.703127"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "1380">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.703364"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "3068">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.703616"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "3872">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.70388"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "3976">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionTests/ComputerVisionTests.mm"
+            timestampString = "455578922.267068"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-testAdjacencyCalculation"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.704174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "3312">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.704408"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "3352">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.704622"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "3368">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.704814"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "5056">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.704954"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "5872">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.705144"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "5976">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionTests/ComputerVisionTests.mm"
+            timestampString = "455578923.117041"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-testAdjacencyCalculation"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.705409"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "5308">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.705705"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "5352">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.705983"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "5368">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.706244"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "7056">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.706458"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "7872">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.706669"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "7976">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionTests/ComputerVisionTests.mm"
+            timestampString = "455578923.908877"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-testAdjacencyCalculation"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.706929"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "7308">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.707072"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "7352">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.707222"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "7368">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.707366"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "9056">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.70754"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "9260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComputerVisionTests testAdjacencyCalculation]"
+                  moduleName = "ComputerVisionTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/NightPhury/Desktop/Google%20Drive/Work/Seed%20Sumo/computer-vision/ComputerVision/ComputerVisionTests/ComputerVisionTests.mm"
+                  timestampString = "455666596.707717"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "9364">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVision/TVBulletSeekerAlgorithm.mm"
+            timestampString = "455666306.59843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "+getTVBulletCandidatesFromDiffMatrix:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
