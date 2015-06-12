@@ -11,6 +11,7 @@
 
 @interface TVBullet : NSObject
 
+// Maybe make this an NSSet instead
 @property (strong, nonatomic) NSMutableArray *pixelArray;
 
 

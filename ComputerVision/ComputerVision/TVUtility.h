@@ -17,4 +17,7 @@
 
 + (BOOL)isPointPopulated:(CGPoint)position diffMatrix:(cv::Mat)diff;
 
++ (BOOL)isPointVisited:(CGPoint)currPos inSet:(NSSet *)visitedPix;
+
+
 @end

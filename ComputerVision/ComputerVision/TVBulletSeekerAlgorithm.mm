@@ -27,41 +27,35 @@
     
     /* Tried to do cgpoint as a string and throws memory failure unlike nsvalue TOMORROW: Fix the ability. The program finds the pixels that are full so youre good there. Need to figure out the storage details.*/
     
-
-    if ([visited containsObject:[NSValue valueWithCGPoint:position]]) {
+    BOOL isPointVisited = [TVUtility isPointVisited:position inSet:visited];
+    if (isPointVisited) {
+        // If visited, already should have been processed. Terminate recursion
         return;
     }
     else{
+        // If unvisited, add it to the set and proceed with the algorithm
         visited = [visited setByAddingObject:[NSValue valueWithCGPoint:position]];
     }
+    
     
     //TODO: Check the out of bounds range of the MAT
     
     if([TVUtility isPointPopulated:position diffMatrix:diff]){
         
-        //If newBullet contains point then return
-        if ([newBullet containsPoint:position]) {
-            return;
-        }
+        // Add this point to the bullet and call FloodFill on its neighbors
+        [newBullet addToArray:position];
         
-        //Else add the point to the bullet and call floodFill again on the left, right, top and bottom pixels
-        else{
-            //Add the position of the pixel of a possible bullet
-            [newBullet addToArray:position];
-            
-            //Building adjacent points
-            CGPoint westPoint = CGPointMake(position.x - 1, position.y);
-            CGPoint eastPoint = CGPointMake(position.x + 1, position.y);
-            CGPoint northPoint = CGPointMake(position.x, position.y + 1);
-            CGPoint southPoint = CGPointMake(position.x, position.y - 1);
-            
-            //Recursively call FloodFill on all the surrounding areas of the intial point
-            
-            [TVBulletSeekerAlgorithm floodFill:westPoint andBullet:newBullet andDiffMat:diff andDictVisited:visited];
-            [TVBulletSeekerAlgorithm floodFill:eastPoint andBullet:newBullet andDiffMat:diff andDictVisited:visited];
-            [TVBulletSeekerAlgorithm floodFill:northPoint andBullet:newBullet andDiffMat:diff andDictVisited:visited];
-            [TVBulletSeekerAlgorithm floodFill:southPoint andBullet:newBullet andDiffMat:diff andDictVisited:visited];
-        }
+        // Building adjacent points
+        CGPoint westPoint = CGPointMake(position.x - 1, position.y);
+        CGPoint eastPoint = CGPointMake(position.x + 1, position.y);
+        CGPoint northPoint = CGPointMake(position.x, position.y + 1);
+        CGPoint southPoint = CGPointMake(position.x, position.y - 1);
+        
+        //Recursively call FloodFill on all the surrounding areas of the intial point
+        [TVBulletSeekerAlgorithm floodFill:westPoint andBullet:newBullet andDiffMat:diff andDictVisited:visited];
+        [TVBulletSeekerAlgorithm floodFill:eastPoint andBullet:newBullet andDiffMat:diff andDictVisited:visited];
+        [TVBulletSeekerAlgorithm floodFill:northPoint andBullet:newBullet andDiffMat:diff andDictVisited:visited];
+        [TVBulletSeekerAlgorithm floodFill:southPoint andBullet:newBullet andDiffMat:diff andDictVisited:visited];
     }
     
 }
@@ -75,32 +69,68 @@
      all 'blobs' using an adjacency algorithm and converts them to TVBullets
      and returns all of them in an NSArray
      */
+
+    cv::Mat copyMatrix = diff.clone();
+
     NSMutableArray *arrBullets = [[NSMutableArray alloc] init];
+    
+    if (copyMatrix.data == nil) {
+        NSLog(@"Sorry, the differential matrix data is nil");
+        
+        return arrBullets;
+    }
+    
+    if (copyMatrix.empty()) {
+        NSLog(@"The diff matrix is empty");
+        return arrBullets;
+    }
+    
+    
+
     NSSet *visitedPix = [[NSSet alloc] init];
     
-    cv::Mat copyMatrix = diff.clone();
     
-    for (int i = 0; i < diff.rows; i++) {
-        for (int j = 0; j < diff.cols; j++) {
+    for (int i = 0; i < copyMatrix.rows; i++) {
+        for (int j = 0; j < copyMatrix.cols; j++) {
             
             CGPoint currPos = CGPointMake(i, j);
             
-            
-            
-            visitedPix = [visitedPix setByAddingObject:[NSValue valueWithCGPoint:currPos]];
+            BOOL isPointVisited = [TVUtility isPointVisited:currPos inSet:visitedPix];
+            if (!isPointVisited) {
+                // If point has not been visited yet
+//                NSLog(@"(%d, %d) had not been visited yet", i, j);
+                
+                
+                // Add this point to the set of visited points
+                visitedPix = [visitedPix setByAddingObject:[NSValue valueWithCGPoint:currPos]];
+                
+                
+                BOOL isPopulated = [TVUtility isPointPopulated:currPos diffMatrix:copyMatrix];
+                if (isPopulated) {
+                    // If the unvisited point is populated
+                    NSLog(@"(%d, %d) is unvisited and populated, start FloodFill algorithm", i, j);
+                    
+                    TVBullet *newBullet = [TVBullet new];
+                    [TVBulletSeekerAlgorithm floodFill:currPos andBullet:newBullet andDiffMat:copyMatrix andDictVisited:visitedPix];
+                    [arrBullets addObject:newBullet];
+                }
+                
+            }
             
             
             //TODO: Create a helper function that iterates through the set and returns a bool
-            if(![visitedPix containsObject:[NSValue valueWithCGPoint:currPos]]
-               && [TVUtility isPointPopulated:currPos diffMatrix:diff]){
-                //At an unvisited populated point
-                TVBullet *newBullet = [TVBullet new];
-                [TVBulletSeekerAlgorithm floodFill:currPos andBullet:newBullet andDiffMat:diff andDictVisited:visitedPix];
-                [arrBullets addObject:newBullet];
-                
-                NSLog(@"Inside the if statement in the function.");
-                break;
-            }
+//            if(![visitedPix containsObject:[NSValue valueWithCGPoint:currPos]]
+//               && [TVUtility isPointPopulated:currPos diffMatrix:diff]){
+//                
+//                
+//                //At an unvisited populated point
+//                TVBullet *newBullet = [TVBullet new];
+//                [TVBulletSeekerAlgorithm floodFill:currPos andBullet:newBullet andDiffMat:diff andDictVisited:visitedPix];
+//                [arrBullets addObject:newBullet];
+//                
+//                NSLog(@"Inside the if statement in the function.");
+//                break;
+//            }
         }
     }
     return arrBullets;

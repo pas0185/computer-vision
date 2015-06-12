@@ -50,12 +50,35 @@
 
 + (BOOL)isPointPopulated:(CGPoint)position diffMatrix:(cv::Mat)diff
 {
-    if(diff.at<float>(position.x, position.y) != 0){
-        return true;
-    }
-    else{
+    if (diff.rows <= position.x
+        || diff.rows < 0
+        || diff.cols <= position.y
+        || diff.cols < 0)
+    {
         return false;
     }
+    
+    else if(diff.at<float>(position.x, position.y) != 0){ // TODO: something besides 0
+        // Index in range, check if populated
+        return true;
+    }
+    
+    return false;
+    
+}
+
++ (BOOL)isPointVisited:(CGPoint)currPos inSet:(NSSet *)visitedPix {
+
+    for (NSValue *val in visitedPix) {
+        if ([val respondsToSelector:@selector(CGPointValue)]) {
+            CGPoint point = [val CGPointValue];
+            if (CGPointEqualToPoint(currPos, point)) {
+                return true;
+            }
+        }
+    }
+    
+    return false;
 }
 
 

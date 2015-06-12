@@ -41,6 +41,13 @@
 //    [self testTargetDifference];
 }
 
+- (void)didReceiveMemoryWarning {
+    
+    [super didReceiveMemoryWarning];
+    
+    
+    
+}
 #pragma mark - User Controls
 
 - (IBAction)snapPrevious:(id)sender {
