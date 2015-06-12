@@ -11,6 +11,9 @@
 #import "TVBulletSeekerAlgorithm.h"
 #import "TVUtility.h"
 
+#define IMAGE_A @"scene00451"
+#define IMAGE_B @"scene00931"
+
 @interface TVPageViewController ()
 
 @property BOOL pageAnimationFinished;
@@ -23,99 +26,6 @@
 
 @implementation TVPageViewController
 
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    
-    NSUInteger index = [(TVContentViewController *)viewController indexNumber];
-    _currentPage--;
-    
-    if (index == 0) {
-        return nil;
-    }
-    
-    index--;
-    
-    return [self viewControllerAtIndex:index];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    
-    NSUInteger index = [(TVContentViewController *)viewController indexNumber];
-    _currentPage++;
-    index++;
-    
-    if (index == 3) {
-        return nil;
-    }
-    
-    return [self viewControllerAtIndex:index];
-}
-
-- (TVContentViewController *)viewControllerAtIndex:(NSUInteger)index {
-
-//    _currentPage = index;
-    NSLog(@"Requesting index #%lu", index);
-    NSLog(@"Current page is %lu", _currentPage);
-    
-    
-    return self.contentViewControllers[_currentPage];
-    
-}
-
-
-- (void)initializeContentViews {
-    
-    self.contentViewControllers = [NSMutableArray new];
-    
-    UIImage *image1 = [UIImage imageNamed:@"target-0-shots"];
-    UIImage *image2 = [UIImage imageNamed:@"target-1-shot"];
-    UIImage *image3 = [UIImage imageNamed:@"target-2-shots"];
-
-    self.contentView1 = [[TVContentViewController alloc] initWithImage:image1 Index:0];
-    self.contentView2 = [[TVContentViewController alloc] initWithImage:image2 Index:1];
-    self.contentView3 = [[TVContentViewController alloc] initWithImage:image3 Index:2];
-    
-    [self.contentViewControllers addObject:self.contentView1];
-    [self.contentViewControllers addObject:self.contentView2];
-    [self.contentViewControllers addObject:self.contentView3];
-    
-    
-    _minimumPage = 0;
-    _currentPage = 0;
-    _maximumPage = 2;
-    
-//    [self performBulletCalculationWithFirst:image1 Second:image2 ToContentView:self.contentView3];
-    
-    
-    
-    
-    TVContentViewController *viewControllerObject = [self viewControllerAtIndex:0];
-
-    NSArray *viewControllers = [NSArray arrayWithObject:viewControllerObject];
-
-    [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-
-    
-}
-
-- (void)performBulletCalculationWithFirst:(UIImage *)image1 Second:(UIImage *)image2 ToContentView:(TVContentViewController *)contentView {
-
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void){
-        
-        NSLog(@"About to calculate diff image");
-        UIImage *diffImage = [TVUtility differenceImageFrom:image1 Minus:image2];
-
-        NSLog(@"Finished calculating diff image");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            NSLog(@"About to load diff image to content view");
-            [contentView loadImage:diffImage];
-            NSLog(@"Finished loading diff image to content view");
-        });
-    });
-    
-    
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -136,59 +46,96 @@
     }
     
     _pageAnimationFinished = YES;
-
+    
 }
 
--(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
+- (void)initializeContentViews {
     
-    NSLog(@"Should gesture recognizer begin...?");
-    if (_pageAnimationFinished) {
-        
-        NSLog(@"...Yup! Page animation is finished");
-
-        _pageAnimationFinished = NO;
-        return YES;
-    }
+    self.contentViewControllers = [NSMutableArray new];
     
-    NSLog(@"...Nope! Page animation not finished");
-
-    return NO;
+    UIImage *image1 = [UIImage imageNamed:IMAGE_A];
+    UIImage *image2 = [UIImage imageNamed:IMAGE_B];
+    
+    self.contentView1 = [[TVContentViewController alloc] initWithImage:image1 Index:0];
+    self.contentView2 = [[TVContentViewController alloc] initWithImage:image2 Index:1];
+    self.contentView3 = [[TVContentViewController alloc] initWithImage:nil Index:2];
+    
+    [self.contentViewControllers addObject:self.contentView1];
+    [self.contentViewControllers addObject:self.contentView2];
+    [self.contentViewControllers addObject:self.contentView3];
     
     
-//    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]
-//        && ([gestureRecognizer.view isEqual:self.view]
-//            || [gestureRecognizer.view isEqual:self.view]))
-//    {
-//        UIPanGestureRecognizer * panGes = (UIPanGestureRecognizer *)gestureRecognizer;
-//        if (!_pageAnimationFinished) {
-//            return NO;
-//        }
-////        if(!_pageAnimationFinished || (_currentPage < _minimumPage && [panGes velocityInView:self.view].x < 0) || (_currentPage > _maximumPage && [panGes velocityInView:self.view].x > 0))
-////            return NO;
-//        _pageAnimationFinished = NO;
-//    }
-//    return YES;
-}
-
-- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
+    _minimumPage = 0;
+    _currentPage = 0;
+    _maximumPage = 2;
     
-    NSLog(@"Page animation started");
-    _pageAnimationFinished = NO;
-}
-
-- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
-{
-    NSLog(@"Page animation finished");
-    _pageAnimationFinished = YES;
+    [self performBulletCalculationWithFirst:image1 Second:image2 ToContentView:self.contentView3];
+    
+    
+    TVContentViewController *viewControllerObject = [self viewControllerAtIndex:0];
+    
+    NSArray *viewControllers = [NSArray arrayWithObject:viewControllerObject];
+    
+    [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    
+    if (_currentPage == _minimumPage) {
+        return nil;
+    }
+    
+    _currentPage--;
+    
+    return [self viewControllerAtIndex:_currentPage];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    
+    if (_currentPage == _maximumPage) {
+        return nil;
+    }
+    _currentPage++;
+
+    return [self viewControllerAtIndex:_currentPage];
+}
+
+- (TVContentViewController *)viewControllerAtIndex:(NSUInteger)index {
+
+    NSLog(@"Requesting index #%lu", index);
+    
+    return self.contentViewControllers[index];
+    
+}
+
+
+- (void)performBulletCalculationWithFirst:(UIImage *)image1 Second:(UIImage *)image2 ToContentView:(TVContentViewController *)contentView {
+
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void){
+        
+        NSLog(@"About to calculate diff image");
+        UIImage *diffImage = [TVUtility differenceImageFrom:image1 Minus:image2];
+
+        NSLog(@"Finished calculating diff image");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSLog(@"About to load diff image to content view");
+            [contentView loadImage:diffImage];
+            NSLog(@"Finished loading diff image to content view");
+        });
+    });
+    
+    
+}
+
 
 
 @end

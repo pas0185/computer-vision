@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1518AC001B2A953D00C144F2 /* scene00451.png in Resources */ = {isa = PBXBuildFile; fileRef = 1518ABFE1B2A953D00C144F2 /* scene00451.png */; };
+		1518AC011B2A953D00C144F2 /* scene00931.png in Resources */ = {isa = PBXBuildFile; fileRef = 1518ABFF1B2A953D00C144F2 /* scene00931.png */; };
 		1546900F1B17B80800E9062A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1546900E1B17B80800E9062A /* main.m */; };
 		154690121B17B80800E9062A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690111B17B80800E9062A /* AppDelegate.m */; };
 		154690151B17B80800E9062A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690141B17B80800E9062A /* ViewController.mm */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1518ABFE1B2A953D00C144F2 /* scene00451.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene00451.png; path = "Still-White-Frames/scene00451.png"; sourceTree = "<group>"; };
+		1518ABFF1B2A953D00C144F2 /* scene00931.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene00931.png; path = "Still-White-Frames/scene00931.png"; sourceTree = "<group>"; };
 		154690091B17B80800E9062A /* ComputerVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComputerVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1546900D1B17B80800E9062A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1546900E1B17B80800E9062A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				15E8C3941B1E493700030DB2 /* Headers.h */,
 				154690711B1CFF2800E9062A /* TVBullet.h */,
 				154690721B1CFF2800E9062A /* TVBullet.mm */,
+				1518ABFE1B2A953D00C144F2 /* scene00451.png */,
+				1518ABFF1B2A953D00C144F2 /* scene00931.png */,
 				154690191B17B80800E9062A /* Images.xcassets */,
 				1546900C1B17B80800E9062A /* Supporting Files */,
 				159235721B2A6F8F00D5B2AC /* TVPageViewController.h */,
@@ -302,8 +308,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1569CFE51B274EAF00D03FD3 /* target-3-shots.png in Resources */,
+				1518AC001B2A953D00C144F2 /* scene00451.png in Resources */,
 				1569CFE31B274EAF00D03FD3 /* target-1-shot.png in Resources */,
 				1569CFE41B274EAF00D03FD3 /* target-2-shots.png in Resources */,
+				1518AC011B2A953D00C144F2 /* scene00931.png in Resources */,
 				154690181B17B80800E9062A /* Main.storyboard in Resources */,
 				1592356E1B2A2E1D00D5B2AC /* Still-White-Frames in Resources */,
 				1569CFE21B274EAF00D03FD3 /* target-0-shots.png in Resources */,
