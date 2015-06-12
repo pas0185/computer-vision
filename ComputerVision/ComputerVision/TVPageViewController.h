@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TVPageViewController : UIPageViewController<UIPageViewControllerDataSource>
+@class TVContentViewController;
 
+@interface TVPageViewController : UIPageViewController<UIPageViewControllerDataSource, UIGestureRecognizerDelegate, UIPageViewControllerDelegate>
 
+@property (strong, nonatomic) TVContentViewController *contentView1;
+@property (strong, nonatomic) TVContentViewController *contentView2;
+@property (strong, nonatomic) TVContentViewController *contentView3;
+
+@property (strong, nonatomic) NSMutableArray *contentViewControllers;
 @end

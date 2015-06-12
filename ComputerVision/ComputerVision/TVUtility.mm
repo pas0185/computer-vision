@@ -10,6 +10,14 @@
 
 @implementation TVUtility
 
++ (UIImage *)differenceImageFrom:(UIImage *)img1 Minus:(UIImage *)img2 {
+    
+    cv::Mat diff = [TVUtility differenceMatrixFrom:img1 Minus:img2];
+    return [TVUtility UIImageFromCVMat:diff];
+}
+
+
+
 /* Computes the difference matrix that represents the marginal from img1 to img2
     i.e. result = img1 - img2
  */
@@ -47,6 +55,45 @@
     
     return cvMat;
 }
+
++ (UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
+{
+    NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
+    CGColorSpaceRef colorSpace;
+    
+    if (cvMat.elemSize() == 1) {
+        colorSpace = CGColorSpaceCreateDeviceGray();
+    } else {
+        colorSpace = CGColorSpaceCreateDeviceRGB();
+    }
+    
+    
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+    
+    // Creating CGImage from cv::Mat
+    CGImageRef imageRef = CGImageCreate(cvMat.cols,                                 //width
+                                        cvMat.rows,                                 //height
+                                        8,                                          //bits per component
+                                        8 * cvMat.elemSize(),                       //bits per pixel
+                                        cvMat.step[0],                              //bytesPerRow
+                                        colorSpace,                                 //colorspace
+                                        kCGImageAlphaNone|kCGBitmapByteOrderDefault,// bitmap info
+                                        provider,                                   //CGDataProviderRef
+                                        NULL,                                       //decode
+                                        false,                                      //should interpolate
+                                        kCGRenderingIntentDefault                   //intent
+                                        );
+    
+    
+    // Getting UIImage from CGImage
+    UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    CGDataProviderRelease(provider);
+    CGColorSpaceRelease(colorSpace);
+    
+    return finalImage;
+}
+
 
 + (BOOL)isPointPopulated:(CGPoint)position diffMatrix:(cv::Mat)diff
 {

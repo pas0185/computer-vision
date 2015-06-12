@@ -15,9 +15,35 @@
 
 @implementation TVContentViewController
 
+- (id)initWithImage:(UIImage *)image Index:(NSUInteger)index {
+    
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        
+        self.contentImageView = [[UIImageView alloc] initWithImage:image];
+        self.contentImageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self setView:self.contentImageView];
+
+        
+        return self;
+    }
+    
+    return nil;
+}
+
+- (void)loadImage:(UIImage *)image {
+    
+    [self.contentImageView setImage:image];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+//    self.contentImageView = [[UIImageView alloc] initWithImage:nil];
+//    self.contentImageView.contentMode = UIViewContentModeScaleAspectFit;
+//    [self setView:self.contentImageView];
+    
 }
 
 - (void)didReceiveMemoryWarning {

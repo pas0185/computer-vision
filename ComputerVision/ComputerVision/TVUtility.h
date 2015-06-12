@@ -11,9 +11,15 @@
 
 @interface TVUtility : NSObject
 
+
++ (UIImage *)differenceImageFrom:(UIImage *)img1 Minus:(UIImage *)img2;
+
+
 + (cv::Mat)differenceMatrixFrom:(UIImage *)img1 Minus:(UIImage *)img2;
 
 + (cv::Mat)cvMatFromUIImage:(UIImage *)image;
+
++ (UIImage *)UIImageFromCVMat:(cv::Mat)cvMat;
 
 + (BOOL)isPointPopulated:(CGPoint)position diffMatrix:(cv::Mat)diff;
 
