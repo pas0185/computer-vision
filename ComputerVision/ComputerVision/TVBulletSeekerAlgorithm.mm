@@ -16,6 +16,39 @@
 
 @implementation TVBulletSeekerAlgorithm
 
+
++ (cv::Mat)binaryMatrix:(UIImage *)image {
+    
+    cv::Mat imageMat = [TVUtility cvMatFromUIImage:image];
+//    cv::Mat imageMat = cv::imread(argv[1], CV_LOAD_IMAGE_COLOR);
+    
+    if (imageMat.empty())
+    {
+        NSLog(@"ERROR: Could not read image");
+        return imageMat;
+    }
+    
+    //Grayscale matrix
+    cv::Mat grayscaleMat (imageMat.size(), CV_8U);
+    
+    //Convert BGR to Gray
+    cv::cvtColor( imageMat, grayscaleMat, CV_BGR2GRAY );
+    
+    //Binary image
+    cv::Mat binaryMat(grayscaleMat.size(), grayscaleMat.type());
+    
+    //Apply thresholding
+    cv::threshold(grayscaleMat, binaryMat, 100, 255, cv::THRESH_BINARY);
+    
+    
+    return binaryMat;
+    
+}
+
+
+
+
+
 + (void)otherFF:(cv::Mat &)modifiableMatrix {
  
     // I can change this matrix's values

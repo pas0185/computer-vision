@@ -17,6 +17,9 @@ using namespace cv;
 
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *fullImageView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPrevious;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewCurrent;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewDifference;

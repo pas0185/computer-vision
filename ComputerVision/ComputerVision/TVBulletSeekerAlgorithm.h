@@ -18,6 +18,8 @@
 + (NSArray *)filterTVBulletsByDensity:(NSArray *)tvBullets;
 
 
++ (cv::Mat)binaryMatrix:(UIImage*)image;
+
 
 
 @end

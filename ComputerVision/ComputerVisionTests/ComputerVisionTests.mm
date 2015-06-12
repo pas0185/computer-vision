@@ -134,6 +134,19 @@
 
 #pragma mark - Tests for Adjacency/flooding calculation
 
+- (void)testMuchSimpler {
+    
+    UIImage *img_target_0_bullets = [UIImage imageNamed:@"target-0-shots"];
+    UIImage *img_target_1_bullet = [UIImage imageNamed:@"target-1-shot"];
+    
+    cv::Mat m0 = [TVBulletSeekerAlgorithm binaryMatrix:img_target_0_bullets];
+    cv::Mat m1 = [TVBulletSeekerAlgorithm binaryMatrix:img_target_1_bullet];
+
+    cv::Mat diff = m1 - m0;
+    
+//    
+    
+}
 - (void)testAdjacencyCalculation {
     
     /* Five test cases identified below for the following changes to a target

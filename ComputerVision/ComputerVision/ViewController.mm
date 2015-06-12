@@ -16,27 +16,30 @@
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
+    
     //Set up the Previous Camera settings
-    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:self.imageViewPrevious];
-    self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
-    self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
-    self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
-    
-    self.videoCamera.defaultFPS = 10;
-    self.videoCamera.grayscaleMode = NO;
-    
-    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:nil];
-    self.videoCamera.delegate = self;
-    
-    self.m1Running = TRUE;
-    self.m2Running = TRUE;
+//    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:self.imageViewPrevious];
+//    self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
+//    self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
+//    self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
+//    
+//    self.videoCamera.defaultFPS = 10;
+//    self.videoCamera.grayscaleMode = NO;
+//    
+//    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:nil];
+//    self.videoCamera.delegate = self;
+//    
+//    self.m1Running = TRUE;
+//    self.m2Running = TRUE;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.videoCamera start];
+//    [self.videoCamera start];
     
 //    [self testTargetDifference];
 }
@@ -45,9 +48,8 @@
     
     [super didReceiveMemoryWarning];
     
-    
-    
 }
+
 #pragma mark - User Controls
 
 - (IBAction)snapPrevious:(id)sender {
