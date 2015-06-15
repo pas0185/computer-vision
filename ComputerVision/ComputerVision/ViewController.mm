@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "cap_ios.h"
 
 #define IMAGE_A @"target-0-shots.png"
 #define IMAGE_B @"target-2-shots.png"
@@ -16,8 +17,7 @@ using namespace cv;
 
 @interface ViewController ()
 {
-    cv::Mat m1, m2;
-
+    Mat m1, m2;
     CvVideoCamera *videoCamera;
 }
 
@@ -29,59 +29,7 @@ using namespace cv;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    UIImage *image1 = [UIImage imageNamed:IMAGE_A];
-    UIImage *image2 = [UIImage imageNamed:IMAGE_B];
-    
-    
-    /**************************************/
-    /************* SUBTRACTOR *************/
-    /**************************************/
-    GPUImagePicture *mainPicture = [[GPUImagePicture alloc] initWithImage:image1];
-    GPUImagePicture *topPicture = [[GPUImagePicture alloc] initWithImage:image2];
-    
-    GPUImageDifferenceBlendFilter *differenceFilter = [[GPUImageDifferenceBlendFilter alloc] init];
-    
-    // Add both pictures to the Difference Blend Filter
-    [mainPicture addTarget:differenceFilter];
-    [topPicture addTarget:differenceFilter];
-    /**************************************/
-    /**************************************/
-    
-    
-    
-    /**************************************/
-    /********** GAUSSIAN FILTER ***********/
-    /**************************************/
-    GPUImageGaussianBlurFilter *gaussianFilter = [[GPUImageGaussianBlurFilter alloc] init];
-    
-    [differenceFilter addTarget:gaussianFilter];
-    
-    [gaussianFilter useNextFrameForImageCapture];
-    /**************************************/
-    /**************************************/
-    
-    
-    
-    /**************************************/
-    /******* HISTOGRAM THRESHOLDING *******/
-    /**************************************/
-    
-    
-    
-    /**************************************/
-    /**************************************/
-    
-    [mainPicture processImage];
-    [topPicture processImage];
-    
-    
-    UIImage *gaussianImage = [gaussianFilter imageFromCurrentFramebuffer];
-
-    
-    
-    
-    
+    [[TVVideoProcessor sharedInstance] TVBulletsFromImage:[UIImage imageNamed:IMAGE_B]];
     
 
 //    cv::Mat src_gray;

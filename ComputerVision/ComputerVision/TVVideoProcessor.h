@@ -10,7 +10,9 @@
 
 @interface TVVideoProcessor : NSObject
 
++ (id)sharedInstance;
 
-
+- (void)setTemplateImage:(UIImage *)image;
+- (NSArray *)TVBulletsFromImage:(UIImage *)image;
 
 @end

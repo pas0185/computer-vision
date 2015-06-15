@@ -9,11 +9,11 @@
 #ifndef ComputerVision_ComputerVision_prefix_pch
 #define ComputerVision_ComputerVision_prefix_pch
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 #ifdef __cplusplus
 #include <opencv2/opencv.hpp>
 #endif
-
-#import "cap_ios.h"
-#import "GPUImage.h"
 
 #endif

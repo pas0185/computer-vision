@@ -122,7 +122,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				156F48B01B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a in Frameworks */,
 				1518AC171B2CCDCC00C144F2 /* OpenGLES.framework in Frameworks */,
 				154690671B1CFAA600E9062A /* CoreVideo.framework in Frameworks */,
 				154690641B1CFA8B00E9062A /* AVFoundation.framework in Frameworks */,
@@ -130,6 +129,7 @@
 				154690621B1CFA7C00E9062A /* Accelerate.framework in Frameworks */,
 				1546903D1B17BBE200E9062A /* CoreGraphics.framework in Frameworks */,
 				154690651B1CFA9200E9062A /* CoreImage.framework in Frameworks */,
+				156F48B01B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a in Frameworks */,
 				CBD582DF1B1D195100895878 /* opencv2.framework in Frameworks */,
 				154690661B1CFA9D00E9062A /* CoreMedia.framework in Frameworks */,
 				154690681B1CFAAE00E9062A /* QuartzCore.framework in Frameworks */,
@@ -172,8 +172,6 @@
 		1518AC031B2B366600C144F2 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				1518AC061B2CCBC300C144F2 /* TVVideoProcessor.h */,
-				1518AC071B2CCBC300C144F2 /* TVVideoProcessor.mm */,
 				1569CFDA1B2742F300D03FD3 /* TVUtility.h */,
 				1569CFDB1B2742F300D03FD3 /* TVUtility.mm */,
 				15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */,
@@ -214,6 +212,8 @@
 		1546900B1B17B80800E9062A /* ComputerVision */ = {
 			isa = PBXGroup;
 			children = (
+				1518AC061B2CCBC300C144F2 /* TVVideoProcessor.h */,
+				1518AC071B2CCBC300C144F2 /* TVVideoProcessor.mm */,
 				15E8C3941B1E493700030DB2 /* Headers.h */,
 				156F48AB1B2E4EA200DF5246 /* ComputerVision-prefix.pch */,
 				1518AD0C1B2CF08000C144F2 /* TVBulletManager.h */,
