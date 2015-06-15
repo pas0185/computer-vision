@@ -25,5 +25,6 @@
 
 + (BOOL)isPointVisited:(CGPoint)currPos inSet:(NSSet *)visitedPix;
 
++ (cv::Mat)binaryMatrix:(UIImage*)image;
 
 @end

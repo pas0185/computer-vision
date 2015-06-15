@@ -12,12 +12,16 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-#ifdef __cplusplus
-#import <opencv2/opencv.hpp>
-#endif
+//#ifdef __cplusplus
+//#import <opencv2/opencv.hpp>
+//#endif
 
-#import <opencv2/videoio/cap_ios.h>
+//#import <opencv2/videoio/cap_ios.h>
 
 #import "TVBullet.h"
+#import "TVUtility.h"
+
+#import "GPUImage.h"
+
 
 #endif

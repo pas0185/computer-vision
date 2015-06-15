@@ -13,9 +13,11 @@
 + (UIImage *)differenceImageFrom:(UIImage *)img1 Minus:(UIImage *)img2 {
     
     cv::Mat diff = [TVUtility differenceMatrixFrom:img1 Minus:img2];
+    
+    // Extract points non-zero
+    
     return [TVUtility UIImageFromCVMat:diff];
 }
-
 
 
 /* Computes the difference matrix that represents the marginal from img1 to img2
@@ -105,6 +107,7 @@
         return false;
     }
     
+    
     else if(diff.at<float>(position.x, position.y) != 0){ // TODO: something besides 0
         // Index in range, check if populated
         return true;
@@ -127,6 +130,37 @@
     
     return false;
 }
+
+
++ (cv::Mat)binaryMatrix:(UIImage *)image {
+    
+    cv::Mat imageMat = [TVUtility cvMatFromUIImage:image];
+    //    cv::Mat imageMat = cv::imread(argv[1], CV_LOAD_IMAGE_COLOR);
+    
+    if (imageMat.empty())
+    {
+        NSLog(@"ERROR: Could not read image");
+        return imageMat;
+    }
+    
+    //Grayscale matrix
+    cv::Mat grayscaleMat (imageMat.size(), CV_8U);
+    
+    //Convert BGR to Gray
+    cv::cvtColor( imageMat, grayscaleMat, CV_BGR2GRAY );
+    
+    //Binary image
+    cv::Mat binaryMat(grayscaleMat.size(), grayscaleMat.type());
+    
+    //Apply thresholding
+    cv::threshold(grayscaleMat, binaryMat, 100, 255, cv::THRESH_BINARY);
+    
+    
+    return binaryMat;
+    
+}
+
+
 
 
 @end

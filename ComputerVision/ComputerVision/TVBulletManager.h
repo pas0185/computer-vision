@@ -6,8 +6,15 @@
 //  Copyright (c) 2015 Sheehan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "Headers.h"
 
 @interface TVBulletManager : NSObject
+
++ (id)sharedManager;
+
+- (void)addTemplateFrame:(GPUImagePicture *)frame;
+
+- (void)addNewFrame:(GPUImagePicture *)frame;
+
 
 @end

@@ -8,9 +8,18 @@
 
 #import "ViewController.h"
 
+#define IMAGE_A @"target-0-shots.png"
+#define IMAGE_B @"target-2-shots.png"
+
+
+using namespace cv;
 
 @interface ViewController ()
+{
+    cv::Mat m1, m2;
 
+    CvVideoCamera *videoCamera;
+}
 
 @end
 
@@ -20,7 +29,95 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    UIImage *image1 = [UIImage imageNamed:IMAGE_A];
+    UIImage *image2 = [UIImage imageNamed:IMAGE_B];
+    
+    
+    /**************************************/
+    /************* SUBTRACTOR *************/
+    /**************************************/
+    GPUImagePicture *mainPicture = [[GPUImagePicture alloc] initWithImage:image1];
+    GPUImagePicture *topPicture = [[GPUImagePicture alloc] initWithImage:image2];
+    
+    GPUImageDifferenceBlendFilter *differenceFilter = [[GPUImageDifferenceBlendFilter alloc] init];
+    
+    // Add both pictures to the Difference Blend Filter
+    [mainPicture addTarget:differenceFilter];
+    [topPicture addTarget:differenceFilter];
+    /**************************************/
+    /**************************************/
+    
+    
+    
+    /**************************************/
+    /********** GAUSSIAN FILTER ***********/
+    /**************************************/
+    GPUImageGaussianBlurFilter *gaussianFilter = [[GPUImageGaussianBlurFilter alloc] init];
+    
+    [differenceFilter addTarget:gaussianFilter];
+    
+    [gaussianFilter useNextFrameForImageCapture];
+    /**************************************/
+    /**************************************/
+    
+    
+    
+    /**************************************/
+    /******* HISTOGRAM THRESHOLDING *******/
+    /**************************************/
+    
+    
+    
+    /**************************************/
+    /**************************************/
+    
+    [mainPicture processImage];
+    [topPicture processImage];
+    
+    
+    UIImage *gaussianImage = [gaussianFilter imageFromCurrentFramebuffer];
 
+    
+    
+    
+    
+    
+
+//    cv::Mat src_gray;
+//    int thresh = 20;
+//    int max_thresh = 255;
+//    RNG rng(12345);
+//    cv::Mat src = [self cvMatFromUIImage:gaussianImage];
+//    
+//    /// Convert image to gray and blur it
+//    cvtColor( src, src_gray, CV_BGR2GRAY );
+//    blur( src_gray, src_gray, cv::Size(3,3) );
+//    
+//    
+//    Mat canny_output;
+//    std::vector<std::vector<cv::Point> > contours;
+//    std::vector<Vec4i> hierarchy;
+//    
+//    /// Detect edges using canny
+//    cv::Canny( src_gray, canny_output, thresh, thresh*2, 3 );
+//    /// Find contours
+//    findContours( canny_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0) );
+//    
+//    /// Draw contours
+//    Mat drawing = Mat::zeros( canny_output.size(), CV_8UC3 );
+//    for( int i = 0; i< contours.size(); i++ )
+//    {
+//        Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+//        drawContours( drawing, contours, i, color, 2, 8, hierarchy, 0, cv::Point() );
+//    }
+//    
+//    
+//    UIImage *contourImages = [self UIImageFromCVMat:drawing];
+
+    
+    
+    
     
     //Set up the Previous Camera settings
 //    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:self.imageViewPrevious];

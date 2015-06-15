@@ -13,48 +13,8 @@
 #define FOUND_INDICATOR 1
 
 
-
 @implementation TVBulletSeekerAlgorithm
 
-
-+ (cv::Mat)binaryMatrix:(UIImage *)image {
-    
-    cv::Mat imageMat = [TVUtility cvMatFromUIImage:image];
-//    cv::Mat imageMat = cv::imread(argv[1], CV_LOAD_IMAGE_COLOR);
-    
-    if (imageMat.empty())
-    {
-        NSLog(@"ERROR: Could not read image");
-        return imageMat;
-    }
-    
-    //Grayscale matrix
-    cv::Mat grayscaleMat (imageMat.size(), CV_8U);
-    
-    //Convert BGR to Gray
-    cv::cvtColor( imageMat, grayscaleMat, CV_BGR2GRAY );
-    
-    //Binary image
-    cv::Mat binaryMat(grayscaleMat.size(), grayscaleMat.type());
-    
-    //Apply thresholding
-    cv::threshold(grayscaleMat, binaryMat, 100, 255, cv::THRESH_BINARY);
-    
-    
-    return binaryMat;
-    
-}
-
-
-
-
-
-+ (void)otherFF:(cv::Mat &)modifiableMatrix {
- 
-    // I can change this matrix's values
-    
-    modifiableMatrix.at<double>(4,4) = FOUND_INDICATOR;
-}
 
 + (void)floodFill:(CGPoint)position andBullet:(TVBullet *)newBullet andDiffMat:(cv::Mat)diff andDictVisited:(NSSet *)visited {
     
@@ -93,8 +53,6 @@
     
 }
 
-
-
 + (NSMutableArray *)getTVBulletCandidatesFromDiffMatrix:(cv::Mat)diff {
 
     /* 
@@ -104,8 +62,29 @@
      */
 
     cv::Mat copyMatrix = diff.clone();
-
     NSMutableArray *arrBullets = [[NSMutableArray alloc] init];
+
+    /******* CRAP *******/
+    
+//    int count = 0;
+//    for (int i = 0; i < copyMatrix.rows; i++) {
+//        for (int j = 0; j < copyMatrix.cols; j++) {
+//            uint8_t byte = copyMatrix.at<uint8_t>(i, j);
+//            
+//            if (byte > 10) {
+//                NSLog(@"%d at (%d, %d)", byte, i, j);
+//                count++;
+//            }
+//            
+//        }
+//    }
+//    
+//    NSLog(@"%d", count);
+//    
+//    return arrBullets;
+    /******* CRAP *******/
+    
+
     
     if (copyMatrix.data == nil) {
         NSLog(@"Sorry, the differential matrix data is nil");

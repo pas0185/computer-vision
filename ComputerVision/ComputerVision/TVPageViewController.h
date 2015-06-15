@@ -16,5 +16,12 @@
 @property (strong, nonatomic) TVContentViewController *contentView2;
 @property (strong, nonatomic) TVContentViewController *contentView3;
 
+
+@property (strong, nonatomic) TVContentViewController *contentView4;
+@property (strong, nonatomic) TVContentViewController *contentView5;
+@property (strong, nonatomic) TVContentViewController *contentView6;
+
+
+
 @property (strong, nonatomic) NSMutableArray *contentViewControllers;
 @end

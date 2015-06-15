@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1518AC001B2A953D00C144F2 /* scene00451.png in Resources */ = {isa = PBXBuildFile; fileRef = 1518ABFE1B2A953D00C144F2 /* scene00451.png */; };
 		1518AC011B2A953D00C144F2 /* scene00931.png in Resources */ = {isa = PBXBuildFile; fileRef = 1518ABFF1B2A953D00C144F2 /* scene00931.png */; };
+		1518AC081B2CCBC300C144F2 /* TVVideoProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1518AC071B2CCBC300C144F2 /* TVVideoProcessor.mm */; };
+		1518AC171B2CCDCC00C144F2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1518AC161B2CCDCB00C144F2 /* OpenGLES.framework */; };
+		1518AD041B2CE1DD00C144F2 /* TVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1518AD031B2CE1DD00C144F2 /* TVViewController.m */; };
+		1518AD0E1B2CF08000C144F2 /* TVBulletManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1518AD0D1B2CF08000C144F2 /* TVBulletManager.mm */; };
 		1546900F1B17B80800E9062A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1546900E1B17B80800E9062A /* main.m */; };
 		154690121B17B80800E9062A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690111B17B80800E9062A /* AppDelegate.m */; };
 		154690151B17B80800E9062A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690141B17B80800E9062A /* ViewController.mm */; };
@@ -33,12 +37,14 @@
 		1569CFE31B274EAF00D03FD3 /* target-1-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */; };
 		1569CFE41B274EAF00D03FD3 /* target-2-shots.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFE01B274EAF00D03FD3 /* target-2-shots.png */; };
 		1569CFE51B274EAF00D03FD3 /* target-3-shots.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569CFE11B274EAF00D03FD3 /* target-3-shots.png */; };
+		156F48B01B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */; };
 		159235681B29E04B00D5B2AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690351B17B98200E9062A /* Foundation.framework */; };
 		1592356E1B2A2E1D00D5B2AC /* Still-White-Frames in Resources */ = {isa = PBXBuildFile; fileRef = 1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */; };
-		159235711B2A2F2D00D5B2AC /* TVVideoProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 159235701B2A2F2D00D5B2AC /* TVVideoProcessor.mm */; };
 		159235741B2A6F8F00D5B2AC /* TVPageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 159235731B2A6F8F00D5B2AC /* TVPageViewController.mm */; };
-		159235771B2A741800D5B2AC /* TVContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159235761B2A741800D5B2AC /* TVContentViewController.m */; };
+		159235771B2A741800D5B2AC /* TVContentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 159235761B2A741800D5B2AC /* TVContentViewController.mm */; };
 		15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */; };
+		717CC5A343F3AA4844AC8200 /* libPods-ComputerVisionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B9FAFE5A91C9D95A3190C /* libPods-ComputerVisionTests.a */; };
+		78FCEEBC47E11074E17802E6 /* libPods-ComputerVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A02483907361ECFACCFC46AF /* libPods-ComputerVision.a */; };
 		CBD582DF1B1D195100895878 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD582DE1B1D195100895878 /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +61,13 @@
 /* Begin PBXFileReference section */
 		1518ABFE1B2A953D00C144F2 /* scene00451.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene00451.png; path = "Still-White-Frames/scene00451.png"; sourceTree = "<group>"; };
 		1518ABFF1B2A953D00C144F2 /* scene00931.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene00931.png; path = "Still-White-Frames/scene00931.png"; sourceTree = "<group>"; };
+		1518AC061B2CCBC300C144F2 /* TVVideoProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVVideoProcessor.h; sourceTree = "<group>"; };
+		1518AC071B2CCBC300C144F2 /* TVVideoProcessor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVVideoProcessor.mm; sourceTree = "<group>"; };
+		1518AC161B2CCDCB00C144F2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		1518AD021B2CE1DD00C144F2 /* TVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVViewController.h; sourceTree = "<group>"; };
+		1518AD031B2CE1DD00C144F2 /* TVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVViewController.m; sourceTree = "<group>"; };
+		1518AD0C1B2CF08000C144F2 /* TVBulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletManager.h; sourceTree = "<group>"; };
+		1518AD0D1B2CF08000C144F2 /* TVBulletManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletManager.mm; sourceTree = "<group>"; };
 		154690091B17B80800E9062A /* ComputerVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComputerVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1546900D1B17B80800E9062A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1546900E1B17B80800E9062A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,17 +98,23 @@
 		1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-1-shot.png"; sourceTree = "<group>"; };
 		1569CFE01B274EAF00D03FD3 /* target-2-shots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-2-shots.png"; sourceTree = "<group>"; };
 		1569CFE11B274EAF00D03FD3 /* target-3-shots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-3-shots.png"; sourceTree = "<group>"; };
+		156F48AB1B2E4EA200DF5246 /* ComputerVision-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ComputerVision-prefix.pch"; sourceTree = "<group>"; };
+		156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ComputerVision-GPUImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-ComputerVision-GPUImage.a"; sourceTree = "<group>"; };
 		1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Still-White-Frames"; sourceTree = "<group>"; };
-		1592356F1B2A2F2D00D5B2AC /* TVVideoProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVVideoProcessor.h; sourceTree = "<group>"; };
-		159235701B2A2F2D00D5B2AC /* TVVideoProcessor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVVideoProcessor.mm; sourceTree = "<group>"; };
 		159235721B2A6F8F00D5B2AC /* TVPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVPageViewController.h; sourceTree = "<group>"; };
 		159235731B2A6F8F00D5B2AC /* TVPageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVPageViewController.mm; sourceTree = "<group>"; };
 		159235751B2A741800D5B2AC /* TVContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVContentViewController.h; sourceTree = "<group>"; };
-		159235761B2A741800D5B2AC /* TVContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVContentViewController.m; sourceTree = "<group>"; };
+		159235761B2A741800D5B2AC /* TVContentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVContentViewController.mm; sourceTree = "<group>"; };
 		15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletSeekerAlgorithm.h; sourceTree = "<group>"; };
 		15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletSeekerAlgorithm.mm; sourceTree = "<group>"; };
 		15E8C3941B1E493700030DB2 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
+		2107EE97BE8AFC126E019F54 /* Pods-ComputerVisionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComputerVisionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComputerVisionTests/Pods-ComputerVisionTests.release.xcconfig"; sourceTree = "<group>"; };
+		6935A137EE363A11AFEB37A3 /* Pods-ComputerVisionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComputerVisionTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComputerVisionTests/Pods-ComputerVisionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9DE9038B1624574704DD58A2 /* Pods-ComputerVision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComputerVision.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComputerVision/Pods-ComputerVision.debug.xcconfig"; sourceTree = "<group>"; };
+		A02483907361ECFACCFC46AF /* libPods-ComputerVision.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComputerVision.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B45386A035C6B203C88F8EC8 /* Pods-ComputerVision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComputerVision.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComputerVision/Pods-ComputerVision.release.xcconfig"; sourceTree = "<group>"; };
 		CBD582DE1B1D195100895878 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = SOURCE_ROOT; };
+		D35B9FAFE5A91C9D95A3190C /* libPods-ComputerVisionTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComputerVisionTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156F48B01B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a in Frameworks */,
+				1518AC171B2CCDCC00C144F2 /* OpenGLES.framework in Frameworks */,
 				154690671B1CFAA600E9062A /* CoreVideo.framework in Frameworks */,
 				154690641B1CFA8B00E9062A /* AVFoundation.framework in Frameworks */,
 				154690631B1CFA8400E9062A /* AssetsLibrary.framework in Frameworks */,
@@ -114,6 +135,7 @@
 				154690681B1CFAAE00E9062A /* QuartzCore.framework in Frameworks */,
 				154690381B17B98900E9062A /* UIKit.framework in Frameworks */,
 				154690361B17B98200E9062A /* Foundation.framework in Frameworks */,
+				78FCEEBC47E11074E17802E6 /* libPods-ComputerVision.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,18 +146,59 @@
 				159235681B29E04B00D5B2AC /* Foundation.framework in Frameworks */,
 				1569CFDD1B274A7B00D03FD3 /* UIKit.framework in Frameworks */,
 				1569CFD91B273CDD00D03FD3 /* opencv2.framework in Frameworks */,
+				717CC5A343F3AA4844AC8200 /* libPods-ComputerVisionTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1518AC021B2B364800C144F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				154690131B17B80800E9062A /* ViewController.h */,
+				154690141B17B80800E9062A /* ViewController.mm */,
+				154690161B17B80800E9062A /* Main.storyboard */,
+				159235721B2A6F8F00D5B2AC /* TVPageViewController.h */,
+				159235731B2A6F8F00D5B2AC /* TVPageViewController.mm */,
+				159235751B2A741800D5B2AC /* TVContentViewController.h */,
+				159235761B2A741800D5B2AC /* TVContentViewController.mm */,
+				1518AD021B2CE1DD00C144F2 /* TVViewController.h */,
+				1518AD031B2CE1DD00C144F2 /* TVViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1518AC031B2B366600C144F2 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1518AC061B2CCBC300C144F2 /* TVVideoProcessor.h */,
+				1518AC071B2CCBC300C144F2 /* TVVideoProcessor.mm */,
+				1569CFDA1B2742F300D03FD3 /* TVUtility.h */,
+				1569CFDB1B2742F300D03FD3 /* TVUtility.mm */,
+				15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */,
+				15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
+		1518AC051B2B36C000C144F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				154690711B1CFF2800E9062A /* TVBullet.h */,
+				154690721B1CFF2800E9062A /* TVBullet.mm */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		154690001B17B80800E9062A = {
 			isa = PBXGroup;
 			children = (
 				1546900B1B17B80800E9062A /* ComputerVision */,
 				154690251B17B80800E9062A /* ComputerVisionTests */,
 				1546900A1B17B80800E9062A /* Products */,
+				F860C67537F49A9CD44F4CBF /* Pods */,
+				E5869CBB3A8553F8A7ABD6BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,28 +214,17 @@
 		1546900B1B17B80800E9062A /* ComputerVision */ = {
 			isa = PBXGroup;
 			children = (
+				15E8C3941B1E493700030DB2 /* Headers.h */,
+				156F48AB1B2E4EA200DF5246 /* ComputerVision-prefix.pch */,
+				1518AD0C1B2CF08000C144F2 /* TVBulletManager.h */,
+				1518AD0D1B2CF08000C144F2 /* TVBulletManager.mm */,
 				154690101B17B80800E9062A /* AppDelegate.h */,
 				154690111B17B80800E9062A /* AppDelegate.m */,
-				1569CFDA1B2742F300D03FD3 /* TVUtility.h */,
-				1569CFDB1B2742F300D03FD3 /* TVUtility.mm */,
-				154690131B17B80800E9062A /* ViewController.h */,
-				154690141B17B80800E9062A /* ViewController.mm */,
-				1592356F1B2A2F2D00D5B2AC /* TVVideoProcessor.h */,
-				159235701B2A2F2D00D5B2AC /* TVVideoProcessor.mm */,
-				154690161B17B80800E9062A /* Main.storyboard */,
-				15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */,
-				15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */,
-				15E8C3941B1E493700030DB2 /* Headers.h */,
-				154690711B1CFF2800E9062A /* TVBullet.h */,
-				154690721B1CFF2800E9062A /* TVBullet.mm */,
-				1518ABFE1B2A953D00C144F2 /* scene00451.png */,
-				1518ABFF1B2A953D00C144F2 /* scene00931.png */,
+				1518AC051B2B36C000C144F2 /* Models */,
+				1518AC031B2B366600C144F2 /* Logic */,
+				1518AC021B2B364800C144F2 /* Views */,
 				154690191B17B80800E9062A /* Images.xcassets */,
 				1546900C1B17B80800E9062A /* Supporting Files */,
-				159235721B2A6F8F00D5B2AC /* TVPageViewController.h */,
-				159235731B2A6F8F00D5B2AC /* TVPageViewController.mm */,
-				159235751B2A741800D5B2AC /* TVContentViewController.h */,
-				159235761B2A741800D5B2AC /* TVContentViewController.m */,
 			);
 			path = ComputerVision;
 			sourceTree = "<group>";
@@ -180,11 +232,7 @@
 		1546900C1B17B80800E9062A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */,
-				1569CFDE1B274EAF00D03FD3 /* target-0-shots.png */,
-				1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */,
-				1569CFE01B274EAF00D03FD3 /* target-2-shots.png */,
-				1569CFE11B274EAF00D03FD3 /* target-3-shots.png */,
+				156F48AE1B2E55F400DF5246 /* Images */,
 				154690341B17B8B000E9062A /* Frameworks */,
 				1546900D1B17B80800E9062A /* Info.plist */,
 				1546900E1B17B80800E9062A /* main.m */,
@@ -212,6 +260,7 @@
 		154690341B17B8B000E9062A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1518AC161B2CCDCB00C144F2 /* OpenGLES.framework */,
 				154690561B17C96E00E9062A /* QuartzCore.framework */,
 				154690541B17C96800E9062A /* CoreVideo.framework */,
 				154690521B17C96400E9062A /* CoreMedia.framework */,
@@ -227,6 +276,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		156F48AE1B2E55F400DF5246 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1518ABFE1B2A953D00C144F2 /* scene00451.png */,
+				1518ABFF1B2A953D00C144F2 /* scene00931.png */,
+				1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */,
+				1569CFDE1B274EAF00D03FD3 /* target-0-shots.png */,
+				1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */,
+				1569CFE01B274EAF00D03FD3 /* target-2-shots.png */,
+				1569CFE11B274EAF00D03FD3 /* target-3-shots.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		E5869CBB3A8553F8A7ABD6BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */,
+				A02483907361ECFACCFC46AF /* libPods-ComputerVision.a */,
+				D35B9FAFE5A91C9D95A3190C /* libPods-ComputerVisionTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F860C67537F49A9CD44F4CBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9038B1624574704DD58A2 /* Pods-ComputerVision.debug.xcconfig */,
+				B45386A035C6B203C88F8EC8 /* Pods-ComputerVision.release.xcconfig */,
+				6935A137EE363A11AFEB37A3 /* Pods-ComputerVisionTests.debug.xcconfig */,
+				2107EE97BE8AFC126E019F54 /* Pods-ComputerVisionTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,9 +318,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1546902C1B17B80800E9062A /* Build configuration list for PBXNativeTarget "ComputerVision" */;
 			buildPhases = (
+				47494E5F8BBE0FB33F43BA37 /* Check Pods Manifest.lock */,
 				154690051B17B80800E9062A /* Sources */,
 				154690061B17B80800E9062A /* Frameworks */,
 				154690071B17B80800E9062A /* Resources */,
+				414B13A6F541B112504FA4B1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,9 +337,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1546902F1B17B80800E9062A /* Build configuration list for PBXNativeTarget "ComputerVisionTests" */;
 			buildPhases = (
+				5433BBD900DA6162444D6E5E /* Check Pods Manifest.lock */,
 				1546901E1B17B80800E9062A /* Sources */,
 				1546901F1B17B80800E9062A /* Frameworks */,
 				154690201B17B80800E9062A /* Resources */,
+				BDC4E6F2E9B45FF5853DEBC3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -328,13 +416,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		414B13A6F541B112504FA4B1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ComputerVision/Pods-ComputerVision-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		47494E5F8BBE0FB33F43BA37 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5433BBD900DA6162444D6E5E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BDC4E6F2E9B45FF5853DEBC3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ComputerVisionTests/Pods-ComputerVisionTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		154690051B17B80800E9062A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				159235771B2A741800D5B2AC /* TVContentViewController.m in Sources */,
-				159235711B2A2F2D00D5B2AC /* TVVideoProcessor.mm in Sources */,
+				1518AD0E1B2CF08000C144F2 /* TVBulletManager.mm in Sources */,
+				1518AD041B2CE1DD00C144F2 /* TVViewController.m in Sources */,
+				159235771B2A741800D5B2AC /* TVContentViewController.mm in Sources */,
 				154690151B17B80800E9062A /* ViewController.mm in Sources */,
 				154690121B17B80800E9062A /* AppDelegate.m in Sources */,
 				1546900F1B17B80800E9062A /* main.m in Sources */,
@@ -342,6 +494,7 @@
 				1569CFDC1B2742F300D03FD3 /* TVUtility.mm in Sources */,
 				154690731B1CFF2800E9062A /* TVBullet.mm in Sources */,
 				159235741B2A6F8F00D5B2AC /* TVPageViewController.mm in Sources */,
+				1518AC081B2CCBC300C144F2 /* TVVideoProcessor.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +553,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ComputerVision/ComputerVision-prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -411,6 +566,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -443,12 +603,19 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ComputerVision/ComputerVision-prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -459,36 +626,67 @@
 		};
 		1546902D1B17B80800E9062A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DE9038B1624574704DD58A2 /* Pods-ComputerVision.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick Sheehan (2Q88R8ZYP5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick Sheehan (2Q88R8ZYP5)";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* (*) .DS_Store CVS .svn .git .hg *.framework";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/,
 				);
 				INFOPLIST_FILE = ComputerVision/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ComputerVision/GPUImage-master/build/Release-iphone/lib",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		1546902E1B17B80800E9062A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B45386A035C6B203C88F8EC8 /* Pods-ComputerVision.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick Sheehan (2Q88R8ZYP5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick Sheehan (2Q88R8ZYP5)";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* (*) .DS_Store CVS .svn .git .hg *.framework";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/,
 				);
 				INFOPLIST_FILE = ComputerVision/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ComputerVision/GPUImage-master/build/Release-iphone/lib",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 		154690301B17B80800E9062A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6935A137EE363A11AFEB37A3 /* Pods-ComputerVisionTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "";
@@ -512,6 +710,7 @@
 		};
 		154690311B17B80800E9062A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2107EE97BE8AFC126E019F54 /* Pods-ComputerVisionTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "";

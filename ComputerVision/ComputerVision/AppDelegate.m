@@ -8,9 +8,14 @@
 
 #import "AppDelegate.h"
 
+//#import "../GPUImage-master/build/GPUImage.framework/Headers/GPUImage.h"
+
+
 @interface AppDelegate ()
 
 @end
+
+
 
 @implementation AppDelegate
 

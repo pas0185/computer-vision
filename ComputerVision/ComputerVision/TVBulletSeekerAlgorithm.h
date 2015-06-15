@@ -13,13 +13,12 @@
 
 @interface TVBulletSeekerAlgorithm : NSObject
 
+
 + (NSMutableArray *)getTVBulletCandidatesFromDiffMatrix:(cv::Mat)diff;
+
 + (void)floodFill:(CGPoint)position andBullet:(TVBullet *)newBullet andDiffMat:(cv::Mat)diff andDictVisited:(NSSet *)visited;
+
 + (NSArray *)filterTVBulletsByDensity:(NSArray *)tvBullets;
-
-
-+ (cv::Mat)binaryMatrix:(UIImage*)image;
-
 
 
 @end
