@@ -10,7 +10,7 @@
 #import "cap_ios.h"
 
 #define IMAGE_A @"target-0-shots.png"
-#define IMAGE_B @"target-2-shots.png"
+#define IMAGE_B @"target-1-shot.png"
 
 
 using namespace cv;
@@ -29,41 +29,79 @@ using namespace cv;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[TVVideoProcessor sharedInstance] TVBulletsFromImage:[UIImage imageNamed:IMAGE_B]];
+    UIImage *image = [UIImage imageNamed:IMAGE_B];
     
-
-//    cv::Mat src_gray;
-//    int thresh = 20;
-//    int max_thresh = 255;
-//    RNG rng(12345);
-//    cv::Mat src = [self cvMatFromUIImage:gaussianImage];
-//    
-//    /// Convert image to gray and blur it
-//    cvtColor( src, src_gray, CV_BGR2GRAY );
-//    blur( src_gray, src_gray, cv::Size(3,3) );
-//    
-//    
-//    Mat canny_output;
-//    std::vector<std::vector<cv::Point> > contours;
-//    std::vector<Vec4i> hierarchy;
-//    
-//    /// Detect edges using canny
-//    cv::Canny( src_gray, canny_output, thresh, thresh*2, 3 );
-//    /// Find contours
-//    findContours( canny_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0) );
-//    
-//    /// Draw contours
-//    Mat drawing = Mat::zeros( canny_output.size(), CV_8UC3 );
-//    for( int i = 0; i< contours.size(); i++ )
-//    {
-//        Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
-//        drawContours( drawing, contours, i, color, 2, 8, hierarchy, 0, cv::Point() );
-//    }
-//    
-//    
-//    UIImage *contourImages = [self UIImageFromCVMat:drawing];
-
+    [self.fullImageView setImage:image];
     
+    TVVideoProcessor *vidProcessor = [TVVideoProcessor sharedInstance];
+    [vidProcessor findTVBulletsWithImage:image Completion:^(NSArray *arrBullets) {
+        
+        for (TVBullet *bullet in arrBullets) {
+            
+            CGFloat imgViewWidth = self.fullImageView.frame.size.width;
+            CGFloat imgViewHeight = self.fullImageView.frame.size.height;
+            
+            CGFloat xNormImgView = bullet.ptCenter.x * imgViewWidth;
+            CGFloat yNormImgView = bullet.ptCenter.y * imgViewHeight;
+            
+            
+//            UIView *bulletHighlight = [[UIView alloc] initWithFrame:CGRectMake(xNormFullView, yNormFullView, 15, 15)];
+//            [bulletHighlight setBackgroundColor:[UIColor greenColor]];
+//            [self.view addSubview:bulletHighlight];
+            
+            
+            
+            CGFloat fullViewWidth = self.view.frame.size.width;
+            CGFloat fullViewHeight = self.view.frame.size.height;
+            
+            CGFloat xNormFullView = bullet.ptCenter.x * fullViewWidth;
+            CGFloat yNormFullView = bullet.ptCenter.y * fullViewHeight + 20.0f;
+
+            UIView *bulletHighlight2 = [[UIView alloc] initWithFrame:CGRectMake(xNormFullView - 5, yNormFullView + 5, 10, 10)];
+            [bulletHighlight2 setBackgroundColor:[UIColor blueColor]];
+            [self.fullImageView addSubview:bulletHighlight2];
+            
+            
+            
+            
+//            UIView *bulletHighlight3 = [[UIView alloc] initWithFrame:CGRectMake(xNormImgView, yNormImgView, 15, 15)];
+//            [bulletHighlight3 setBackgroundColor:[UIColor orangeColor]];
+//            [self.view addSubview:bulletHighlight3];
+//            
+//            
+//            UIView *bulletHighlight4 = [[UIView alloc] initWithFrame:CGRectMake(xNormImgView, yNormImgView, 15, 15)];
+//            [bulletHighlight4 setBackgroundColor:[UIColor purpleColor]];
+//            [self.fullImageView addSubview:bulletHighlight4];
+            
+            
+//            CGPoint cgCenter = CGPointMake(bullet.ptCenter.x, bullet.ptCenter.y);
+//            
+//            CGPoint cgRelCenter = [self.fullImageView convertPoint:cgCenter toView:self.view];
+//            
+//            CGFloat x = (cgCenter.x / 600.0f) * self.fullImageView.frame.size.width;
+//            CGFloat y = (cgCenter.y / 436.0f) * self.fullImageView.frame.size.height;
+//            
+//            
+//            CGPoint cgNormalized = CGPointMake(x, y);
+//            
+//            NSLog(@"Original: (%.02f, %.02f)", cgCenter.x, cgCenter.y);
+//            NSLog(@"Relative: (%.02f, %.02f)", cgRelCenter.x, cgRelCenter.y);
+//            NSLog(@"Normalized: (%.02f, %.02f)\n\n", x, y);
+//            
+//            
+//            UIView *bulletHighlight = [[UIView alloc] initWithFrame:CGRectMake(cgCenter.x, cgCenter.y, 15, 15)];
+//            [bulletHighlight setBackgroundColor:[UIColor greenColor]];
+//            [self.fullImageView addSubview:bulletHighlight];
+        }
+        
+    }];
+    
+    
+    
+    
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    tgr.delegate = self;
+    [self.fullImageView addGestureRecognizer:tgr];
     
     
     
@@ -87,6 +125,9 @@ using namespace cv;
 //    [self.videoCamera start];
     
 //    [self testTargetDifference];
+    
+    CGSize imgViewSize = self.fullImageView.frame.size;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,6 +137,16 @@ using namespace cv;
 }
 
 #pragma mark - User Controls
+
+- (void)handleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
+    
+    CGPoint ptInView = [tapGestureRecognizer locationInView:self.view];
+    CGPoint ptInImgView = [tapGestureRecognizer locationInView:self.fullImageView];
+    
+    NSLog(@"You tapped in main view: (%.02f, %.02f)", ptInView.x, ptInView.y);
+    NSLog(@" ... ... ... image view: (%.02f, %.02f)\n", ptInImgView.x, ptInImgView.y);
+
+}
 
 - (IBAction)snapPrevious:(id)sender {
     NSLog(@"Stop the previous picture");

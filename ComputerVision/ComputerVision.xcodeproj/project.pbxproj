@@ -11,11 +11,9 @@
 		1518AC011B2A953D00C144F2 /* scene00931.png in Resources */ = {isa = PBXBuildFile; fileRef = 1518ABFF1B2A953D00C144F2 /* scene00931.png */; };
 		1518AC081B2CCBC300C144F2 /* TVVideoProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1518AC071B2CCBC300C144F2 /* TVVideoProcessor.mm */; };
 		1518AC171B2CCDCC00C144F2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1518AC161B2CCDCB00C144F2 /* OpenGLES.framework */; };
-		1518AD041B2CE1DD00C144F2 /* TVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1518AD031B2CE1DD00C144F2 /* TVViewController.m */; };
-		1518AD0E1B2CF08000C144F2 /* TVBulletManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1518AD0D1B2CF08000C144F2 /* TVBulletManager.mm */; };
+		1518AD041B2CE1DD00C144F2 /* TVViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1518AD031B2CE1DD00C144F2 /* TVViewController.mm */; };
 		1546900F1B17B80800E9062A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1546900E1B17B80800E9062A /* main.m */; };
 		154690121B17B80800E9062A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 154690111B17B80800E9062A /* AppDelegate.m */; };
-		154690151B17B80800E9062A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690141B17B80800E9062A /* ViewController.mm */; };
 		154690181B17B80800E9062A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154690161B17B80800E9062A /* Main.storyboard */; };
 		1546901A1B17B80800E9062A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154690191B17B80800E9062A /* Images.xcassets */; };
 		154690291B17B80800E9062A /* ComputerVisionTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690281B17B80800E9062A /* ComputerVisionTests.mm */; };
@@ -40,8 +38,6 @@
 		156F48B01B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */; };
 		159235681B29E04B00D5B2AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690351B17B98200E9062A /* Foundation.framework */; };
 		1592356E1B2A2E1D00D5B2AC /* Still-White-Frames in Resources */ = {isa = PBXBuildFile; fileRef = 1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */; };
-		159235741B2A6F8F00D5B2AC /* TVPageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 159235731B2A6F8F00D5B2AC /* TVPageViewController.mm */; };
-		159235771B2A741800D5B2AC /* TVContentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 159235761B2A741800D5B2AC /* TVContentViewController.mm */; };
 		15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */; };
 		717CC5A343F3AA4844AC8200 /* libPods-ComputerVisionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B9FAFE5A91C9D95A3190C /* libPods-ComputerVisionTests.a */; };
 		78FCEEBC47E11074E17802E6 /* libPods-ComputerVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A02483907361ECFACCFC46AF /* libPods-ComputerVision.a */; };
@@ -65,16 +61,12 @@
 		1518AC071B2CCBC300C144F2 /* TVVideoProcessor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVVideoProcessor.mm; sourceTree = "<group>"; };
 		1518AC161B2CCDCB00C144F2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1518AD021B2CE1DD00C144F2 /* TVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVViewController.h; sourceTree = "<group>"; };
-		1518AD031B2CE1DD00C144F2 /* TVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVViewController.m; sourceTree = "<group>"; };
-		1518AD0C1B2CF08000C144F2 /* TVBulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletManager.h; sourceTree = "<group>"; };
-		1518AD0D1B2CF08000C144F2 /* TVBulletManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletManager.mm; sourceTree = "<group>"; };
+		1518AD031B2CE1DD00C144F2 /* TVViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVViewController.mm; sourceTree = "<group>"; };
 		154690091B17B80800E9062A /* ComputerVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComputerVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1546900D1B17B80800E9062A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1546900E1B17B80800E9062A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		154690101B17B80800E9062A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		154690111B17B80800E9062A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		154690131B17B80800E9062A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		154690141B17B80800E9062A /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		154690171B17B80800E9062A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		154690191B17B80800E9062A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		154690221B17B80800E9062A /* ComputerVisionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComputerVisionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,10 +93,6 @@
 		156F48AB1B2E4EA200DF5246 /* ComputerVision-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ComputerVision-prefix.pch"; sourceTree = "<group>"; };
 		156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ComputerVision-GPUImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-ComputerVision-GPUImage.a"; sourceTree = "<group>"; };
 		1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Still-White-Frames"; sourceTree = "<group>"; };
-		159235721B2A6F8F00D5B2AC /* TVPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVPageViewController.h; sourceTree = "<group>"; };
-		159235731B2A6F8F00D5B2AC /* TVPageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVPageViewController.mm; sourceTree = "<group>"; };
-		159235751B2A741800D5B2AC /* TVContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVContentViewController.h; sourceTree = "<group>"; };
-		159235761B2A741800D5B2AC /* TVContentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVContentViewController.mm; sourceTree = "<group>"; };
 		15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletSeekerAlgorithm.h; sourceTree = "<group>"; };
 		15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletSeekerAlgorithm.mm; sourceTree = "<group>"; };
 		15E8C3941B1E493700030DB2 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
@@ -153,40 +141,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1518AC021B2B364800C144F2 /* Views */ = {
+		1518AC031B2B366600C144F2 /* Bullet Seeker Algorithm */ = {
 			isa = PBXGroup;
 			children = (
-				154690131B17B80800E9062A /* ViewController.h */,
-				154690141B17B80800E9062A /* ViewController.mm */,
-				154690161B17B80800E9062A /* Main.storyboard */,
-				159235721B2A6F8F00D5B2AC /* TVPageViewController.h */,
-				159235731B2A6F8F00D5B2AC /* TVPageViewController.mm */,
-				159235751B2A741800D5B2AC /* TVContentViewController.h */,
-				159235761B2A741800D5B2AC /* TVContentViewController.mm */,
-				1518AD021B2CE1DD00C144F2 /* TVViewController.h */,
-				1518AD031B2CE1DD00C144F2 /* TVViewController.m */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		1518AC031B2B366600C144F2 /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-				1569CFDA1B2742F300D03FD3 /* TVUtility.h */,
-				1569CFDB1B2742F300D03FD3 /* TVUtility.mm */,
 				15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */,
 				15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */,
 			);
-			name = Logic;
+			name = "Bullet Seeker Algorithm";
 			sourceTree = "<group>";
 		};
-		1518AC051B2B36C000C144F2 /* Models */ = {
+		1518AC051B2B36C000C144F2 /* Bullet Model */ = {
 			isa = PBXGroup;
 			children = (
 				154690711B1CFF2800E9062A /* TVBullet.h */,
 				154690721B1CFF2800E9062A /* TVBullet.mm */,
 			);
-			name = Models;
+			name = "Bullet Model";
+			sourceTree = "<group>";
+		};
+		152810AB1B2F631B00DF3B33 /* Video Processor */ = {
+			isa = PBXGroup;
+			children = (
+				1518AC061B2CCBC300C144F2 /* TVVideoProcessor.h */,
+				1518AC071B2CCBC300C144F2 /* TVVideoProcessor.mm */,
+			);
+			name = "Video Processor";
+			sourceTree = "<group>";
+		};
+		152810AC1B2F634300DF3B33 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1569CFDA1B2742F300D03FD3 /* TVUtility.h */,
+				1569CFDB1B2742F300D03FD3 /* TVUtility.mm */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		154690001B17B80800E9062A = {
@@ -212,18 +200,16 @@
 		1546900B1B17B80800E9062A /* ComputerVision */ = {
 			isa = PBXGroup;
 			children = (
-				1518AC061B2CCBC300C144F2 /* TVVideoProcessor.h */,
-				1518AC071B2CCBC300C144F2 /* TVVideoProcessor.mm */,
 				15E8C3941B1E493700030DB2 /* Headers.h */,
-				156F48AB1B2E4EA200DF5246 /* ComputerVision-prefix.pch */,
-				1518AD0C1B2CF08000C144F2 /* TVBulletManager.h */,
-				1518AD0D1B2CF08000C144F2 /* TVBulletManager.mm */,
+				154690161B17B80800E9062A /* Main.storyboard */,
 				154690101B17B80800E9062A /* AppDelegate.h */,
 				154690111B17B80800E9062A /* AppDelegate.m */,
-				1518AC051B2B36C000C144F2 /* Models */,
-				1518AC031B2B366600C144F2 /* Logic */,
-				1518AC021B2B364800C144F2 /* Views */,
-				154690191B17B80800E9062A /* Images.xcassets */,
+				1518AD021B2CE1DD00C144F2 /* TVViewController.h */,
+				1518AD031B2CE1DD00C144F2 /* TVViewController.mm */,
+				152810AB1B2F631B00DF3B33 /* Video Processor */,
+				1518AC051B2B36C000C144F2 /* Bullet Model */,
+				152810AC1B2F634300DF3B33 /* Utility */,
+				1518AC031B2B366600C144F2 /* Bullet Seeker Algorithm */,
 				1546900C1B17B80800E9062A /* Supporting Files */,
 			);
 			path = ComputerVision;
@@ -232,6 +218,8 @@
 		1546900C1B17B80800E9062A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				156F48AB1B2E4EA200DF5246 /* ComputerVision-prefix.pch */,
+				154690191B17B80800E9062A /* Images.xcassets */,
 				156F48AE1B2E55F400DF5246 /* Images */,
 				154690341B17B8B000E9062A /* Frameworks */,
 				1546900D1B17B80800E9062A /* Info.plist */,
@@ -484,16 +472,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1518AD0E1B2CF08000C144F2 /* TVBulletManager.mm in Sources */,
-				1518AD041B2CE1DD00C144F2 /* TVViewController.m in Sources */,
-				159235771B2A741800D5B2AC /* TVContentViewController.mm in Sources */,
-				154690151B17B80800E9062A /* ViewController.mm in Sources */,
+				1518AD041B2CE1DD00C144F2 /* TVViewController.mm in Sources */,
 				154690121B17B80800E9062A /* AppDelegate.m in Sources */,
 				1546900F1B17B80800E9062A /* main.m in Sources */,
 				15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */,
 				1569CFDC1B2742F300D03FD3 /* TVUtility.mm in Sources */,
 				154690731B1CFF2800E9062A /* TVBullet.mm in Sources */,
-				159235741B2A6F8F00D5B2AC /* TVPageViewController.mm in Sources */,
 				1518AC081B2CCBC300C144F2 /* TVVideoProcessor.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -128,18 +128,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="38P-Wi-6f3">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="GnR-Tq-XMo" customClass="TVPageViewController" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gjY-Ot-QuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="375" y="1430"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="dYM-K5-VLa">
             <objects>
-                <viewController id="jV4-WS-8IU" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="jV4-WS-8IU" customClass="TVViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jfB-t4-nIS"/>
                         <viewControllerLayoutGuide type="bottom" id="cbL-yS-or2"/>
@@ -147,12 +139,26 @@
                     <view key="view" contentMode="scaleToFill" id="JCE-eM-UYm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="as0-6g-OOC">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="as0-6g-OOC" firstAttribute="top" secondItem="jfB-t4-nIS" secondAttribute="bottom" id="4J8-n4-rBr"/>
+                            <constraint firstItem="as0-6g-OOC" firstAttribute="leading" secondItem="JCE-eM-UYm" secondAttribute="leading" id="mlj-f3-dTS"/>
+                            <constraint firstItem="as0-6g-OOC" firstAttribute="bottom" secondItem="cbL-yS-or2" secondAttribute="top" id="nGH-iG-Dm6"/>
+                            <constraint firstAttribute="trailing" secondItem="as0-6g-OOC" secondAttribute="trailing" id="ugE-UR-hY4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="as0-6g-OOC" id="QLN-mw-igy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EqX-T8-H58" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="336" y="2115"/>
+            <point key="canvasLocation" x="326" y="2786"/>
         </scene>
     </scenes>
 </document>

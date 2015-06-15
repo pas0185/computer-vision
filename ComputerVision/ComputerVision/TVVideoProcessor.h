@@ -15,6 +15,6 @@
 - (void)setTemplateImage:(UIImage *)image;
 - (void)setTemplateImages:(NSArray *)images;
 
-- (NSArray *)TVBulletsFromImage:(UIImage *)image;
-
+- (void)findTVBulletsWithImage:(UIImage *)image
+                    Completion:(void (^)(NSArray *))callback;
 @end

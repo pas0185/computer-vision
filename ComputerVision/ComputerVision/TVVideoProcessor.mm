@@ -51,7 +51,8 @@ using namespace cv;
     // TODO: iterate through images to find the 'average template'
 }
 
-- (NSArray *)TVBulletsFromImage:(UIImage *)image {
+- (void)findTVBulletsWithImage:(UIImage *)image
+                    Completion:(void (^)(NSArray *))callback {
 
     /***********************/
     /** GPUImage processing **/
@@ -74,10 +75,10 @@ using namespace cv;
     // (4) Canny contour detection
     
     // Draw a new image of just the contours
-    UIImage *contourImage = [self imageWithContoursFrom:subtractedImage];
+//    UIImage *contourImage = [self imageWithContoursFrom:subtractedImage];
     
     // Get the contours in a vector
-    std::vector<std::vector<cv::Point> > contours = [self getContoursFromImage:subtractedImage];
+//    std::vector<std::vector<cv::Point> > contours = [self getContoursFromImage:subtractedImage];
     /***********************/
     /***********************/
     
@@ -88,11 +89,12 @@ using namespace cv;
     
     // (5) Convert contours to bullet array
     
-    NSArray *bullets = [TVBullet arrayWithContourVector:contours];
+//    NSArray *bullets = [TVBullet arrayWithContourVector:contours];
+    NSArray *bullets = [self getContoursFromImage:subtractedImage];
     /*************************/
     /*************************/
     
-    return nil;
+    callback(bullets);
 }
 
 #pragma mark -
@@ -102,7 +104,6 @@ using namespace cv;
     
     cv::Mat src_gray;
     int thresh = 20;
-    int max_thresh = 255;
     RNG rng(12345);
     cv::Mat src = [TVUtility cvMatFromUIImage:image];
 
@@ -132,17 +133,18 @@ using namespace cv;
 
 }
 
-- (std::vector<std::vector<cv::Point> >)getContoursFromImage:(UIImage *)image {
+//- (std::vector<std::vector<cv::Point> >)getContoursFromImage:(UIImage *)image {
+- (NSArray *)getContoursFromImage:(UIImage *)image {
     
     cv::Mat src_gray;
     int thresh = 20;
-    int max_thresh = 255;
+//    int max_thresh = 255;
     RNG rng(12345);
     cv::Mat src = [TVUtility cvMatFromUIImage:image];
     
     /// Convert image to gray and blur it
     cvtColor( src, src_gray, CV_BGR2GRAY );
-    blur( src_gray, src_gray, cv::Size(3,3) );
+//    blur( src_gray, src_gray, cv::Size(3,3) );
     
     Mat canny_output;
     std::vector<std::vector<cv::Point> > contours;
@@ -153,7 +155,42 @@ using namespace cv;
     /// Find contours
     findContours( canny_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0) );
     
-    return contours;
+    
+    int cannyImageRows = canny_output.rows;
+    int cannyImageCols = canny_output.cols;
+    NSLog(@"Canny image - (%d rows, %d cols)", cannyImageRows, cannyImageCols);
+    
+    
+    NSMutableArray *arrBullets = [[NSMutableArray alloc] initWithCapacity:contours.size()];
+    
+    /// Get the moments
+    vector<Moments> mu(contours.size() );
+    for( int i = 0; i < contours.size(); i++ ){
+        mu[i] = moments( contours[i], false );
+    }
+    
+    ///  Get the mass centers:
+    vector<Point2f> mc( contours.size() );
+    for( int i = 0; i < contours.size(); i++ ) {
+        
+        Point2f center = Point2f( mu[i].m10/mu[i].m00 , mu[i].m01/mu[i].m00 );
+        
+        NSLog(@"Contour center point - (%.2f, %.2f)", center.x
+              , center.y);
+        
+        mc[i] = center;
+        
+        Point2f percentCenter = Point2f(center.x / cannyImageCols, center.y / cannyImageRows);
+        TVBullet *bullet = [[TVBullet alloc] initWithCenterPoint:percentCenter];
+        bullet.vecPoints = contours[i];
+        [arrBullets addObject:bullet];
+    }
+    return arrBullets;
+
+    
+    
+    
+//    return contours;
 }
 
 #pragma mark -
