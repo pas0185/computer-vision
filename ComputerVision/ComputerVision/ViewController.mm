@@ -130,8 +130,8 @@ using namespace cv;
     UIImage *img1 = [UIImage imageNamed:@"target-0-shots"];
     UIImage *img2 = [UIImage imageNamed:@"target-1-shot"];
     
-    cv::Mat mat1 = [self cvMatFromUIImage:img1];
-    cv::Mat mat2 = [self cvMatFromUIImage:img2];
+    cv::Mat mat1 = [TVUtility cvMatFromUIImage:img1];
+    cv::Mat mat2 = [TVUtility cvMatFromUIImage:img2];
     
     [self assignCvMat:mat1 toImageView:self.imageViewPrevious];
     [self assignCvMat:mat2 toImageView:self.imageViewCurrent];
@@ -184,7 +184,7 @@ using namespace cv;
         Mat dst;
         warpAffine(foo, dst, rot_mat, foo.size());
         
-        UIImage *img = [self UIImageFromCVMat:dst];
+        UIImage *img = [TVUtility UIImageFromCVMat:dst];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -206,69 +206,6 @@ using namespace cv;
         m2 = image.clone();
         [self assignCvMat:m2 toImageView:self.imageViewCurrent];
     }
-}
-
-#pragma mark - OpenCV Tutorial code
-
--(UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
-{
-    NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
-    CGColorSpaceRef colorSpace;
-    
-    if (cvMat.elemSize() == 1) {
-        colorSpace = CGColorSpaceCreateDeviceGray();
-    } else {
-        colorSpace = CGColorSpaceCreateDeviceRGB();
-    }
-    
-
-    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-    
-    // Creating CGImage from cv::Mat
-    CGImageRef imageRef = CGImageCreate(cvMat.cols,                                 //width
-                                        cvMat.rows,                                 //height
-                                        8,                                          //bits per component
-                                        8 * cvMat.elemSize(),                       //bits per pixel
-                                        cvMat.step[0],                              //bytesPerRow
-                                        colorSpace,                                 //colorspace
-                                        kCGImageAlphaNone|kCGBitmapByteOrderDefault,// bitmap info
-                                        provider,                                   //CGDataProviderRef
-                                        NULL,                                       //decode
-                                        false,                                      //should interpolate
-                                        kCGRenderingIntentDefault                   //intent
-                                        );
-    
-    
-    // Getting UIImage from CGImage
-    UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    CGDataProviderRelease(provider);
-    CGColorSpaceRelease(colorSpace);
-    
-    return finalImage;
-}
-
-- (cv::Mat)cvMatFromUIImage:(UIImage *)image
-{
-    CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
-    CGFloat cols = image.size.width;
-    CGFloat rows = image.size.height;
-    
-    cv::Mat cvMat(rows, cols, CV_8UC4); // 8 bits per component, 4 channels (color channels + alpha)
-    
-    CGContextRef contextRef = CGBitmapContextCreate(cvMat.data,                 // Pointer to  data
-                                                    cols,                       // Width of bitmap
-                                                    rows,                       // Height of bitmap
-                                                    8,                          // Bits per component
-                                                    cvMat.step[0],              // Bytes per row
-                                                    colorSpace,                 // Colorspace
-                                                    kCGImageAlphaNoneSkipLast |
-                                                    kCGBitmapByteOrderDefault); // Bitmap info flags
-    
-    CGContextDrawImage(contextRef, CGRectMake(0, 0, cols, rows), image.CGImage);
-    CGContextRelease(contextRef);
-    
-    return cvMat;
 }
 
 @end
