@@ -82,5 +82,10 @@ using namespace cv;
     return [NSString stringWithFormat:@"Center - (%.3f, %.3f)", self.center.x, self.center.y];
 }
 
+- (CGPoint)getCGCenterPoint {
+    return CGPointMake(self.center.x, self.center.y);
+}
+
+
 @end
 

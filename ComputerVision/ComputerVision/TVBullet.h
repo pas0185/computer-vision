@@ -29,4 +29,6 @@
 
 - (NSString *)toString;
 
+- (CGPoint)getCGCenterPoint;
+
 @end

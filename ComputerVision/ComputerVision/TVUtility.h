@@ -27,4 +27,8 @@
 
 + (cv::Mat)binaryMatrix:(UIImage*)image;
 
++ (CGSize)aspectScaledImageSizeForImageView:(UIImageView *)iv image:(UIImage *)im;
+
++ (CGPoint)calibratedPointFrom:(CGPoint)point inRect:(CGSize)oldRect forNewRect:(CGRect)newFrame;
+
 @end

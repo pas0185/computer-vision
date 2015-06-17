@@ -131,7 +131,6 @@
     return false;
 }
 
-
 + (cv::Mat)binaryMatrix:(UIImage *)image {
     
     cv::Mat imageMat = [TVUtility cvMatFromUIImage:image];
@@ -160,7 +159,63 @@
     
 }
 
++ (CGPoint)calibratedPointFrom:(CGPoint)point inRect:(CGSize)oldRect forNewRect:(CGRect)newFrame {
+    
+    CGFloat xNew = (point.x / oldRect.width) * newFrame.size.width;
+    CGFloat yNew = (point.y / oldRect.height) * newFrame.size.height;
+    
+    return CGPointMake(xNew, yNew);
+    
+}
 
++ (CGSize)aspectScaledImageSizeForImageView:(UIImageView *)iv image:(UIImage *)im {
+    
+    float x,y;
+    float a,b;
+    x = iv.frame.size.width;
+    y = iv.frame.size.height;
+    a = im.size.width;
+    b = im.size.height;
+    
+    if ( x == a && y == b ) {           // image fits exactly, no scaling required
+        // return iv.frame.size;
+    }
+    else if ( x > a && y > b ) {         // image fits completely within the imageview frame
+        if ( x-a > y-b ) {              // image height is limiting factor, scale by height
+            a = y/b * a;
+            b = y;
+        } else {
+            b = x/a * b;                // image width is limiting factor, scale by width
+            a = x;
+        }
+    }
+    else if ( x < a && y < b ) {        // image is wider and taller than image view
+        if ( a - x > b - y ) {          // height is limiting factor, scale by height
+            a = y/b * a;
+            b = y;
+        } else {                        // width is limiting factor, scale by width
+            b = x/a * b;
+            a = x;
+        }
+    }
+    else if ( x < a && y > b ) {        // image is wider than view, scale by width
+        b = x/a * b;
+        a = x;
+    }
+    else if ( x > a && y < b ) {        // image is taller than view, scale by height
+        a = y/b * a;
+        b = y;
+    }
+    else if ( x == a ) {
+        a = y/b * a;
+        b = y;
+    } else if ( y == b ) {
+        b = x/a * b;
+        a = x;
+    }
+    return CGSizeMake(a,b);
+    
+}
 
 
 

@@ -18,6 +18,7 @@ typedef std::vector<cv::Point> Contour;
 
 @interface TVBulletSpace ()
 {
+    CGSize matSize;
     Mat cannyMatrix;
     NSMutableArray *arrBullets;
 }
@@ -31,10 +32,35 @@ typedef std::vector<cv::Point> Contour;
     if (self) {
         
         cannyMatrix = mCanny.clone();
+        matSize = CGSizeMake(cannyMatrix.cols, cannyMatrix.rows);
         return self;
     }
     
     return nil;
+}
+- (UIView *)getOverlayView {
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, matSize.width, matSize.height)];
+    
+    UIColor *overlayColor = [UIColor colorWithRed:.2 green:.2 blue:.2 alpha:.5];
+    
+    [view setBackgroundColor:overlayColor];
+    
+    NSArray *bullets = [self getBullets];
+    
+    for (TVBullet *bullet in bullets) {
+        
+        UIView *bulletHighlight = [[UIView alloc] initWithFrame:CGRectMake(bullet.center.x - 20, bullet.center.y - 20, 40, 40)];
+        [bulletHighlight setBackgroundColor:TVOrangeColor];
+        [view addSubview:bulletHighlight];
+    }
+    
+    
+    return view;
+}
+
+- (CGSize)size {
+    return matSize;
 }
 
 - (NSArray *)getBullets {
@@ -55,6 +81,8 @@ typedef std::vector<cv::Point> Contour;
     if (canny.empty()) {
         return;
     }
+    
+    arrBullets = [NSMutableArray new];
     
     std::vector<Contour> contours;
     std::vector<Vec4i> hierarchy;

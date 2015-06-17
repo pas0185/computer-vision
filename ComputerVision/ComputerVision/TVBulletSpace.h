@@ -14,4 +14,8 @@
 
 - (NSArray *)getBullets;
 
+- (CGSize)size;
+
+- (UIView *)getOverlayView;
+
 @end
