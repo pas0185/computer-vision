@@ -10,7 +10,10 @@
 
 @interface TVBullet : NSObject
 
-@property (nonatomic) cv::Point2f ptCenter;
+@property (nonatomic) cv::Point2f center;
+
+
+
 @property (nonatomic) std::vector<cv::Point> vecPoints;
 
 // Maybe make this an NSSet instead
@@ -23,5 +26,7 @@
 - (void)addToArray:(CGPoint)point;
 
 + (NSArray *)arrayWithContourVector:(std::vector<std::vector<cv::Point> >)contours;
+
+- (NSString *)toString;
 
 @end

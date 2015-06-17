@@ -66,8 +66,8 @@
             CGFloat fullViewWidth = self.view.frame.size.width;
             CGFloat fullViewHeight = self.view.frame.size.height;
             
-            CGFloat xNormFullView = bullet.ptCenter.x * fullViewWidth;
-            CGFloat yNormFullView = bullet.ptCenter.y * fullViewHeight + 20.0f;
+            CGFloat xNormFullView = bullet.center.x * fullViewWidth;
+            CGFloat yNormFullView = bullet.center.y * fullViewHeight + 20.0f;
             
             
             UIView *bulletHighlight = [[UIView alloc] initWithFrame:CGRectMake(xNormFullView - 5, yNormFullView + 5, 10, 10)];

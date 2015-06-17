@@ -65,7 +65,7 @@
             cv::Mat diff = [TVUtility differenceMatrixFrom:img2 Minus:img1];
             NSMutableArray *bullets = [TVBulletSeekerAlgorithm getTVBulletCandidatesFromDiffMatrix:diff];
             if (bullets.count > 0) {
-                NSLog(@"Found %lu bullets in diff matrix between %@ and %@", bullets.count, img1, img2);
+                NSLog(@"Found %lu bullets in diff matrix between %@ and %@", (unsigned long)bullets.count, img1, img2);
             }
         }
         
@@ -157,7 +157,7 @@
     UIImage *img_target_0_bullets = [UIImage imageNamed:@"target-0-shots"];
     UIImage *img_target_1_bullet = [UIImage imageNamed:@"target-1-shot"];
     UIImage *img_target_2_bullets = [UIImage imageNamed:@"target-2-shots"];
-    UIImage *img_target_3_bullets = [UIImage imageNamed:@"target-3-shots"];
+//    UIImage *img_target_3_bullets = [UIImage imageNamed:@"target-3-shots"];
     
     
     // (1) empty -> empty

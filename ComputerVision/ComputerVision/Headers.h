@@ -11,9 +11,9 @@
 
 
 #import "TVBullet.h"
+#import "TVBulletSpace.h"
 #import "TVUtility.h"
 #import "TVVideoProcessor.h"
-
 
 #import "GPUImage.h"
 

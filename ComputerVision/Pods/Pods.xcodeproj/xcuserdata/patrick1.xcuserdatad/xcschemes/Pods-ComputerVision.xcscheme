@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "11AEA6E06A0CBA1BA1C3387A"
+               BlueprintIdentifier = "F891E7ABAB1ACDB0CD3ECBA9"
                BuildableName = "libPods-ComputerVision.a"
                BlueprintName = "Pods-ComputerVision"
                ReferencedContainer = "container:Pods.xcodeproj">

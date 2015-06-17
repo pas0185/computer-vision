@@ -28,6 +28,7 @@
 		154690671B1CFAA600E9062A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690541B17C96800E9062A /* CoreVideo.framework */; };
 		154690681B1CFAAE00E9062A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690561B17C96E00E9062A /* QuartzCore.framework */; };
 		154690731B1CFF2800E9062A /* TVBullet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 154690721B1CFF2800E9062A /* TVBullet.mm */; };
+		155E1B421B30DF2200BE5BC8 /* TVBulletSpace.mm in Sources */ = {isa = PBXBuildFile; fileRef = 155E1B411B30DF2200BE5BC8 /* TVBulletSpace.mm */; };
 		1569CFD91B273CDD00D03FD3 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD582DE1B1D195100895878 /* opencv2.framework */; };
 		1569CFDC1B2742F300D03FD3 /* TVUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1569CFDB1B2742F300D03FD3 /* TVUtility.mm */; };
 		1569CFDD1B274A7B00D03FD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690371B17B98900E9062A /* UIKit.framework */; };
@@ -84,6 +85,8 @@
 		154690561B17C96E00E9062A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		154690711B1CFF2800E9062A /* TVBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBullet.h; sourceTree = "<group>"; };
 		154690721B1CFF2800E9062A /* TVBullet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBullet.mm; sourceTree = "<group>"; };
+		155E1B401B30DF2200BE5BC8 /* TVBulletSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletSpace.h; sourceTree = "<group>"; };
+		155E1B411B30DF2200BE5BC8 /* TVBulletSpace.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletSpace.mm; sourceTree = "<group>"; };
 		1569CFDA1B2742F300D03FD3 /* TVUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVUtility.h; sourceTree = "<group>"; };
 		1569CFDB1B2742F300D03FD3 /* TVUtility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVUtility.mm; sourceTree = "<group>"; };
 		1569CFDE1B274EAF00D03FD3 /* target-0-shots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-0-shots.png"; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 			children = (
 				154690711B1CFF2800E9062A /* TVBullet.h */,
 				154690721B1CFF2800E9062A /* TVBullet.mm */,
+				155E1B401B30DF2200BE5BC8 /* TVBulletSpace.h */,
+				155E1B411B30DF2200BE5BC8 /* TVBulletSpace.mm */,
 			);
 			name = "Bullet Model";
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155E1B421B30DF2200BE5BC8 /* TVBulletSpace.mm in Sources */,
 				1518AD041B2CE1DD00C144F2 /* TVViewController.mm in Sources */,
 				154690121B17B80800E9062A /* AppDelegate.m in Sources */,
 				1546900F1B17B80800E9062A /* main.m in Sources */,

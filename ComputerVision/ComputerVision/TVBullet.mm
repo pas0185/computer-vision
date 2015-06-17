@@ -25,7 +25,7 @@ using namespace cv;
     
     self = [super init];
     if (self) {
-        self.ptCenter = center;
+        self.center = center;
     }
     return self;
 }
@@ -75,6 +75,11 @@ using namespace cv;
 //        }
     }
     return false;
+}
+
+- (NSString *)toString {
+    
+    return [NSString stringWithFormat:@"Center - (%.3f, %.3f)", self.center.x, self.center.y];
 }
 
 @end
