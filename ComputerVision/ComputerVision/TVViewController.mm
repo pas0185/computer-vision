@@ -9,9 +9,18 @@
 #import "TVViewController.h"
 #import "cap_ios.h"
 
-#define IMAGE_TARGET_EMPTY @"target-0-shots"
-#define IMAGE_TARGET_ONE_SHOT @"target-1-shot"
-#define IMAGE_TARGET_TWO_SHOTS @"target-2-shots"
+//#define IMAGE_TEMPLATE @"target-0-shots"
+//#define IMAGE_WITH_SHOT @"target-2-shots"
+
+#define IMAGE_TEMPLATE @"scene00451"
+#define IMAGE_WITH_SHOT @"scene00931"
+
+//#define IMAGE_TARGET_EMPTY @"target-0-shots"
+//#define IMAGE_TARGET_ONE_SHOT @"target-1-shot"
+//#define IMAGE_TARGET_TWO_SHOTS @"target-2-shots"
+//
+//#define IMAGE_REAL_ONE_SHOT @"scene00451"
+//#define IMAGE_REAL_MANY_SHOTS @"scene00931"
 
 @interface TVViewController ()
 
@@ -44,7 +53,7 @@
     
     
     // Process the image with two shots in it
-    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_TARGET_ONE_SHOT];
+    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
     [self.imageView setImage:imgWithShots];
 
 }
@@ -59,12 +68,12 @@
     TVVideoProcessor *vidProcessor = [TVVideoProcessor sharedInstance];
     
     // Set the template image for the VideoProcessor
-    UIImage *imgTemplate = [UIImage imageNamed:IMAGE_TARGET_EMPTY];
+    UIImage *imgTemplate = [UIImage imageNamed:IMAGE_TEMPLATE];
     [vidProcessor setTemplateImage:imgTemplate];
     
     
     // Process the image with two shots in it
-    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_TARGET_ONE_SHOT];
+    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
 
     
     [vidProcessor findTVBulletsWithImage:imgWithShots Completion:^(TVBulletSpace *bulletSpace) {
@@ -90,7 +99,7 @@
             [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.5 animations:^{
                 bulletOverlay.alpha = 0;
             }];
-            [UIView addKeyframeWithRelativeStartTime:0.5 relativeDuration:0.5 animations:^{
+            [UIView addKeyframeWithRelativeStartTime:0.75 relativeDuration:0.25 animations:^{
                 bulletOverlay.alpha = 1;
             }];
             

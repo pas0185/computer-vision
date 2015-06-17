@@ -9,7 +9,7 @@
 #import "TVBulletSpace.h"
 
 #define IGNORE_BULLETS_WITH_SAME_CENTER YES
-#define THRESHOLD_FOR_IGNORING_NEARBY_BULLETS 0.01
+#define THRESHOLD_FOR_IGNORING_NEARBY_BULLETS 1
 
 using namespace cv;
 using namespace std;
@@ -75,8 +75,6 @@ typedef std::vector<cv::Point> Contour;
 
 
 - (void)findBulletsFromCannyMatrix:(Mat)canny {
-    
-    // TODO: check Canny matrix coordinate orientation
     
     if (canny.empty()) {
         return;

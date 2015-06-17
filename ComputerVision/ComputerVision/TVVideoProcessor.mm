@@ -55,6 +55,8 @@ using namespace cv;
     // Perform Canny edge detection
     Mat canny = [self getCannyMatrix:subtractedImage];
     
+    UIImage *cannyImage = [TVUtility UIImageFromCVMat:canny];
+    
     // Get a Bullet Space to represent the bullet candidates
     TVBulletSpace *bulletSpace = [[TVBulletSpace alloc] initWithCannyOutput:canny];
     
@@ -82,15 +84,29 @@ using namespace cv;
     [templateImage addTarget:diffFilter];
     [gpuImage addTarget:diffFilter];
     
+    
+    
+    GPUImageGaussianBlurFilter *gaussFilter = [[GPUImageGaussianBlurFilter alloc] init];
+    [diffFilter addTarget:gaussFilter];
+
+    [gaussFilter useNextFrameForImageCapture];
+    [templateImage processImage];
+    [gpuImage processImage];
+    
+    
+    
+    
+    
     // Capture the next frame
-    [diffFilter useNextFrameForImageCapture];
+//    [diffFilter useNextFrameForImageCapture];
     
     // Process the images
     [templateImage processImage];
     [gpuImage processImage];
     
     
-    return [diffFilter imageFromCurrentFramebuffer];
+//    return [diffFilter imageFromCurrentFramebuffer];
+    return [gaussFilter imageFromCurrentFramebuffer];
 }
 
 #pragma mark - OpenCV Image Processing
@@ -104,6 +120,7 @@ using namespace cv;
     
     /// Convert image to gray and blur it
     cvtColor(src, srcGray, CV_BGR2GRAY );
+    blur(srcGray, srcGray, cv::Size(3, 3));
     
     /// Detect edges using canny
     Mat cannyOutput;
