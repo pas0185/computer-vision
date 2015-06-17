@@ -8,13 +8,14 @@
 
 #import "Headers.h"
 
+@class TVBulletSpace;
+
 @interface TVVideoProcessor : NSObject
 
 + (id)sharedInstance;
 
 - (void)setTemplateImage:(UIImage *)image;
-- (void)setTemplateImages:(NSArray *)images;
 
 - (void)findTVBulletsWithImage:(UIImage *)image
-                    Completion:(void (^)(NSArray *))callback;
+                    Completion:(void (^)(TVBulletSpace *))callback;
 @end
