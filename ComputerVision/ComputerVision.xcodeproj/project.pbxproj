@@ -40,6 +40,8 @@
 		159235681B29E04B00D5B2AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690351B17B98200E9062A /* Foundation.framework */; };
 		1592356E1B2A2E1D00D5B2AC /* Still-White-Frames in Resources */ = {isa = PBXBuildFile; fileRef = 1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */; };
 		15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */; };
+		15F2B0681B339EED009FF2A8 /* scene00001.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F2B0671B339EED009FF2A8 /* scene00001.png */; };
+		15F2B06A1B339EF6009FF2A8 /* scene01201.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F2B0691B339EF6009FF2A8 /* scene01201.png */; };
 		717CC5A343F3AA4844AC8200 /* libPods-ComputerVisionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B9FAFE5A91C9D95A3190C /* libPods-ComputerVisionTests.a */; };
 		78FCEEBC47E11074E17802E6 /* libPods-ComputerVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A02483907361ECFACCFC46AF /* libPods-ComputerVision.a */; };
 		CBD582DF1B1D195100895878 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD582DE1B1D195100895878 /* opencv2.framework */; };
@@ -99,6 +101,9 @@
 		15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletSeekerAlgorithm.h; sourceTree = "<group>"; };
 		15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletSeekerAlgorithm.mm; sourceTree = "<group>"; };
 		15E8C3941B1E493700030DB2 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
+		15F2B0661B33899D009FF2A8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		15F2B0671B339EED009FF2A8 /* scene00001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene00001.png; path = "Still-White-Frames/scene00001.png"; sourceTree = "<group>"; };
+		15F2B0691B339EF6009FF2A8 /* scene01201.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene01201.png; path = "Still-White-Frames/scene01201.png"; sourceTree = "<group>"; };
 		2107EE97BE8AFC126E019F54 /* Pods-ComputerVisionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComputerVisionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComputerVisionTests/Pods-ComputerVisionTests.release.xcconfig"; sourceTree = "<group>"; };
 		6935A137EE363A11AFEB37A3 /* Pods-ComputerVisionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComputerVisionTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComputerVisionTests/Pods-ComputerVisionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DE9038B1624574704DD58A2 /* Pods-ComputerVision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComputerVision.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComputerVision/Pods-ComputerVision.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				15E8C3941B1E493700030DB2 /* Headers.h */,
+				15F2B0661B33899D009FF2A8 /* Constants.h */,
 				154690161B17B80800E9062A /* Main.storyboard */,
 				154690101B17B80800E9062A /* AppDelegate.h */,
 				154690111B17B80800E9062A /* AppDelegate.m */,
@@ -272,12 +278,14 @@
 		156F48AE1B2E55F400DF5246 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				15F2B0671B339EED009FF2A8 /* scene00001.png */,
 				1518ABFE1B2A953D00C144F2 /* scene00451.png */,
 				1518ABFF1B2A953D00C144F2 /* scene00931.png */,
 				1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */,
 				1569CFDE1B274EAF00D03FD3 /* target-0-shots.png */,
 				1569CFDF1B274EAF00D03FD3 /* target-1-shot.png */,
 				1569CFE01B274EAF00D03FD3 /* target-2-shots.png */,
+				15F2B0691B339EF6009FF2A8 /* scene01201.png */,
 				1569CFE11B274EAF00D03FD3 /* target-3-shots.png */,
 			);
 			name = Images;
@@ -392,6 +400,8 @@
 				1518AC001B2A953D00C144F2 /* scene00451.png in Resources */,
 				1569CFE31B274EAF00D03FD3 /* target-1-shot.png in Resources */,
 				1569CFE41B274EAF00D03FD3 /* target-2-shots.png in Resources */,
+				15F2B0681B339EED009FF2A8 /* scene00001.png in Resources */,
+				15F2B06A1B339EF6009FF2A8 /* scene01201.png in Resources */,
 				1518AC011B2A953D00C144F2 /* scene00931.png in Resources */,
 				154690181B17B80800E9062A /* Main.storyboard in Resources */,
 				1592356E1B2A2E1D00D5B2AC /* Still-White-Frames in Resources */,

@@ -8,9 +8,6 @@
 
 #import "TVBulletSpace.h"
 
-#define IGNORE_BULLETS_WITH_SAME_CENTER YES
-#define THRESHOLD_FOR_IGNORING_NEARBY_BULLETS 1
-
 using namespace cv;
 using namespace std;
 
@@ -52,6 +49,11 @@ typedef std::vector<cv::Point> Contour;
         
         UIView *bulletHighlight = [[UIView alloc] initWithFrame:CGRectMake(bullet.center.x - 20, bullet.center.y - 20, 40, 40)];
         [bulletHighlight setBackgroundColor:TVOrangeColor];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 10, 10)];
+        label.text = [NSString stringWithFormat:@"%d", bullet.tagNumber];
+
+        [bulletHighlight addSubview:label];
         [view addSubview:bulletHighlight];
     }
     
@@ -92,6 +94,7 @@ typedef std::vector<cv::Point> Contour;
     int cCols = canny.cols;
     NSLog(@"Canny matrix - [%d rows x %d cols]", cRows, cCols);
     
+    
     /// Get the moments
     vector<Moments> mu(contours.size() );
     for( int i = 0; i < contours.size(); i++ ){
@@ -101,25 +104,41 @@ typedef std::vector<cv::Point> Contour;
     ///  Get the mass centers:
     for( int i = 0; i < contours.size(); i++ ) {
         
-        Point2f center = Point2f( mu[i].m10/mu[i].m00 , mu[i].m01/mu[i].m00 );
+        Contour contour = contours[i];
         
-        TVBullet *bullet = [[TVBullet alloc] initWithCenterPoint:center];
-        [self addBulletAndValidate:bullet];
+        float densityHeuristic = contourArea(contour) / arcLength(contour, true);
+        if (densityHeuristic > DENSITY_MIN && densityHeuristic < DENSITY_MAX) {
+            
+            Point2f center = Point2f( mu[i].m10/mu[i].m00 , mu[i].m01/mu[i].m00 );
+            
+            TVBullet *bullet = [[TVBullet alloc] initWithCenterPoint:center];
+
+            [self addBulletAndValidate:bullet];
+            
+            printf("Density Heuristic = %f for tag #%d\n", densityHeuristic, bullet.tagNumber);
+        }
     }
 }
 
-- (void)addBulletAndValidate:(TVBullet *)bullet {
+- (BOOL)addBulletAndValidate:(TVBullet *)bullet {
     
     // Check that we don't already have the same (or super close) bullet
-    
-    if ([self containsBullet:bullet]) {
-        NSLog(@"Ignoring bullet: %@\n", [bullet toString]);
+
+    if (isnan(bullet.center.x) || isnan(bullet.center.y)) {
+        return false;
     }
     
-    else {
-        NSLog(@"Adding bullet: %@\n", [bullet toString]);
+    if ([self containsBullet:bullet] == FALSE) {
+        int newTagNum = (int)arrBullets.count;
+        bullet.tagNumber = newTagNum;
+        NSLog(@"Adding bullet #%d\n", bullet.tagNumber);
         [arrBullets addObject:bullet];
+        
+        return true;
     }
+    
+    NSLog(@"Ignoring bullet #%d\n", bullet.tagNumber);
+    return false;
 }
 
 - (BOOL)containsBullet:(TVBullet *)newBullet {

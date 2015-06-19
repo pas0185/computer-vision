@@ -10,13 +10,13 @@
 
 @interface TVBullet : NSObject
 
+@property (nonatomic) int tagNumber;
 @property (nonatomic) cv::Point2f center;
-
-
+@property (nonatomic) NSDate *timestamp;
 
 @property (nonatomic) std::vector<cv::Point> vecPoints;
 
-// Maybe make this an NSSet instead
+// TODO: remove pixel array
 @property (strong, nonatomic) NSMutableArray *pixelArray;
 
 

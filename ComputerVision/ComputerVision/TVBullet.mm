@@ -11,6 +11,12 @@
 using namespace std;
 using namespace cv;
 
+@interface TVBullet()
+{
+    float _density;
+}
+@end
+
 @implementation TVBullet
 
 - (id)init {
@@ -79,13 +85,33 @@ using namespace cv;
 
 - (NSString *)toString {
     
-    return [NSString stringWithFormat:@"Center - (%.3f, %.3f)", self.center.x, self.center.y];
+    return [NSString stringWithFormat:@"Tag #%d. Center - (%.3f, %.3f)", self.tagNumber, self.center.x, self.center.y];
 }
+
+#pragma mark -
+#pragma mark - Custom Property accessors
 
 - (CGPoint)getCGCenterPoint {
     return CGPointMake(self.center.x, self.center.y);
 }
 
+- (BOOL)isDensityValid {
+
+    return _density > BULLET_DENSITY_THRESHOLD;
+}
+
+- (void)setDensity:(float)newValue {
+    
+    if (newValue > 0 && newValue <= 1) {
+        _density = newValue;
+    }
+    else {
+        _density = 0;
+        [NSException raise:@"Invalid TVBullet density"
+                    format:@"Density value of %f is not in range (0,1]", newValue];
+    }
+    
+}
 
 @end
 

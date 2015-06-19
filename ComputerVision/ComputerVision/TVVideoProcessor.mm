@@ -84,28 +84,17 @@ using namespace cv;
     [templateImage addTarget:diffFilter];
     [gpuImage addTarget:diffFilter];
     
-    
-    
     GPUImageGaussianBlurFilter *gaussFilter = [[GPUImageGaussianBlurFilter alloc] init];
     [diffFilter addTarget:gaussFilter];
 
     [gaussFilter useNextFrameForImageCapture];
     [templateImage processImage];
     [gpuImage processImage];
-    
-    
-    
-    
-    
-    // Capture the next frame
-//    [diffFilter useNextFrameForImageCapture];
-    
+
     // Process the images
     [templateImage processImage];
     [gpuImage processImage];
     
-    
-//    return [diffFilter imageFromCurrentFramebuffer];
     return [gaussFilter imageFromCurrentFramebuffer];
 }
 
@@ -120,7 +109,9 @@ using namespace cv;
     
     /// Convert image to gray and blur it
     cvtColor(src, srcGray, CV_BGR2GRAY );
-    blur(srcGray, srcGray, cv::Size(3, 3));
+    
+    // This blurring causes some contours to be imcomplete,
+//    blur(srcGray, srcGray, cv::Size(3, 3));
     
     /// Detect edges using canny
     Mat cannyOutput;
@@ -135,10 +126,11 @@ using namespace cv;
 - (GPUImagePicture *)averageTemplate {
     
     if (myImageTemplate == nil) {
-        
-        // Initialize it
-        UIImage *templateImage = [UIImage imageNamed:@"target-0-shots"];
-        myImageTemplate = [[GPUImagePicture alloc] initWithImage:templateImage];
+
+        [NSException raise:@"FIXME" format:@"FIXME"];
+//        // Initialize it
+//        UIImage *templateImage = [UIImage imageNamed:@"target-0-shots"];
+//        myImageTemplate = [[GPUImagePicture alloc] initWithImage:templateImage];
     }
     
     return myImageTemplate;

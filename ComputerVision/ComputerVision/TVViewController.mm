@@ -15,12 +15,9 @@
 #define IMAGE_TEMPLATE @"scene00451"
 #define IMAGE_WITH_SHOT @"scene00931"
 
-//#define IMAGE_TARGET_EMPTY @"target-0-shots"
-//#define IMAGE_TARGET_ONE_SHOT @"target-1-shot"
-//#define IMAGE_TARGET_TWO_SHOTS @"target-2-shots"
-//
-//#define IMAGE_REAL_ONE_SHOT @"scene00451"
-//#define IMAGE_REAL_MANY_SHOTS @"scene00931"
+//#define IMAGE_TEMPLATE @"scene00001"
+//#define IMAGE_WITH_SHOT @"scene01201"
+
 
 @interface TVViewController ()
 
@@ -74,7 +71,6 @@
     
     // Process the image with two shots in it
     UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
-
     
     [vidProcessor findTVBulletsWithImage:imgWithShots Completion:^(TVBulletSpace *bulletSpace) {
         
@@ -93,17 +89,17 @@
                                            self.imageView.frame.size.height / 2);
 
         
-        [UIView animateKeyframesWithDuration:2.0 delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
-            
-            // Flash between hidden and visible
-            [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.5 animations:^{
-                bulletOverlay.alpha = 0;
-            }];
-            [UIView addKeyframeWithRelativeStartTime:0.75 relativeDuration:0.25 animations:^{
-                bulletOverlay.alpha = 1;
-            }];
-            
-        } completion:nil];
+//        [UIView animateKeyframesWithDuration:2.0 delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
+//            
+//            // Flash between hidden and visible
+//            [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.5 animations:^{
+//                bulletOverlay.alpha = 0;
+//            }];
+//            [UIView addKeyframeWithRelativeStartTime:0.75 relativeDuration:0.25 animations:^{
+//                bulletOverlay.alpha = 1;
+//            }];
+//            
+//        } completion:nil];
         
     }];
 }
