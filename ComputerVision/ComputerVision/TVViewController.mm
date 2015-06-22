@@ -59,13 +59,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-//    [self performImageProcessorTest];
+    [self performImageProcessorTest];
     
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *moviePath = [bundle pathForResource:TEST_MOVIE ofType:@"mp4"];
-    NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
-    
-    [self processVideo:movieURL];
+//    NSBundle *bundle = [NSBundle mainBundle];
+//    NSString *moviePath = [bundle pathForResource:TEST_MOVIE ofType:@"mp4"];
+//    NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
+//    
+//    [self processVideo:movieURL];
     
 }
 
