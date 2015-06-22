@@ -18,6 +18,8 @@
 //#define IMAGE_TEMPLATE @"scene00001"
 //#define IMAGE_WITH_SHOT @"scene01201"
 
+#define TEST_MOVIE @"grass-target-white"
+
 
 @interface TVViewController ()
 
@@ -57,10 +59,28 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    [self performVideoProcessorTest];
+//    [self performImageProcessorTest];
+    
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *moviePath = [bundle pathForResource:TEST_MOVIE ofType:@"mp4"];
+    NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
+    
+    [self processVideo:movieURL];
     
 }
-- (void)performVideoProcessorTest {
+
+- (void)processVideo:(NSURL *)movieURL {
+
+    
+    MPMoviePlayerViewController *movie = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+
+    [movie.moviePlayer setControlStyle:MPMovieControlStyleDefault];
+    [movie.moviePlayer prepareToPlay];
+    [movie.moviePlayer play];
+    [self presentMoviePlayerViewControllerAnimated:movie];
+}
+
+- (void)performImageProcessorTest {
     
     TVVideoProcessor *vidProcessor = [TVVideoProcessor sharedInstance];
     

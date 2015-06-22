@@ -14,6 +14,10 @@
 
 + (id)sharedInstance;
 
+//- (void)processVideo:
+
+// Rolling average template
+
 - (void)setTemplateImage:(UIImage *)image;
 
 - (void)findTVBulletsWithImage:(UIImage *)image

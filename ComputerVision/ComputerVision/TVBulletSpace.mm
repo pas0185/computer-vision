@@ -50,7 +50,7 @@ typedef std::vector<cv::Point> Contour;
         UIView *bulletHighlight = [[UIView alloc] initWithFrame:CGRectMake(bullet.center.x - 20, bullet.center.y - 20, 40, 40)];
         [bulletHighlight setBackgroundColor:TVOrangeColor];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 10, 10)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 20, 20)];
         label.text = [NSString stringWithFormat:@"%d", bullet.tagNumber];
 
         [bulletHighlight addSubview:label];

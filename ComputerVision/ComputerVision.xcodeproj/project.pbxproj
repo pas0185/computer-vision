@@ -39,6 +39,10 @@
 		156F48B01B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */; };
 		159235681B29E04B00D5B2AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690351B17B98200E9062A /* Foundation.framework */; };
 		1592356E1B2A2E1D00D5B2AC /* Still-White-Frames in Resources */ = {isa = PBXBuildFile; fileRef = 1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */; };
+		15DBF8B11B38726E00EE02E2 /* grass-target-white.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 15DBF8AE1B38726E00EE02E2 /* grass-target-white.mp4 */; };
+		15DBF8B21B38726E00EE02E2 /* still-target-black.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 15DBF8AF1B38726E00EE02E2 /* still-target-black.mp4 */; };
+		15DBF8B31B38726E00EE02E2 /* still-target-white.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 15DBF8B01B38726E00EE02E2 /* still-target-white.mp4 */; };
+		15DBF8B61B3876C400EE02E2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DBF8B51B3876C400EE02E2 /* MediaPlayer.framework */; };
 		15E8C3931B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */; };
 		15F2B0681B339EED009FF2A8 /* scene00001.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F2B0671B339EED009FF2A8 /* scene00001.png */; };
 		15F2B06A1B339EF6009FF2A8 /* scene01201.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F2B0691B339EF6009FF2A8 /* scene01201.png */; };
@@ -98,6 +102,10 @@
 		156F48AB1B2E4EA200DF5246 /* ComputerVision-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ComputerVision-prefix.pch"; sourceTree = "<group>"; };
 		156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ComputerVision-GPUImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-ComputerVision-GPUImage.a"; sourceTree = "<group>"; };
 		1592356D1B2A2E1D00D5B2AC /* Still-White-Frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Still-White-Frames"; sourceTree = "<group>"; };
+		15DBF8AE1B38726E00EE02E2 /* grass-target-white.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "grass-target-white.mp4"; path = "Videos/grass-target-white.mp4"; sourceTree = "<group>"; };
+		15DBF8AF1B38726E00EE02E2 /* still-target-black.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "still-target-black.mp4"; path = "Videos/still-target-black.mp4"; sourceTree = "<group>"; };
+		15DBF8B01B38726E00EE02E2 /* still-target-white.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "still-target-white.mp4"; path = "Videos/still-target-white.mp4"; sourceTree = "<group>"; };
+		15DBF8B51B3876C400EE02E2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		15E8C3911B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVBulletSeekerAlgorithm.h; sourceTree = "<group>"; };
 		15E8C3921B1E47DE00030DB2 /* TVBulletSeekerAlgorithm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVBulletSeekerAlgorithm.mm; sourceTree = "<group>"; };
 		15E8C3941B1E493700030DB2 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
@@ -118,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15DBF8B61B3876C400EE02E2 /* MediaPlayer.framework in Frameworks */,
 				1518AC171B2CCDCC00C144F2 /* OpenGLES.framework in Frameworks */,
 				154690671B1CFAA600E9062A /* CoreVideo.framework in Frameworks */,
 				154690641B1CFA8B00E9062A /* AVFoundation.framework in Frameworks */,
@@ -229,6 +238,7 @@
 		1546900C1B17B80800E9062A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				15DBF8B41B38727500EE02E2 /* Videos */,
 				156F48AB1B2E4EA200DF5246 /* ComputerVision-prefix.pch */,
 				154690191B17B80800E9062A /* Images.xcassets */,
 				156F48AE1B2E55F400DF5246 /* Images */,
@@ -291,9 +301,20 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		15DBF8B41B38727500EE02E2 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				15DBF8AE1B38726E00EE02E2 /* grass-target-white.mp4 */,
+				15DBF8AF1B38726E00EE02E2 /* still-target-black.mp4 */,
+				15DBF8B01B38726E00EE02E2 /* still-target-white.mp4 */,
+			);
+			name = Videos;
+			sourceTree = "<group>";
+		};
 		E5869CBB3A8553F8A7ABD6BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15DBF8B51B3876C400EE02E2 /* MediaPlayer.framework */,
 				156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */,
 				A02483907361ECFACCFC46AF /* libPods-ComputerVision.a */,
 				D35B9FAFE5A91C9D95A3190C /* libPods-ComputerVisionTests.a */,
@@ -403,10 +424,13 @@
 				15F2B0681B339EED009FF2A8 /* scene00001.png in Resources */,
 				15F2B06A1B339EF6009FF2A8 /* scene01201.png in Resources */,
 				1518AC011B2A953D00C144F2 /* scene00931.png in Resources */,
+				15DBF8B11B38726E00EE02E2 /* grass-target-white.mp4 in Resources */,
+				15DBF8B21B38726E00EE02E2 /* still-target-black.mp4 in Resources */,
 				154690181B17B80800E9062A /* Main.storyboard in Resources */,
 				1592356E1B2A2E1D00D5B2AC /* Still-White-Frames in Resources */,
 				1569CFE21B274EAF00D03FD3 /* target-0-shots.png in Resources */,
 				1546901A1B17B80800E9062A /* Images.xcassets in Resources */,
+				15DBF8B31B38726E00EE02E2 /* still-target-white.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

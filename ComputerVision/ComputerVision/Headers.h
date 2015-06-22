@@ -15,6 +15,9 @@
 #import "TVUtility.h"
 #import "TVVideoProcessor.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+
 #import "GPUImage.h"
+
 
 #endif
