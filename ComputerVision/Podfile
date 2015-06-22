@@ -1,0 +1,17 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+target 'ComputerVision' do
+
+pod 'OpenCV', '2.4.9'
+pod 'GPUImage', '~>0.1.4'
+
+end
+
+target 'ComputerVisionTests' do
+
+pod 'OpenCV', '2.4.9'
+pod 'GPUImage', '~>0.1.4'
+
+end
+

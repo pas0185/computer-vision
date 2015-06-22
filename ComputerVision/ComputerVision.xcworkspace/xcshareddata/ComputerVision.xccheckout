@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D21C201B-29F4-44C5-956D-8E99951A2A6B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ComputerVision</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>528E280FB99526884D15CECD84484100162E0E48</key>
+		<string>https://github.com/pas0185/computer-vision.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ComputerVision/ComputerVision.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>528E280FB99526884D15CECD84484100162E0E48</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/pas0185/computer-vision.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>528E280FB99526884D15CECD84484100162E0E48</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>528E280FB99526884D15CECD84484100162E0E48</string>
+			<key>IDESourceControlWCCName</key>
+			<string>computer-vision</string>
+		</dict>
+	</array>
+</dict>
+</plist>

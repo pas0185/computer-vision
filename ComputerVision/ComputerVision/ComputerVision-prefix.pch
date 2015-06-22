@@ -1,0 +1,19 @@
+//
+//  ComputerVision-prefix.pch
+//  ComputerVision
+//
+//  Created by Patrick Sheehan on 6/14/15.
+//  Copyright (c) 2015 Sheehan. All rights reserved.
+//
+
+#ifndef ComputerVision_ComputerVision_prefix_pch
+#define ComputerVision_ComputerVision_prefix_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#ifdef __cplusplus
+#include <opencv2/opencv.hpp>
+#endif
+
+#endif

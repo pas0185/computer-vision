@@ -8,14 +8,9 @@
 
 #import "Headers.h"
 
-using namespace cv;
+@interface ViewController : UIViewController<UIGestureRecognizerDelegate>
 
-@interface ViewController : UIViewController<CvVideoCameraDelegate>
-{
-    cv::Mat m1, m2;
-}
-
-@property (nonatomic, retain) CvVideoCamera* videoCamera;
+@property (weak, nonatomic) IBOutlet UIImageView *fullImageView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPrevious;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewCurrent;

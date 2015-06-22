@@ -6,19 +6,29 @@
 //  Copyright (c) 2015 Sheehan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "Headers.h"
 
 @interface TVBullet : NSObject
 
+@property (nonatomic) int tagNumber;
+@property (nonatomic) cv::Point2f center;
+@property (nonatomic) NSDate *timestamp;
+
+@property (nonatomic) std::vector<cv::Point> vecPoints;
+
+// TODO: remove pixel array
 @property (strong, nonatomic) NSMutableArray *pixelArray;
 
-<<<<<<< Updated upstream
-// Validity score...
 
-=======
+- (id)initWithCenterPoint:(cv::Point2f)center;
+
 - (BOOL)containsPoint:(CGPoint)point;
 - (void)addToArray:(CGPoint)point;
->>>>>>> Stashed changes
+
++ (NSArray *)arrayWithContourVector:(std::vector<std::vector<cv::Point> >)contours;
+
+- (NSString *)toString;
+
+- (CGPoint)getCGCenterPoint;
 
 @end

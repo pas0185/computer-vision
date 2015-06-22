@@ -7,41 +7,146 @@
 //
 
 #import "ViewController.h"
+#import "cap_ios.h"
 
+#define IMAGE_A @"target-0-shots.png"
+#define IMAGE_B @"target-1-shot.png"
+
+
+using namespace cv;
 
 @interface ViewController ()
-
+{
+    Mat m1, m2;
+    CvVideoCamera *videoCamera;
+}
 
 @end
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImage *image = [UIImage imageNamed:IMAGE_B];
+    
+    [self.fullImageView setImage:image];
+    
+    TVVideoProcessor *vidProcessor = [TVVideoProcessor sharedInstance];
+    [vidProcessor findTVBulletsWithImage:image Completion:^(NSArray *arrBullets) {
+        
+        for (TVBullet *bullet in arrBullets) {
+            
+            CGFloat imgViewWidth = self.fullImageView.frame.size.width;
+            CGFloat imgViewHeight = self.fullImageView.frame.size.height;
+            
+            CGFloat xNormImgView = bullet.ptCenter.x * imgViewWidth;
+            CGFloat yNormImgView = bullet.ptCenter.y * imgViewHeight;
+            
+            
+//            UIView *bulletHighlight = [[UIView alloc] initWithFrame:CGRectMake(xNormFullView, yNormFullView, 15, 15)];
+//            [bulletHighlight setBackgroundColor:[UIColor greenColor]];
+//            [self.view addSubview:bulletHighlight];
+            
+            
+            
+            CGFloat fullViewWidth = self.view.frame.size.width;
+            CGFloat fullViewHeight = self.view.frame.size.height;
+            
+            CGFloat xNormFullView = bullet.ptCenter.x * fullViewWidth;
+            CGFloat yNormFullView = bullet.ptCenter.y * fullViewHeight + 20.0f;
+
+            UIView *bulletHighlight2 = [[UIView alloc] initWithFrame:CGRectMake(xNormFullView - 5, yNormFullView + 5, 10, 10)];
+            [bulletHighlight2 setBackgroundColor:[UIColor blueColor]];
+            [self.fullImageView addSubview:bulletHighlight2];
+            
+            
+            
+            
+//            UIView *bulletHighlight3 = [[UIView alloc] initWithFrame:CGRectMake(xNormImgView, yNormImgView, 15, 15)];
+//            [bulletHighlight3 setBackgroundColor:[UIColor orangeColor]];
+//            [self.view addSubview:bulletHighlight3];
+//            
+//            
+//            UIView *bulletHighlight4 = [[UIView alloc] initWithFrame:CGRectMake(xNormImgView, yNormImgView, 15, 15)];
+//            [bulletHighlight4 setBackgroundColor:[UIColor purpleColor]];
+//            [self.fullImageView addSubview:bulletHighlight4];
+            
+            
+//            CGPoint cgCenter = CGPointMake(bullet.ptCenter.x, bullet.ptCenter.y);
+//            
+//            CGPoint cgRelCenter = [self.fullImageView convertPoint:cgCenter toView:self.view];
+//            
+//            CGFloat x = (cgCenter.x / 600.0f) * self.fullImageView.frame.size.width;
+//            CGFloat y = (cgCenter.y / 436.0f) * self.fullImageView.frame.size.height;
+//            
+//            
+//            CGPoint cgNormalized = CGPointMake(x, y);
+//            
+//            NSLog(@"Original: (%.02f, %.02f)", cgCenter.x, cgCenter.y);
+//            NSLog(@"Relative: (%.02f, %.02f)", cgRelCenter.x, cgRelCenter.y);
+//            NSLog(@"Normalized: (%.02f, %.02f)\n\n", x, y);
+//            
+//            
+//            UIView *bulletHighlight = [[UIView alloc] initWithFrame:CGRectMake(cgCenter.x, cgCenter.y, 15, 15)];
+//            [bulletHighlight setBackgroundColor:[UIColor greenColor]];
+//            [self.fullImageView addSubview:bulletHighlight];
+        }
+        
+    }];
+    
+    
+    
+    
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    tgr.delegate = self;
+    [self.fullImageView addGestureRecognizer:tgr];
+    
+    
+    
     //Set up the Previous Camera settings
-    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:self.imageViewPrevious];
-    self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
-    self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
-    self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
-    
-    self.videoCamera.defaultFPS = 10;
-    self.videoCamera.grayscaleMode = NO;
-    
-    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:nil];
-    self.videoCamera.delegate = self;
-    
-    self.m1Running = TRUE;
-    self.m2Running = TRUE;
+//    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:self.imageViewPrevious];
+//    self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
+//    self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
+//    self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
+//    
+//    self.videoCamera.defaultFPS = 10;
+//    self.videoCamera.grayscaleMode = NO;
+//    
+//    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:nil];
+//    self.videoCamera.delegate = self;
+//    
+//    self.m1Running = TRUE;
+//    self.m2Running = TRUE;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.videoCamera start];
+//    [self.videoCamera start];
     
 //    [self testTargetDifference];
+    
+    CGSize imgViewSize = self.fullImageView.frame.size;
+
+}
+
+- (void)didReceiveMemoryWarning {
+    
+    [super didReceiveMemoryWarning];
+    
 }
 
 #pragma mark - User Controls
+
+- (void)handleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
+    
+    CGPoint ptInView = [tapGestureRecognizer locationInView:self.view];
+    CGPoint ptInImgView = [tapGestureRecognizer locationInView:self.fullImageView];
+    
+    NSLog(@"You tapped in main view: (%.02f, %.02f)", ptInView.x, ptInView.y);
+    NSLog(@" ... ... ... image view: (%.02f, %.02f)\n", ptInImgView.x, ptInImgView.y);
+
+}
 
 - (IBAction)snapPrevious:(id)sender {
     NSLog(@"Stop the previous picture");
@@ -73,11 +178,11 @@
 
 - (void)testTargetDifference {
     
-    UIImage *img1 = [UIImage imageNamed:@"target-empty"];
-    UIImage *img2 = [UIImage imageNamed:@"target-shot"];
+    UIImage *img1 = [UIImage imageNamed:@"target-0-shots"];
+    UIImage *img2 = [UIImage imageNamed:@"target-1-shot"];
     
-    cv::Mat mat1 = [self cvMatFromUIImage:img1];
-    cv::Mat mat2 = [self cvMatFromUIImage:img2];
+    cv::Mat mat1 = [TVUtility cvMatFromUIImage:img1];
+    cv::Mat mat2 = [TVUtility cvMatFromUIImage:img2];
     
     [self assignCvMat:mat1 toImageView:self.imageViewPrevious];
     [self assignCvMat:mat2 toImageView:self.imageViewCurrent];
@@ -130,7 +235,7 @@
         Mat dst;
         warpAffine(foo, dst, rot_mat, foo.size());
         
-        UIImage *img = [self UIImageFromCVMat:dst];
+        UIImage *img = [TVUtility UIImageFromCVMat:dst];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -152,69 +257,6 @@
         m2 = image.clone();
         [self assignCvMat:m2 toImageView:self.imageViewCurrent];
     }
-}
-
-#pragma mark - OpenCV Tutorial code
-
--(UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
-{
-    NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
-    CGColorSpaceRef colorSpace;
-    
-    if (cvMat.elemSize() == 1) {
-        colorSpace = CGColorSpaceCreateDeviceGray();
-    } else {
-        colorSpace = CGColorSpaceCreateDeviceRGB();
-    }
-    
-
-    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-    
-    // Creating CGImage from cv::Mat
-    CGImageRef imageRef = CGImageCreate(cvMat.cols,                                 //width
-                                        cvMat.rows,                                 //height
-                                        8,                                          //bits per component
-                                        8 * cvMat.elemSize(),                       //bits per pixel
-                                        cvMat.step[0],                              //bytesPerRow
-                                        colorSpace,                                 //colorspace
-                                        kCGImageAlphaNone|kCGBitmapByteOrderDefault,// bitmap info
-                                        provider,                                   //CGDataProviderRef
-                                        NULL,                                       //decode
-                                        false,                                      //should interpolate
-                                        kCGRenderingIntentDefault                   //intent
-                                        );
-    
-    
-    // Getting UIImage from CGImage
-    UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    CGDataProviderRelease(provider);
-    CGColorSpaceRelease(colorSpace);
-    
-    return finalImage;
-}
-
-- (cv::Mat)cvMatFromUIImage:(UIImage *)image
-{
-    CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
-    CGFloat cols = image.size.width;
-    CGFloat rows = image.size.height;
-    
-    cv::Mat cvMat(rows, cols, CV_8UC4); // 8 bits per component, 4 channels (color channels + alpha)
-    
-    CGContextRef contextRef = CGBitmapContextCreate(cvMat.data,                 // Pointer to  data
-                                                    cols,                       // Width of bitmap
-                                                    rows,                       // Height of bitmap
-                                                    8,                          // Bits per component
-                                                    cvMat.step[0],              // Bytes per row
-                                                    colorSpace,                 // Colorspace
-                                                    kCGImageAlphaNoneSkipLast |
-                                                    kCGBitmapByteOrderDefault); // Bitmap info flags
-    
-    CGContextDrawImage(contextRef, CGRectMake(0, 0, cols, rows), image.CGImage);
-    CGContextRelease(contextRef);
-    
-    return cvMat;
 }
 
 @end
