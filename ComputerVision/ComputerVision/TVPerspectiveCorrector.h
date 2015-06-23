@@ -12,5 +12,8 @@
 
 enum BlurType { Normal, Gaussian, Median, Bilateral };
 
+- (void)startWarpCorrection:(UIImage *)image
+                WithOptions:(NSDictionary *)options
+                 Completion:(void (^)(UIImage *))callback;
 
 @end

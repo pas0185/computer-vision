@@ -13,6 +13,58 @@ using namespace std;
 
 @implementation TVPerspectiveCorrector
 
+- (void)startWarpCorrection:(UIImage *)image
+                WithOptions:(NSDictionary *)options
+                 Completion:(void (^)(UIImage *))callback {
+    
+    id cannyLowThresh = [options valueForKey:KEY_CANNY_LOW_THRESHOLD];
+    id houghRho = [options valueForKey:KEY_HOUGH_RHO];
+    id houghIntThresh = [options valueForKey:KEY_HOUGH_INTERSECTION_THRESHOLD];
+    id houghMinLineLen = [options valueForKey:KEY_HOUGH_MIN_LINE_LENGTH];
+    id houghMaxLineGap = [options valueForKey:KEY_HOUGH_MAX_LINE_GAP];
+    
+    Mat src = [TVUtility cvMatFromUIImage:image];
+    
+    // Apply blur
+    blur(src);
+    
+    UIImage *blurredImage = [TVUtility UIImageFromCVMat:src];
+    callback(blurredImage);
+
+    return;
+    
+    
+    
+    // Detect Canny Edges
+    if (cannyLowThresh) {
+        canny(src, [cannyLowThresh floatValue]);
+    } else {
+        NSLog(@"WHOOPS! No lower threshold provided for Canny edge detection");
+        canny(src);
+    }
+    
+    UIImage *cannyImage = [TVUtility UIImageFromCVMat:src];
+    callback(cannyImage);
+    
+    // Find lines with Hough transform
+    vector<Vec4i> lines;
+    if (houghRho && houghIntThresh && houghMinLineLen && houghMaxLineGap) {
+        lines = hough(src, [houghRho floatValue], [houghIntThresh floatValue], [houghMinLineLen intValue], [houghMaxLineGap intValue]);
+    } else {
+        NSLog(@"WHOOPS! Some parameters were missing for the Hough transform calculation");
+        lines = hough(src);
+    }
+    
+    vector<Point2f> corners = findCorners(lines);
+    sortCorners(corners);
+    
+    warpImage(src, corners);
+    
+    UIImage *warpedImage = [TVUtility UIImageFromCVMat:src];
+    callback(warpedImage);
+    
+}
+
 void blur(Mat &src,
           BlurType blurType=Normal,
           cv::Size size=cv::Size(3, 3)) {
@@ -37,7 +89,7 @@ void blur(Mat &src,
 }
 
 void canny(Mat &src,
-           double lowThreshold=50,
+           float lowThreshold=50,
            float ratio=3,
            int kernelSize=3) {
     
@@ -69,7 +121,7 @@ vector<Vec4i> hough(Mat &src,
     return lines;
 }
 
-vector<Point2f> corners(vector<Vec4i> lines) {
+vector<Point2f> findCorners(vector<Vec4i> lines) {
 
     // Return the intersections of the lines
     
@@ -85,6 +137,39 @@ vector<Point2f> corners(vector<Vec4i> lines) {
     }
     
     return corners;
+}
+
+void sortCorners(vector<Point2f>& corners) {
+    
+    // Sort a list of corners to be in clockwise order:
+    // (TopLeft, TopRight, BottomRight, BottomLeft)
+    
+    std::vector<cv::Point2f> top, bot;
+    
+    // Find the center of mass of the corners
+    Point2f center(0,0);
+    for (int i = 0; i < corners.size(); i++)
+        center += corners[i];
+    center *= (1. / corners.size());
+    
+    for (int i = 0; i < corners.size(); i++)
+    {
+        if (corners[i].y < center.y)
+            top.push_back(corners[i]);
+        else
+            bot.push_back(corners[i]);
+    }
+    
+    cv::Point2f tl = top[0].x > top[1].x ? top[1] : top[0];
+    cv::Point2f tr = top[0].x > top[1].x ? top[0] : top[1];
+    cv::Point2f bl = bot[0].x > bot[1].x ? bot[1] : bot[0];
+    cv::Point2f br = bot[0].x > bot[1].x ? bot[0] : bot[1];
+    
+    corners.clear();
+    corners.push_back(tl);
+    corners.push_back(tr);
+    corners.push_back(br);
+    corners.push_back(bl);
 }
 
 void warpImage(Mat &src, vector<Point2f> corners) {
@@ -125,31 +210,5 @@ Point2f computeIntersect(Vec4i a, Vec4i b) {
         return Point2f(-1, -1);
 }
 
-void sortCorners(vector<Point2f>& corners, Point2f center) {
-    
-    // Sort a list of corners to be in clockwise order:
-    // (TopLeft, TopRight, BottomRight, BottomLeft)
-    
-    std::vector<cv::Point2f> top, bot;
-    
-    for (int i = 0; i < corners.size(); i++)
-    {
-        if (corners[i].y < center.y)
-            top.push_back(corners[i]);
-        else
-            bot.push_back(corners[i]);
-    }
-    
-    cv::Point2f tl = top[0].x > top[1].x ? top[1] : top[0];
-    cv::Point2f tr = top[0].x > top[1].x ? top[0] : top[1];
-    cv::Point2f bl = bot[0].x > bot[1].x ? bot[1] : bot[0];
-    cv::Point2f br = bot[0].x > bot[1].x ? bot[0] : bot[1];
-    
-    corners.clear();
-    corners.push_back(tl);
-    corners.push_back(tr);
-    corners.push_back(br);
-    corners.push_back(bl);
-}
 
 @end

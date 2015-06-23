@@ -10,7 +10,10 @@
 
 @interface TVViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewBefore;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewAfter;
+
 
 - (IBAction)sliderValueChanged:(UISlider *)sender;
 

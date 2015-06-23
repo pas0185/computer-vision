@@ -49,16 +49,21 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-//    [self performKeystoneCorrectionTest];
+    [self performKeystoneCorrectionTest];
 }
 
 - (void)performKeystoneCorrectionTest {
     
-    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
-    //    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
-    UIImage *testImage = [[TVVideoProcessor sharedInstance] perspectiveCorrectionWithImage:image];
+//    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
     
-    [self.imageView setImage:testImage];
+    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
+    [self.imageViewBefore setImage:image];
+    
+    NSDictionary *options = [self getOptionsDictionaryFromSliders];
+    
+    
+//    UIImage *testImage = [[TVVideoProcessor sharedInstance] perspectiveCorrectionWithImage:image];
+    
 }
 
 - (void)processVideo:(NSURL *)movieURL {
@@ -75,7 +80,8 @@
     
     // Process the image with two shots in it
     UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
-    [self.imageView setImage:imgWithShots];
+    [self.imageViewBefore setImage:imgWithShots];
+    [self.imageViewAfter setImage:imgWithShots];
     
     TVVideoProcessor *vidProcessor = [TVVideoProcessor sharedInstance];
     
@@ -86,32 +92,19 @@
     [vidProcessor findTVBulletsWithImage:imgWithShots Completion:^(TVBulletSpace *bulletSpace) {
         
         UIView *bulletOverlay = [bulletSpace getOverlayView];
-        [self.imageView addSubview:bulletOverlay];
+        [self.imageViewAfter addSubview:bulletOverlay];
         
         // Scale the bullet overlay to fit the image
-        CGSize imageSize = [TVUtility aspectScaledImageSizeForImageView:self.imageView image:self.imageView.image];
+        CGSize imageSize = [TVUtility aspectScaledImageSizeForImageView:self.imageViewAfter image:self.imageViewAfter.image];
         
         CGFloat xscale = imageSize.width / bulletOverlay.frame.size.width;
         CGFloat yscale = imageSize.height / bulletOverlay.frame.size.height;
         CGAffineTransform t = CGAffineTransformMakeScale(xscale, yscale);
         bulletOverlay.transform = t;
 
-        bulletOverlay.center = CGPointMake(self.imageView.frame.size.width  / 2,
-                                           self.imageView.frame.size.height / 2);
+        bulletOverlay.center = CGPointMake(self.imageViewAfter.frame.size.width  / 2,
+                                           self.imageViewAfter.frame.size.height / 2);
 
-        
-//        [UIView animateKeyframesWithDuration:2.0 delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
-//            
-//            // Flash between hidden and visible
-//            [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.5 animations:^{
-//                bulletOverlay.alpha = 0;
-//            }];
-//            [UIView addKeyframeWithRelativeStartTime:0.75 relativeDuration:0.25 animations:^{
-//                bulletOverlay.alpha = 1;
-//            }];
-//            
-//        } completion:nil];
-        
     }];
 }
 
@@ -127,6 +120,29 @@
     float value = sender.value;
     [label setText:[NSString stringWithFormat:@"%.2f", value]];
     
+    [self performKeystoneCorrectionTest];
+}
+
+- (NSDictionary *)getOptionsDictionaryFromSliders {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+    UISlider *cannyLowThresh = (UISlider *)[self.view viewWithTag:2];
+    [dict setObject:[NSNumber numberWithFloat:cannyLowThresh.value] forKey:KEY_CANNY_LOW_THRESHOLD];
+    
+    UISlider *houghRho = (UISlider *)[self.view viewWithTag:3];
+    [dict setObject:[NSNumber numberWithFloat:houghRho.value] forKey:KEY_HOUGH_RHO];
+    
+    UISlider *houghIntersectionThreshold = (UISlider *)[self.view viewWithTag:4];
+    [dict setObject:[NSNumber numberWithFloat:houghIntersectionThreshold.value] forKey:KEY_HOUGH_INTERSECTION_THRESHOLD];
+    
+    UISlider *houghMinLineLen = (UISlider *)[self.view viewWithTag:5];
+    [dict setObject:[NSNumber numberWithInt:houghMinLineLen.value] forKey:KEY_HOUGH_MIN_LINE_LENGTH];
+    
+    UISlider *houghMaxLineGap = (UISlider *)[self.view viewWithTag:6];
+    [dict setObject:[NSNumber numberWithInt:houghMaxLineGap.value] forKey:KEY_HOUGH_MAX_LINE_GAP];
+    
+    
+    return dict;
 }
 
 @end
