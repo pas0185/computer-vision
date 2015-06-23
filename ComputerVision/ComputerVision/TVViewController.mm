@@ -9,17 +9,18 @@
 #import "TVViewController.h"
 #import "cap_ios.h"
 
-//#define IMAGE_TEMPLATE @"target-0-shots"
-//#define IMAGE_WITH_SHOT @"target-2-shots"
+//#define IMAGE_TEMPLATE @"perfect-target-0-shots"
+//#define IMAGE_WITH_SHOT @"perfect-target-2-shots"
 
-#define IMAGE_TEMPLATE @"scene00451"
-#define IMAGE_WITH_SHOT @"scene00931"
+#define IMAGE_TEMPLATE @"still-white-2-shots"
+#define IMAGE_WITH_SHOT @"still-white-6-shots"
 
-//#define IMAGE_TEMPLATE @"scene00001"
-//#define IMAGE_WITH_SHOT @"scene01201"
+//#define IMAGE_TEMPLATE @"still-white-0-shots"
+//#define IMAGE_WITH_SHOT @"still-white-7-shots"
 
 #define TEST_MOVIE @"grass-target-white"
 
+#define IMAGE_SKEWED @"perfect-target-3-shots-skewed"
 
 @interface TVViewController ()
 
@@ -51,21 +52,14 @@
     [self.imageView addGestureRecognizer:tgr];
     
     
-    // Process the image with two shots in it
-    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
-    [self.imageView setImage:imgWithShots];
 
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    [self performImageProcessorTest];
+//    [self performImageProcessorTest];
     
-//    NSBundle *bundle = [NSBundle mainBundle];
-//    NSString *moviePath = [bundle pathForResource:TEST_MOVIE ofType:@"mp4"];
-//    NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
-//    
-//    [self processVideo:movieURL];
+    [self performKeystoneCorrectionTest];
     
 }
 
@@ -80,17 +74,26 @@
     [self presentMoviePlayerViewControllerAnimated:movie];
 }
 
+- (void)performKeystoneCorrectionTest {
+    
+    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
+//    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
+    UIImage *testImage = [[TVVideoProcessor sharedInstance] perspectiveCorrectionWithImage:image];
+
+    [self.imageView setImage:testImage];
+}
+
 - (void)performImageProcessorTest {
+    
+    // Process the image with two shots in it
+    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
+    [self.imageView setImage:imgWithShots];
     
     TVVideoProcessor *vidProcessor = [TVVideoProcessor sharedInstance];
     
     // Set the template image for the VideoProcessor
     UIImage *imgTemplate = [UIImage imageNamed:IMAGE_TEMPLATE];
     [vidProcessor setTemplateImage:imgTemplate];
-    
-    
-    // Process the image with two shots in it
-    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
     
     [vidProcessor findTVBulletsWithImage:imgWithShots Completion:^(TVBulletSpace *bulletSpace) {
         
