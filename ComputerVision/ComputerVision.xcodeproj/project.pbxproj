@@ -48,7 +48,7 @@
 		15F2B06A1B339EF6009FF2A8 /* scene01201.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F2B0691B339EF6009FF2A8 /* scene01201.png */; };
 		717CC5A343F3AA4844AC8200 /* libPods-ComputerVisionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B9FAFE5A91C9D95A3190C /* libPods-ComputerVisionTests.a */; };
 		78FCEEBC47E11074E17802E6 /* libPods-ComputerVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A02483907361ECFACCFC46AF /* libPods-ComputerVision.a */; };
-		CBD582DF1B1D195100895878 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD582DE1B1D195100895878 /* opencv2.framework */; };
+		CBEE0E311B38923A001C92E2 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBE99A01B32005400769448 /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +117,7 @@
 		9DE9038B1624574704DD58A2 /* Pods-ComputerVision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComputerVision.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComputerVision/Pods-ComputerVision.debug.xcconfig"; sourceTree = "<group>"; };
 		A02483907361ECFACCFC46AF /* libPods-ComputerVision.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComputerVision.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B45386A035C6B203C88F8EC8 /* Pods-ComputerVision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComputerVision.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComputerVision/Pods-ComputerVision.release.xcconfig"; sourceTree = "<group>"; };
+		CBBE99A01B32005400769448 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Pods/opencv2.framework; sourceTree = "<group>"; };
 		CBD582DE1B1D195100895878 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = SOURCE_ROOT; };
 		D35B9FAFE5A91C9D95A3190C /* libPods-ComputerVisionTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComputerVisionTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -135,7 +136,7 @@
 				1546903D1B17BBE200E9062A /* CoreGraphics.framework in Frameworks */,
 				154690651B1CFA9200E9062A /* CoreImage.framework in Frameworks */,
 				156F48B01B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a in Frameworks */,
-				CBD582DF1B1D195100895878 /* opencv2.framework in Frameworks */,
+				CBEE0E311B38923A001C92E2 /* opencv2.framework in Frameworks */,
 				154690661B1CFA9D00E9062A /* CoreMedia.framework in Frameworks */,
 				154690681B1CFAAE00E9062A /* QuartzCore.framework in Frameworks */,
 				154690381B17B98900E9062A /* UIKit.framework in Frameworks */,
@@ -315,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				15DBF8B51B3876C400EE02E2 /* MediaPlayer.framework */,
+				CBBE99A01B32005400769448 /* opencv2.framework */,
 				156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */,
 				A02483907361ECFACCFC46AF /* libPods-ComputerVision.a */,
 				D35B9FAFE5A91C9D95A3190C /* libPods-ComputerVisionTests.a */,
@@ -386,6 +388,7 @@
 				TargetAttributes = {
 					154690081B17B80800E9062A = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 8N2TT5E7LF;
 					};
 					154690211B17B80800E9062A = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -652,14 +655,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9DE9038B1624574704DD58A2 /* Pods-ComputerVision.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick Sheehan (2Q88R8ZYP5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick Sheehan (2Q88R8ZYP5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Meshach Joshua (HR65WM2Z5A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Meshach Joshua (HR65WM2Z5A)";
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* (*) .DS_Store CVS .svn .git .hg *.framework";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+					"$(PROJECT_DIR)/Pods",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -675,6 +680,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -682,14 +688,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B45386A035C6B203C88F8EC8 /* Pods-ComputerVision.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick Sheehan (2Q88R8ZYP5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick Sheehan (2Q88R8ZYP5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Meshach Joshua (HR65WM2Z5A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Meshach Joshua (HR65WM2Z5A)";
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* (*) .DS_Store CVS .svn .git .hg *.framework";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks",
+					"$(PROJECT_DIR)/Pods",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -705,6 +713,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -24,4 +24,6 @@
 #define DENSITY_MIN 0.7
 #define DENSITY_MAX 1.3
 
+#define FRAME_PER_SECOND 1
+
 #endif
