@@ -45,42 +45,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // Add tap gesture recognizer
-    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    tgr.delegate = self;
-    [self.imageView addGestureRecognizer:tgr];
-    
-    
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
-//    [self performImageProcessorTest];
-    
     [self performKeystoneCorrectionTest];
+}
+
+- (void)performKeystoneCorrectionTest {
     
+    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
+    //    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
+    UIImage *testImage = [[TVVideoProcessor sharedInstance] perspectiveCorrectionWithImage:image];
+    
+    [self.imageView setImage:testImage];
 }
 
 - (void)processVideo:(NSURL *)movieURL {
 
-    
     MPMoviePlayerViewController *movie = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
 
     [movie.moviePlayer setControlStyle:MPMovieControlStyleDefault];
     [movie.moviePlayer prepareToPlay];
     [movie.moviePlayer play];
     [self presentMoviePlayerViewControllerAnimated:movie];
-}
-
-- (void)performKeystoneCorrectionTest {
-    
-    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
-//    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
-    UIImage *testImage = [[TVVideoProcessor sharedInstance] perspectiveCorrectionWithImage:image];
-
-    [self.imageView setImage:testImage];
 }
 
 - (void)performImageProcessorTest {
@@ -125,19 +113,6 @@
 //        } completion:nil];
         
     }];
-}
-
-#pragma mark - User Controls
-
-- (void)handleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
-
-    
-    CGPoint ptInView = [tapGestureRecognizer locationInView:self.view];
-    CGPoint ptInImgView = [tapGestureRecognizer locationInView:self.imageView];
-    
-    NSLog(@"You tapped in main view: (%.02f, %.02f)", ptInView.x, ptInView.y);
-    NSLog(@" ... ... ... image view: (%.02f, %.02f)\n", ptInImgView.x, ptInImgView.y);
-    
 }
 
 @end

@@ -8,9 +8,6 @@
 
 #import "Headers.h"
 
-// Value between [0-1], used in density filter
-#define BULLET_DENSITY_THRESHOLD 0.50
-
 @interface TVBulletSeekerAlgorithm : NSObject
 
 
