@@ -8,8 +8,10 @@
 
 #import "Headers.h"
 
-@interface TVViewController : UIViewController<UIGestureRecognizerDelegate>
+@interface TVViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+- (IBAction)sliderValueChanged:(UISlider *)sender;
 
 @end

@@ -49,7 +49,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    [self performKeystoneCorrectionTest];
+//    [self performKeystoneCorrectionTest];
 }
 
 - (void)performKeystoneCorrectionTest {
@@ -113,6 +113,20 @@
 //        } completion:nil];
         
     }];
+}
+
+#pragma mark - User Controls
+
+- (IBAction)sliderValueChanged:(UISlider *)sender {
+
+    NSUInteger sliderTag = sender.tag;
+    NSUInteger labelTag = sliderTag + 5;
+    
+    UILabel *label = (UILabel *)[self.view viewWithTag:labelTag];
+    
+    float value = sender.value;
+    [label setText:[NSString stringWithFormat:@"%.2f", value]];
+    
 }
 
 @end
