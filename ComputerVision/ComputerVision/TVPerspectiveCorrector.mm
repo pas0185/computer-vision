@@ -15,7 +15,7 @@ using namespace std;
 
 + (void)startWarpCorrection:(UIImage *)image
                 WithOptions:(NSDictionary *)options
-                 Completion:(void (^)(UIImage *))callback {
+                 Completion:(void (^)(UIImage *, int))callback {
     
     id cannyLowThresh = [options valueForKey:KEY_CANNY_LOW_THRESHOLD];
     id houghRho = [options valueForKey:KEY_HOUGH_RHO];
@@ -24,6 +24,10 @@ using namespace std;
     id houghMinLineLen = [options valueForKey:KEY_HOUGH_MIN_LINE_LENGTH];
     id houghMaxLineGap = [options valueForKey:KEY_HOUGH_MAX_LINE_GAP];
     id onlyShowLines = [options valueForKey:KEY_ONLY_SHOW_LINES];
+    
+    
+    
+    int stageSelection = [[options valueForKey:KEY_SEGMENT_SELECTION] intValue];
     
     Mat src = [TVUtility cvMatFromUIImage:image];
     
@@ -41,6 +45,15 @@ using namespace std;
         canny(src);
     }
     
+    if (stageSelection == 0) {
+        
+        /* EDGES */
+        
+        UIImage *edgeImage = [TVUtility UIImageFromCVMat:src];
+        callback(edgeImage, 0);
+        return;
+    }
+    
     // Find lines with Hough transform
     vector<Vec4i> lines;
     if (houghRho && houghIntThresh && houghMinLineLen && houghMaxLineGap) {
@@ -53,38 +66,57 @@ using namespace std;
     // Draw the lines (temporary)
 
 
-    if ([onlyShowLines boolValue]) {
+//    if ([onlyShowLines boolValue]) {
+//        // Callback image only has the lines
+//        src = cv::Mat::zeros(src.rows, src.cols, CV_32FC1);
+//    }
+    
+    
+    if (stageSelection == 1) {
+        
+        /* LINES */
         
         // Callback image only has the lines
-        
-        Mat linedMat = cv::Mat::zeros(src.rows, src.cols, CV_32FC1);
-        drawLines(linedMat, lines);
-        UIImage *linedImage = [TVUtility UIImageFromCVMat:linedMat];
-        callback(linedImage);
-
-    } else {
-        
-        // Callback image has everything
-        
+        src = cv::Mat::zeros(src.rows, src.cols, CV_32FC1);
         drawLines(src, lines);
-        UIImage *linedImage = [TVUtility UIImageFromCVMat:src];
-        callback(linedImage);
+        UIImage *lineImage = [TVUtility UIImageFromCVMat:src];
+        callback(lineImage, 0);
+    }
+    
+    vector<Point2f> corners = findCorners(lines);
+    int numCorners = (int)corners.size();
+    
+
+    NSLog(@"Found %lu corners!", corners.size());
+    
+    if (numCorners == 4) {
+    
+        NSLog(@"Yes you found the zone!");
+        sortCorners(corners);
+    }
+    
+    if (stageSelection == 2) {
+    
+        src = Mat::zeros(src.rows, src.cols, CV_32FC1);
+        for (int i = 0; i < corners.size(); i++) {
+            Scalar color(102, 255, 200);
+            cv::circle(src, corners[i], 8, color, -1);
+        }
+        
+        UIImage *cornerImage = [TVUtility UIImageFromCVMat:src];
+        callback(cornerImage, 0);
+        return;
     }
     
     
+    if (stageSelection == 3 && numCorners == 4) {
+        Mat original = [TVUtility cvMatFromUIImage:image];
+        warpImage(original, corners);
+        UIImage *warpedImage = [TVUtility UIImageFromCVMat:original];
+        callback(warpedImage, numCorners);
+        
+    }
     
-    return;
-    
-    
-    
-    
-    vector<Point2f> corners = findCorners(lines);
-    sortCorners(corners);
-    
-    warpImage(src, corners);
-    
-    UIImage *warpedImage = [TVUtility UIImageFromCVMat:src];
-    callback(warpedImage);
     
 }
 

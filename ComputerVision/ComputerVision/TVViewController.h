@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewAfter;
 
+- (IBAction)segControlClicked:(id)sender;
 
 - (IBAction)sliderValueChanged:(UISlider *)sender;
 

@@ -54,15 +54,18 @@
 
 - (void)performKeystoneCorrectionTest {
     
-    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
+//    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
     
-//    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
+    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
     [self.imageViewBefore setImage:image];
     
-    NSDictionary *options = [self getOptionsDictionaryFromSliders];
+    NSDictionary *options = [self buildOptionsDictionary];
     [TVPerspectiveCorrector startWarpCorrection:image
                                     WithOptions:options
-     Completion:^(UIImage *modImage) {
+     Completion:^(UIImage *modImage, int numCorners) {
+         UILabel *cornersLabel = (UILabel *)[self.view viewWithTag:200];
+         [cornersLabel setText:[NSString stringWithFormat:@"%d corners", numCorners]];
+         
          [self.imageViewAfter setImage:modImage];
      }];
     
@@ -114,6 +117,12 @@
 
 #pragma mark - User Controls
 
+- (IBAction)segControlClicked:(id)sender {
+    
+    [self performKeystoneCorrectionTest];
+    
+}
+
 - (IBAction)sliderValueChanged:(UISlider *)sender {
 
     NSUInteger sliderTag = sender.tag;
@@ -133,12 +142,18 @@
 
 }
 
-- (NSDictionary *)getOptionsDictionaryFromSliders {
+- (NSDictionary *)buildOptionsDictionary {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 
+    UISegmentedControl *segControl = (UISegmentedControl *)[self.view viewWithTag:400];
+    int segment = (int)[segControl selectedSegmentIndex];
+    [dict setObject:[NSNumber numberWithInt:segment] forKey:KEY_SEGMENT_SELECTION];
+    
+    // Pre-programmed Constants
     [dict setObject:[NSNumber numberWithFloat:HOUGH_RHO_CONSTANT] forKey:KEY_HOUGH_RHO];
     [dict setObject:[NSNumber numberWithFloat:HOUGH_THETA_CONSTANT] forKey:KEY_HOUGH_THETA];
 
+    // Interpreted values from the UI elements
     UISwitch *onlyLinesSwitch = (UISwitch *)[self.view viewWithTag:2];
     [dict setObject:[NSNumber numberWithBool:onlyLinesSwitch.on] forKey:KEY_ONLY_SHOW_LINES];
     
