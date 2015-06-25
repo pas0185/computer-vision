@@ -13,26 +13,26 @@ using namespace std;
 
 @implementation TVPerspectiveCorrector
 
-- (void)startWarpCorrection:(UIImage *)image
++ (void)startWarpCorrection:(UIImage *)image
                 WithOptions:(NSDictionary *)options
                  Completion:(void (^)(UIImage *))callback {
     
     id cannyLowThresh = [options valueForKey:KEY_CANNY_LOW_THRESHOLD];
     id houghRho = [options valueForKey:KEY_HOUGH_RHO];
+    id houghTheta = [options valueForKey:KEY_HOUGH_THETA];
     id houghIntThresh = [options valueForKey:KEY_HOUGH_INTERSECTION_THRESHOLD];
     id houghMinLineLen = [options valueForKey:KEY_HOUGH_MIN_LINE_LENGTH];
     id houghMaxLineGap = [options valueForKey:KEY_HOUGH_MAX_LINE_GAP];
     
     Mat src = [TVUtility cvMatFromUIImage:image];
     
+    // Convert to Grayscale
+    cvtColor(src, src, CV_BGR2GRAY);
+    
     // Apply blur
     blur(src);
     
-    UIImage *blurredImage = [TVUtility UIImageFromCVMat:src];
-    callback(blurredImage);
-
-    return;
-    
+//    UIImage *blurredImage = [TVUtility UIImageFromCVMat:src];
     
     
     // Detect Canny Edges
@@ -43,17 +43,28 @@ using namespace std;
         canny(src);
     }
     
-    UIImage *cannyImage = [TVUtility UIImageFromCVMat:src];
-    callback(cannyImage);
+//    UIImage *cannyImage = [TVUtility UIImageFromCVMat:src];
     
     // Find lines with Hough transform
     vector<Vec4i> lines;
     if (houghRho && houghIntThresh && houghMinLineLen && houghMaxLineGap) {
-        lines = hough(src, [houghRho floatValue], [houghIntThresh floatValue], [houghMinLineLen intValue], [houghMaxLineGap intValue]);
+        lines = hough(src, [houghRho floatValue], [houghTheta floatValue], [houghIntThresh floatValue], [houghMinLineLen intValue], [houghMaxLineGap intValue]);
     } else {
         NSLog(@"WHOOPS! Some parameters were missing for the Hough transform calculation");
         lines = hough(src);
     }
+    
+    // Draw the lines (temporary)
+    Mat linedMat = cv::Mat::zeros(src.rows, src.cols, CV_32FC1);
+    drawLines(linedMat, lines);
+    
+    UIImage *linedImage = [TVUtility UIImageFromCVMat:linedMat];
+    callback(linedImage);
+    
+    return;
+    
+    
+    
     
     vector<Point2f> corners = findCorners(lines);
     sortCorners(corners);
@@ -62,6 +73,28 @@ using namespace std;
     
     UIImage *warpedImage = [TVUtility UIImageFromCVMat:src];
     callback(warpedImage);
+    
+}
+
+void drawLines(Mat &src,
+               vector<Vec4i> lines) {
+    
+    for (int i = 0; i < lines.size(); i ++) {
+        
+        Vec4i line = lines[i];
+        int x1 = line[0];
+        int y1 = line[1];
+        
+        int x2 = line[2];
+        int y2 = line[3];
+        
+        Point2f p1(x1, y1);
+        Point2f p2(x2, y2);
+        Scalar color(102, 255, 200);
+        
+        cv::line(src, p1, p2, color, 5);
+        
+    }
     
 }
 

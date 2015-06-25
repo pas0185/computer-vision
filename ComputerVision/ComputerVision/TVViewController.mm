@@ -60,7 +60,11 @@
     [self.imageViewBefore setImage:image];
     
     NSDictionary *options = [self getOptionsDictionaryFromSliders];
-    
+    [TVPerspectiveCorrector startWarpCorrection:image
+                                    WithOptions:options
+     Completion:^(UIImage *modImage) {
+         [self.imageViewAfter setImage:modImage];
+     }];
     
 //    UIImage *testImage = [[TVVideoProcessor sharedInstance] perspectiveCorrectionWithImage:image];
     
@@ -131,6 +135,10 @@
     
     UISlider *houghRho = (UISlider *)[self.view viewWithTag:3];
     [dict setObject:[NSNumber numberWithFloat:houghRho.value] forKey:KEY_HOUGH_RHO];
+    
+
+    [dict setObject:[NSNumber numberWithFloat:CV_PI/180] forKey:KEY_HOUGH_THETA];
+    
     
     UISlider *houghIntersectionThreshold = (UISlider *)[self.view viewWithTag:4];
     [dict setObject:[NSNumber numberWithFloat:houghIntersectionThreshold.value] forKey:KEY_HOUGH_INTERSECTION_THRESHOLD];
