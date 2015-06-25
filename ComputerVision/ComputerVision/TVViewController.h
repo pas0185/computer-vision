@@ -17,4 +17,6 @@
 
 - (IBAction)sliderValueChanged:(UISlider *)sender;
 
+- (IBAction)switchValueChanged:(UISwitch *)sender;
+
 @end

@@ -54,9 +54,9 @@
 
 - (void)performKeystoneCorrectionTest {
     
-//    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
+    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
     
-    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
+//    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
     [self.imageViewBefore setImage:image];
     
     NSDictionary *options = [self getOptionsDictionaryFromSliders];
@@ -127,18 +127,23 @@
     [self performKeystoneCorrectionTest];
 }
 
+- (IBAction)switchValueChanged:(UISwitch *)sender {
+
+    [self performKeystoneCorrectionTest];
+
+}
+
 - (NSDictionary *)getOptionsDictionaryFromSliders {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    
-    UISlider *cannyLowThresh = (UISlider *)[self.view viewWithTag:2];
-    [dict setObject:[NSNumber numberWithFloat:cannyLowThresh.value] forKey:KEY_CANNY_LOW_THRESHOLD];
-    
-    UISlider *houghRho = (UISlider *)[self.view viewWithTag:3];
-    [dict setObject:[NSNumber numberWithFloat:houghRho.value] forKey:KEY_HOUGH_RHO];
-    
 
-    [dict setObject:[NSNumber numberWithFloat:CV_PI/180] forKey:KEY_HOUGH_THETA];
+    [dict setObject:[NSNumber numberWithFloat:HOUGH_RHO_CONSTANT] forKey:KEY_HOUGH_RHO];
+    [dict setObject:[NSNumber numberWithFloat:HOUGH_THETA_CONSTANT] forKey:KEY_HOUGH_THETA];
+
+    UISwitch *onlyLinesSwitch = (UISwitch *)[self.view viewWithTag:2];
+    [dict setObject:[NSNumber numberWithBool:onlyLinesSwitch.on] forKey:KEY_ONLY_SHOW_LINES];
     
+    UISlider *cannyLowThresh = (UISlider *)[self.view viewWithTag:3];
+    [dict setObject:[NSNumber numberWithFloat:cannyLowThresh.value] forKey:KEY_CANNY_LOW_THRESHOLD];
     
     UISlider *houghIntersectionThreshold = (UISlider *)[self.view viewWithTag:4];
     [dict setObject:[NSNumber numberWithFloat:houghIntersectionThreshold.value] forKey:KEY_HOUGH_INTERSECTION_THRESHOLD];
@@ -149,7 +154,7 @@
     UISlider *houghMaxLineGap = (UISlider *)[self.view viewWithTag:6];
     [dict setObject:[NSNumber numberWithInt:houghMaxLineGap.value] forKey:KEY_HOUGH_MAX_LINE_GAP];
     
-    
+
     return dict;
 }
 

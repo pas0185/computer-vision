@@ -23,6 +23,7 @@ using namespace std;
     id houghIntThresh = [options valueForKey:KEY_HOUGH_INTERSECTION_THRESHOLD];
     id houghMinLineLen = [options valueForKey:KEY_HOUGH_MIN_LINE_LENGTH];
     id houghMaxLineGap = [options valueForKey:KEY_HOUGH_MAX_LINE_GAP];
+    id onlyShowLines = [options valueForKey:KEY_ONLY_SHOW_LINES];
     
     Mat src = [TVUtility cvMatFromUIImage:image];
     
@@ -32,9 +33,6 @@ using namespace std;
     // Apply blur
     blur(src);
     
-//    UIImage *blurredImage = [TVUtility UIImageFromCVMat:src];
-    
-    
     // Detect Canny Edges
     if (cannyLowThresh) {
         canny(src, [cannyLowThresh floatValue]);
@@ -42,8 +40,6 @@ using namespace std;
         NSLog(@"WHOOPS! No lower threshold provided for Canny edge detection");
         canny(src);
     }
-    
-//    UIImage *cannyImage = [TVUtility UIImageFromCVMat:src];
     
     // Find lines with Hough transform
     vector<Vec4i> lines;
@@ -55,11 +51,27 @@ using namespace std;
     }
     
     // Draw the lines (temporary)
-    Mat linedMat = cv::Mat::zeros(src.rows, src.cols, CV_32FC1);
-    drawLines(linedMat, lines);
+
+
+    if ([onlyShowLines boolValue]) {
+        
+        // Callback image only has the lines
+        
+        Mat linedMat = cv::Mat::zeros(src.rows, src.cols, CV_32FC1);
+        drawLines(linedMat, lines);
+        UIImage *linedImage = [TVUtility UIImageFromCVMat:linedMat];
+        callback(linedImage);
+
+    } else {
+        
+        // Callback image has everything
+        
+        drawLines(src, lines);
+        UIImage *linedImage = [TVUtility UIImageFromCVMat:src];
+        callback(linedImage);
+    }
     
-    UIImage *linedImage = [TVUtility UIImageFromCVMat:linedMat];
-    callback(linedImage);
+    
     
     return;
     
