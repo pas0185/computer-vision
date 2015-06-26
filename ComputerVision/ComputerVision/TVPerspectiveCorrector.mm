@@ -17,27 +17,24 @@ using namespace std;
                 WithOptions:(NSDictionary *)options
                  Completion:(void (^)(UIImage *, int))callback {
     
+    
+    /******* Read parameters from dictionary *******/
     id cannyLowThresh = [options valueForKey:KEY_CANNY_LOW_THRESHOLD];
     id houghRho = [options valueForKey:KEY_HOUGH_RHO];
     id houghTheta = [options valueForKey:KEY_HOUGH_THETA];
     id houghIntThresh = [options valueForKey:KEY_HOUGH_INTERSECTION_THRESHOLD];
     id houghMinLineLen = [options valueForKey:KEY_HOUGH_MIN_LINE_LENGTH];
     id houghMaxLineGap = [options valueForKey:KEY_HOUGH_MAX_LINE_GAP];
-    id onlyShowLines = [options valueForKey:KEY_ONLY_SHOW_LINES];
-    
-    
-    
     int stageSelection = [[options valueForKey:KEY_SEGMENT_SELECTION] intValue];
     
+    
+    /******* Convert to Grayscale and Blur *******/
     Mat src = [TVUtility cvMatFromUIImage:image];
-    
-    // Convert to Grayscale
     cvtColor(src, src, CV_BGR2GRAY);
-    
-    // Apply blur
     blur(src);
     
-    // Detect Canny Edges
+    
+    /******* Detect Canny Edges *******/
     if (cannyLowThresh) {
         canny(src, [cannyLowThresh floatValue]);
     } else {
@@ -45,16 +42,15 @@ using namespace std;
         canny(src);
     }
     
-    if (stageSelection == 0) {
-        
-        /* EDGES */
+    if (stageSelection == 0) {  /* EDGES */
         
         UIImage *edgeImage = [TVUtility UIImageFromCVMat:src];
-        callback(edgeImage, 0);
+        callback(edgeImage, -1);
         return;
     }
     
-    // Find lines with Hough transform
+    
+    /******* Straight Line detection with Hough transform *******/
     vector<Vec4i> lines;
     if (houghRho && houghIntThresh && houghMinLineLen && houghMaxLineGap) {
         lines = hough(src, [houghRho floatValue], [houghTheta floatValue], [houghIntThresh floatValue], [houghMinLineLen intValue], [houghMaxLineGap intValue]);
@@ -63,39 +59,22 @@ using namespace std;
         lines = hough(src);
     }
     
-    // Draw the lines (temporary)
-
-
-//    if ([onlyShowLines boolValue]) {
-//        // Callback image only has the lines
-//        src = cv::Mat::zeros(src.rows, src.cols, CV_32FC1);
-//    }
-    
-    
-    if (stageSelection == 1) {
-        
-        /* LINES */
+    if (stageSelection == 1) {  /* LINES */
         
         // Callback image only has the lines
         src = cv::Mat::zeros(src.rows, src.cols, CV_32FC1);
         drawLines(src, lines);
         UIImage *lineImage = [TVUtility UIImageFromCVMat:src];
-        callback(lineImage, 0);
+        callback(lineImage, -1);
+        return;
     }
     
+    
+    /******* Corner calculation of lines *******/
     vector<Point2f> corners = findCorners(lines);
     int numCorners = (int)corners.size();
     
-
-    NSLog(@"Found %lu corners!", corners.size());
-    
-    if (numCorners == 4) {
-    
-        NSLog(@"Yes you found the zone!");
-        sortCorners(corners);
-    }
-    
-    if (stageSelection == 2) {
+    if (stageSelection == 2) { /* CORNERS */
     
         src = Mat::zeros(src.rows, src.cols, CV_32FC1);
         for (int i = 0; i < corners.size(); i++) {
@@ -104,20 +83,21 @@ using namespace std;
         }
         
         UIImage *cornerImage = [TVUtility UIImageFromCVMat:src];
-        callback(cornerImage, 0);
+        callback(cornerImage, numCorners);
         return;
     }
     
     
-    if (stageSelection == 3 && numCorners == 4) {
+    
+    /******* Warp Image if only four corners *******/
+    if (sortCorners(corners, src.rows, src.cols) && stageSelection == 3) { /* WARPED */
+
         Mat original = [TVUtility cvMatFromUIImage:image];
         warpImage(original, corners);
         UIImage *warpedImage = [TVUtility UIImageFromCVMat:original];
         callback(warpedImage, numCorners);
-        
+        return;
     }
-    
-    
 }
 
 void drawLines(Mat &src,
@@ -216,25 +196,43 @@ vector<Point2f> findCorners(vector<Vec4i> lines) {
     return corners;
 }
 
-void sortCorners(vector<Point2f>& corners) {
+bool sortCorners(vector<Point2f>& corners, int nRows, int nCols) {
     
     // Sort a list of corners to be in clockwise order:
     // (TopLeft, TopRight, BottomRight, BottomLeft)
+    
+    
+    // Filter all corners that are outside of the image
+    vector<Point2f> filteredCorners;
+    for (int i = 0; i < corners.size(); i++) {
+        
+        Point2f pt = corners[i];
+        
+        if (pt.x < nCols && pt.y < nRows) {
+            filteredCorners.push_back(pt);
+        }
+    }
+    
+    if (filteredCorners.size() < 4) {
+        
+        NSLog(@"Wrong number of corners, aborting the sort");
+        return false;
+    }
     
     std::vector<cv::Point2f> top, bot;
     
     // Find the center of mass of the corners
     Point2f center(0,0);
-    for (int i = 0; i < corners.size(); i++)
-        center += corners[i];
-    center *= (1. / corners.size());
+    for (int i = 0; i < filteredCorners.size(); i++)
+        center += filteredCorners[i];
+    center *= (1. / filteredCorners.size());
     
-    for (int i = 0; i < corners.size(); i++)
+    for (int i = 0; i < filteredCorners.size(); i++)
     {
-        if (corners[i].y < center.y)
-            top.push_back(corners[i]);
+        if (filteredCorners[i].y < center.y)
+            top.push_back(filteredCorners[i]);
         else
-            bot.push_back(corners[i]);
+            bot.push_back(filteredCorners[i]);
     }
     
     cv::Point2f tl = top[0].x > top[1].x ? top[1] : top[0];
@@ -247,6 +245,8 @@ void sortCorners(vector<Point2f>& corners) {
     corners.push_back(tr);
     corners.push_back(br);
     corners.push_back(bl);
+    
+    return true;
 }
 
 void warpImage(Mat &src, vector<Point2f> corners) {

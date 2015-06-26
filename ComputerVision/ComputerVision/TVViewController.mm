@@ -54,23 +54,21 @@
 
 - (void)performKeystoneCorrectionTest {
     
-//    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
+    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
     
-    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
+//    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
     [self.imageViewBefore setImage:image];
     
     NSDictionary *options = [self buildOptionsDictionary];
     [TVPerspectiveCorrector startWarpCorrection:image
                                     WithOptions:options
      Completion:^(UIImage *modImage, int numCorners) {
-         UILabel *cornersLabel = (UILabel *)[self.view viewWithTag:200];
-         [cornersLabel setText:[NSString stringWithFormat:@"%d corners", numCorners]];
-         
+
+         UISegmentedControl *segControl = (UISegmentedControl *)[self.view viewWithTag:400];
+         [segControl setTitle:[NSString stringWithFormat:@"Corners (%d)", numCorners] forSegmentAtIndex:2];
+
          [self.imageViewAfter setImage:modImage];
      }];
-    
-//    UIImage *testImage = [[TVVideoProcessor sharedInstance] perspectiveCorrectionWithImage:image];
-    
 }
 
 - (void)processVideo:(NSURL *)movieURL {
