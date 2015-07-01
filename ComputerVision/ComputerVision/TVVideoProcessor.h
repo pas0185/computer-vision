@@ -22,4 +22,7 @@
 
 - (void)findTVBulletsWithImage:(UIImage *)image
                     Completion:(void (^)(TVBulletSpace *))callback;
+
+- (UIImage *)perspectiveCorrectionWithImage:(UIImage *)image;
+
 @end

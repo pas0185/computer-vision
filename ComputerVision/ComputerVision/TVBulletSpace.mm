@@ -75,7 +75,6 @@ typedef std::vector<cv::Point> Contour;
     return arrBullets;
 }
 
-
 - (void)findBulletsFromCannyMatrix:(Mat)canny {
     
     if (canny.empty()) {

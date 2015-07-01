@@ -9,17 +9,12 @@
 #import "TVViewController.h"
 #import "cap_ios.h"
 
-//#define IMAGE_TEMPLATE @"target-0-shots"
-//#define IMAGE_WITH_SHOT @"target-2-shots"
-
-#define IMAGE_TEMPLATE @"scene00451"
-#define IMAGE_WITH_SHOT @"scene00931"
-
-//#define IMAGE_TEMPLATE @"scene00001"
-//#define IMAGE_WITH_SHOT @"scene01201"
+#define IMAGE_TEMPLATE @"TV-Target-Empty"
+#define IMAGE_WITH_SHOT @"TV-Target-Shot"
 
 #define TEST_MOVIE @"grass-target-white"
 
+#define IMAGE_SKEWED @"perfect-target-3-shots-skewed"
 
 @interface TVViewController ()
 
@@ -45,33 +40,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Add tap gesture recognizer
-    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    tgr.delegate = self;
-    [self.imageView addGestureRecognizer:tgr];
     
-    
-    // Process the image with two shots in it
-    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
-    [self.imageView setImage:imgWithShots];
+    UITapGestureRecognizer *dblTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveParameters)];
+    [dblTapGesture setNumberOfTapsRequired:2];
+    [self.imageViewAfter addGestureRecognizer:dblTapGesture];
+}
 
+- (void)saveParameters {
+
+    NSDictionary *paramDict = [self buildOptionsDictionary];
+    
+    //TODO: Save to Core Data
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    [self performImageProcessorTest];
+    [self performKeystoneCorrectionTest];
+}
+
+- (void)performKeystoneCorrectionTest {
     
-//    NSBundle *bundle = [NSBundle mainBundle];
-//    NSString *moviePath = [bundle pathForResource:TEST_MOVIE ofType:@"mp4"];
-//    NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
-//    
-//    [self processVideo:movieURL];
+    //    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
+//        UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
+    UIImage *image = [UIImage imageNamed:IMAGE_WITH_SHOT];
     
+    [self.imageViewBefore setImage:image];
+    
+    NSDictionary *options = [self buildOptionsDictionary];
+    [TVPerspectiveCorrector startWarpCorrection:image
+                                    WithOptions:options
+     Completion:^(UIImage *modImage, int numCorners) {
+
+         UISegmentedControl *segControl = (UISegmentedControl *)[self.view viewWithTag:400];
+         [segControl setTitle:[NSString stringWithFormat:@"Corners (%d)", numCorners] forSegmentAtIndex:2];
+
+         [self.imageViewAfter setImage:modImage];
+     }];
 }
 
 - (void)processVideo:(NSURL *)movieURL {
 
-    
     MPMoviePlayerViewController *movie = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
 
     [movie.moviePlayer setControlStyle:MPMovieControlStyleDefault];
@@ -82,59 +91,92 @@
 
 - (void)performImageProcessorTest {
     
+    // Process the image with two shots in it
+    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
+    [self.imageViewBefore setImage:imgWithShots];
+    [self.imageViewAfter setImage:imgWithShots];
+    
     TVVideoProcessor *vidProcessor = [TVVideoProcessor sharedInstance];
     
     // Set the template image for the VideoProcessor
     UIImage *imgTemplate = [UIImage imageNamed:IMAGE_TEMPLATE];
     [vidProcessor setTemplateImage:imgTemplate];
     
-    
-    // Process the image with two shots in it
-    UIImage *imgWithShots = [UIImage imageNamed:IMAGE_WITH_SHOT];
-    
     [vidProcessor findTVBulletsWithImage:imgWithShots Completion:^(TVBulletSpace *bulletSpace) {
         
         UIView *bulletOverlay = [bulletSpace getOverlayView];
-        [self.imageView addSubview:bulletOverlay];
+        [self.imageViewAfter addSubview:bulletOverlay];
         
         // Scale the bullet overlay to fit the image
-        CGSize imageSize = [TVUtility aspectScaledImageSizeForImageView:self.imageView image:self.imageView.image];
+        CGSize imageSize = [TVUtility aspectScaledImageSizeForImageView:self.imageViewAfter image:self.imageViewAfter.image];
         
         CGFloat xscale = imageSize.width / bulletOverlay.frame.size.width;
         CGFloat yscale = imageSize.height / bulletOverlay.frame.size.height;
         CGAffineTransform t = CGAffineTransformMakeScale(xscale, yscale);
         bulletOverlay.transform = t;
 
-        bulletOverlay.center = CGPointMake(self.imageView.frame.size.width  / 2,
-                                           self.imageView.frame.size.height / 2);
+        bulletOverlay.center = CGPointMake(self.imageViewAfter.frame.size.width  / 2,
+                                           self.imageViewAfter.frame.size.height / 2);
 
-        
-//        [UIView animateKeyframesWithDuration:2.0 delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
-//            
-//            // Flash between hidden and visible
-//            [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.5 animations:^{
-//                bulletOverlay.alpha = 0;
-//            }];
-//            [UIView addKeyframeWithRelativeStartTime:0.75 relativeDuration:0.25 animations:^{
-//                bulletOverlay.alpha = 1;
-//            }];
-//            
-//        } completion:nil];
-        
     }];
 }
 
 #pragma mark - User Controls
 
-- (void)handleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
+- (IBAction)segControlClicked:(id)sender {
+    
+    [self performKeystoneCorrectionTest];
+    
+}
 
+- (IBAction)sliderValueChanged:(UISlider *)sender {
+
+    NSUInteger sliderTag = sender.tag;
+    NSUInteger labelTag = sliderTag + 5;
     
-    CGPoint ptInView = [tapGestureRecognizer locationInView:self.view];
-    CGPoint ptInImgView = [tapGestureRecognizer locationInView:self.imageView];
+    UILabel *label = (UILabel *)[self.view viewWithTag:labelTag];
     
-    NSLog(@"You tapped in main view: (%.02f, %.02f)", ptInView.x, ptInView.y);
-    NSLog(@" ... ... ... image view: (%.02f, %.02f)\n", ptInImgView.x, ptInImgView.y);
+    float value = sender.value;
+    [label setText:[NSString stringWithFormat:@"%.2f", value]];
     
+    [self performKeystoneCorrectionTest];
+}
+
+- (IBAction)switchValueChanged:(UISwitch *)sender {
+
+    [self performKeystoneCorrectionTest];
+
+}
+
+- (NSDictionary *)buildOptionsDictionary {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+
+    UISegmentedControl *segControl = (UISegmentedControl *)[self.view viewWithTag:400];
+    int segment = (int)[segControl selectedSegmentIndex];
+    [dict setObject:[NSNumber numberWithInt:segment] forKey:KEY_SEGMENT_SELECTION];
+    
+    // Pre-programmed Constants
+    [dict setObject:[NSNumber numberWithFloat:HOUGH_RHO_CONSTANT] forKey:KEY_HOUGH_RHO];
+    [dict setObject:[NSNumber numberWithFloat:HOUGH_THETA_CONSTANT] forKey:KEY_HOUGH_THETA];
+
+    // Interpreted values from the UI elements
+    UISwitch *onlyLinesSwitch = (UISwitch *)[self.view viewWithTag:2];
+    [dict setObject:[NSNumber numberWithBool:onlyLinesSwitch.on] forKey:KEY_ONLY_SHOW_LINES];
+    
+    UISlider *cannyLowThresh = (UISlider *)[self.view viewWithTag:3];
+    [dict setObject:[NSNumber numberWithFloat:cannyLowThresh.value] forKey:KEY_CANNY_LOW_THRESHOLD];
+    
+    UISlider *houghIntersectionThreshold = (UISlider *)[self.view viewWithTag:4];
+    [dict setObject:[NSNumber numberWithFloat:houghIntersectionThreshold.value] forKey:KEY_HOUGH_INTERSECTION_THRESHOLD];
+    
+    UISlider *houghMinLineLen = (UISlider *)[self.view viewWithTag:5];
+    [dict setObject:[NSNumber numberWithInt:houghMinLineLen.value] forKey:KEY_HOUGH_MIN_LINE_LENGTH];
+    
+    UISlider *houghMaxLineGap = (UISlider *)[self.view viewWithTag:6];
+    [dict setObject:[NSNumber numberWithInt:houghMaxLineGap.value] forKey:KEY_HOUGH_MAX_LINE_GAP];
+    
+
+    return dict;
 }
 
 @end

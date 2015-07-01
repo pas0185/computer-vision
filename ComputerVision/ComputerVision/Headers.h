@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "TVBullet.h"
 #import "TVBulletSpace.h"
+#import "TVPerspectiveCorrector.h"
 #import "TVUtility.h"
 #import "TVVideoProcessor.h"
 

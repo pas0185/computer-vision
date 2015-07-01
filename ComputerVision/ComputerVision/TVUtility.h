@@ -14,7 +14,6 @@
 
 + (UIImage *)differenceImageFrom:(UIImage *)img1 Minus:(UIImage *)img2;
 
-
 + (cv::Mat)differenceMatrixFrom:(UIImage *)img1 Minus:(UIImage *)img2;
 
 + (cv::Mat)cvMatFromUIImage:(UIImage *)image;
