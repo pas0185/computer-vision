@@ -9,14 +9,8 @@
 #import "TVViewController.h"
 #import "cap_ios.h"
 
-//#define IMAGE_TEMPLATE @"perfect-target-0-shots"
-//#define IMAGE_WITH_SHOT @"perfect-target-2-shots"
-
-#define IMAGE_TEMPLATE @"still-white-2-shots"
-#define IMAGE_WITH_SHOT @"still-white-6-shots"
-
-//#define IMAGE_TEMPLATE @"still-white-0-shots"
-//#define IMAGE_WITH_SHOT @"still-white-7-shots"
+#define IMAGE_TEMPLATE @"TV-Target-Empty"
+#define IMAGE_WITH_SHOT @"TV-Target-Shot"
 
 #define TEST_MOVIE @"grass-target-white"
 
@@ -45,6 +39,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    UITapGestureRecognizer *dblTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveParameters)];
+    [dblTapGesture setNumberOfTapsRequired:2];
+    [self.imageViewAfter addGestureRecognizer:dblTapGesture];
+}
+
+- (void)saveParameters {
+
+    NSDictionary *paramDict = [self buildOptionsDictionary];
+    
+    //TODO: Save to Core Data
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -54,9 +61,10 @@
 
 - (void)performKeystoneCorrectionTest {
     
-    UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
+    //    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
+//        UIImage *image = [UIImage imageNamed:IMAGE_SKEWED];
+    UIImage *image = [UIImage imageNamed:IMAGE_WITH_SHOT];
     
-//    UIImage *image = [UIImage imageNamed:@"ten-clubs.jpg"];
     [self.imageViewBefore setImage:image];
     
     NSDictionary *options = [self buildOptionsDictionary];

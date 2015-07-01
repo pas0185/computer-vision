@@ -30,6 +30,8 @@
 		1569CFDC1B2742F300D03FD3 /* TVUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1569CFDB1B2742F300D03FD3 /* TVUtility.mm */; };
 		1569CFDD1B274A7B00D03FD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690371B17B98900E9062A /* UIKit.framework */; };
 		156F48B01B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */; };
+		1584DDA21B3DFF65009CE1DC /* TV-Target-Empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 1584DDA01B3DFF65009CE1DC /* TV-Target-Empty.png */; };
+		1584DDA31B3DFF65009CE1DC /* TV-Target-Shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1584DDA11B3DFF65009CE1DC /* TV-Target-Shot.png */; };
 		159235681B29E04B00D5B2AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154690351B17B98200E9062A /* Foundation.framework */; };
 		15D67FC11B3999BB00EF04B1 /* grass-target-white.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 15D67FBE1B3999BB00EF04B1 /* grass-target-white.mp4 */; };
 		15D67FC21B3999BB00EF04B1 /* still-target-black.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 15D67FBF1B3999BB00EF04B1 /* still-target-black.mp4 */; };
@@ -95,6 +97,8 @@
 		1569CFDB1B2742F300D03FD3 /* TVUtility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TVUtility.mm; sourceTree = "<group>"; };
 		156F48AB1B2E4EA200DF5246 /* ComputerVision-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ComputerVision-prefix.pch"; sourceTree = "<group>"; };
 		156F48AF1B2E56E200DF5246 /* libPods-ComputerVision-GPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ComputerVision-GPUImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-ComputerVision-GPUImage.a"; sourceTree = "<group>"; };
+		1584DDA01B3DFF65009CE1DC /* TV-Target-Empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TV-Target-Empty.png"; path = "Assets/Sample Images/TV-Target-Empty.png"; sourceTree = "<group>"; };
+		1584DDA11B3DFF65009CE1DC /* TV-Target-Shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TV-Target-Shot.png"; path = "Assets/Sample Images/TV-Target-Shot.png"; sourceTree = "<group>"; };
 		15D67FBE1B3999BB00EF04B1 /* grass-target-white.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "grass-target-white.mp4"; path = "Assets/Videos/grass-target-white.mp4"; sourceTree = "<group>"; };
 		15D67FBF1B3999BB00EF04B1 /* still-target-black.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "still-target-black.mp4"; path = "Assets/Videos/still-target-black.mp4"; sourceTree = "<group>"; };
 		15D67FC01B3999BB00EF04B1 /* still-target-white.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "still-target-white.mp4"; path = "Assets/Videos/still-target-white.mp4"; sourceTree = "<group>"; };
@@ -279,6 +283,8 @@
 		156F48AE1B2E55F400DF5246 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1584DDA01B3DFF65009CE1DC /* TV-Target-Empty.png */,
+				1584DDA11B3DFF65009CE1DC /* TV-Target-Shot.png */,
 				15D67FE81B39A1A200EF04B1 /* perfect-target-3-shots-skewed.png */,
 				15D67FE51B39A12B00EF04B1 /* ten-clubs.jpg */,
 				15D67FE21B39A11300EF04B1 /* Still White */,
@@ -436,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1584DDA21B3DFF65009CE1DC /* TV-Target-Empty.png in Resources */,
 				15D67FD91B39A10000EF04B1 /* perfect-target-3-shots.png in Resources */,
 				15D67FE01B39A10B00EF04B1 /* still-white-6-shots.png in Resources */,
 				15D67FC21B3999BB00EF04B1 /* still-target-black.mp4 in Resources */,
@@ -446,6 +453,7 @@
 				15D67FDF1B39A10B00EF04B1 /* still-white-2-shots.png in Resources */,
 				15D67FC11B3999BB00EF04B1 /* grass-target-white.mp4 in Resources */,
 				15D67FE71B39A12B00EF04B1 /* ten-clubs.jpg in Resources */,
+				1584DDA31B3DFF65009CE1DC /* TV-Target-Shot.png in Resources */,
 				15D67FDE1B39A10B00EF04B1 /* still-white-0-shots.png in Resources */,
 				15D67FD71B39A10000EF04B1 /* perfect-target-1-shot.png in Resources */,
 				15D67FC31B3999BB00EF04B1 /* still-target-white.mp4 in Resources */,
